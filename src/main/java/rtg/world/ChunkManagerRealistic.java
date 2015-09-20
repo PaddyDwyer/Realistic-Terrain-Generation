@@ -128,6 +128,9 @@ public class ChunkManagerRealistic extends WorldChunkManager
     	biomes_hot.add(RealisticBiomeBase.canyon);
     	biomes_hot.add(RealisticBiomeBase.mesa);
     	
+    	 /**for testing island and volcano purpose*/
+    	//biomes_wet.add(RealisticBiomeBase.islandTropical); 
+    	
     	biomes_snow.addAll(Support.biomes_snow);
     	biomes_cold.addAll(Support.biomes_cold);
     	biomes_hot.addAll(Support.biomes_hot);
