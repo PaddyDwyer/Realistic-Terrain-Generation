@@ -780,7 +780,11 @@ public class ChunkGeneratorRealistic implements IChunkProvider
 		
 		                if (b2 == Blocks.water || b2 == Blocks.flowing_water)
 		                {
+		                	if (biome.baseBiome.temperature < 0.15f)
+		                	{
+		                	/** This line spawns those annoying ice layers on wet oceans */
 		                	worldObj.setBlock(sn1 + x, sn3 - 1, sn2 + y, Blocks.ice, 0, 2);
+		                	}		                	
 		                }
 		
 		                if (Blocks.snow_layer.canPlaceBlockAt(worldObj, sn1 + x, sn3, sn2 + y) && b2 != Blocks.ice && b2 != Blocks.water && sn3 > 62)
