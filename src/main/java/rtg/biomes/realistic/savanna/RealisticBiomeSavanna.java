@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
@@ -12,15 +13,14 @@ import net.minecraft.world.gen.feature.WorldGenReed;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import rtg.api.RTGBiomes;
+import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.config.ConfigRTG;
 import rtg.deco.DecoBlob;
 import rtg.deco.DecoCacti;
 import rtg.deco.DecoFlowers;
 import rtg.deco.DecoGrass;
-import rtg.deco.DecoWildWheat;
 import rtg.deco.trees.DecoSavannah;
 import rtg.surface.SurfaceBase;
 import rtg.surface.SurfaceGrasslandMix1;
@@ -49,7 +49,7 @@ public class RealisticBiomeSavanna extends RealisticBiomeBase
 			{
 				int i1 = chunkX + rand.nextInt(16) + 8;
 				int j1 = chunkY + rand.nextInt(16) + 8;
-				int k1 = world.getHeightValue(i1, j1);
+				int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 				(new WorldGenBlockBlob(Blocks.cobblestone, 0)).generate(world, rand, i1, k1, j1);
 			}
 		}
@@ -60,7 +60,7 @@ public class RealisticBiomeSavanna extends RealisticBiomeBase
 			{
 				int j6 = chunkX + rand.nextInt(16) + 8;
 				int k10 = chunkY + rand.nextInt(16) + 8;
-				int z52 = world.getHeightValue(j6, k10);
+				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 				WorldGenerator worldgenerator = rand.nextInt(3) != 0 ? new WorldGenShrub(0, 0) : rand.nextInt(7) == 0 ? new DecoSavannah(1): new DecoSavannah(2);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
@@ -80,7 +80,7 @@ public class RealisticBiomeSavanna extends RealisticBiomeBase
 			{
 				int j6 = chunkX + rand.nextInt(16) + 8;
 				int k10 = chunkY + rand.nextInt(16) + 8;
-				int z52 = world.getHeightValue(j6, k10);
+				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 				WorldGenerator worldgenerator = rand.nextInt(9) == 0 ? new WorldGenShrub(0, 0) : rand.nextInt(7) == 0 ? new DecoSavannah(1): new DecoSavannah(2);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
@@ -94,7 +94,7 @@ public class RealisticBiomeSavanna extends RealisticBiomeBase
 			{
 				int j6 = chunkX + rand.nextInt(16) + 8;
 				int k10 = chunkY + rand.nextInt(16) + 8;
-				int z52 = world.getHeightValue(j6, k10);
+				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 	
 				WorldGenerator worldgenerator = rand.nextBoolean() ? new WorldGenShrub(0, 0) : rand.nextInt(5) == 0 ? new DecoSavannah(0) : new DecoSavannah(1);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);

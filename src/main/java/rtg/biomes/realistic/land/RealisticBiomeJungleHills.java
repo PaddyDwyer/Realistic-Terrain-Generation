@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMegaJungle;
@@ -13,7 +14,6 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import rtg.api.RTGBiomes;
 import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.deco.DecoGrass;
-import rtg.deco.trees.DecoSavannah;
 import rtg.surface.SurfaceBase;
 import rtg.surface.SurfaceMountainStone;
 import rtg.terrain.TerrainBase;
@@ -40,7 +40,7 @@ public class RealisticBiomeJungleHills extends RealisticBiomeBase
 		{
 			int j6 = chunkX + rand.nextInt(16) + 8;
 			int k10 = chunkY + rand.nextInt(16) + 8;
-			int z52 = world.getHeightValue(j6, k10);
+			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 			if(z52 < 100 || rand.nextInt(3) == 0)
 			{

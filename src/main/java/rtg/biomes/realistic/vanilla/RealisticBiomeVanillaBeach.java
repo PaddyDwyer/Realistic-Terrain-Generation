@@ -2,18 +2,17 @@ package rtg.biomes.realistic.vanilla;
 
 import java.util.Random;
 
+import net.minecraft.util.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.deco.trees.DecoPalm;
 import rtg.surface.vanilla.SurfaceVanillaBeach;
 import rtg.terrain.vanilla.TerrainVanillaBeach;
 import rtg.util.CellNoise;
 import rtg.util.PerlinNoise;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class RealisticBiomeVanillaBeach extends RealisticBiomeVanilla
 {	
@@ -34,7 +33,7 @@ public class RealisticBiomeVanillaBeach extends RealisticBiomeVanilla
 			{
 				int j6 = chunkX + rand.nextInt(16) + 8;
 				int k10 = chunkY + rand.nextInt(16) + 8;
-				int z52 = world.getHeightValue(j6, k10);
+				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 				if(z52 < 80)
 				{

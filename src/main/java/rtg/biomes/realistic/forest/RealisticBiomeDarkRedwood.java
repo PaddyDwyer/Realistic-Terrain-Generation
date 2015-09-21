@@ -4,17 +4,17 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenForest;
-import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenPumpkin;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import rtg.api.RTGBiomes;
+import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.deco.DecoFlowers;
 import rtg.deco.DecoGrass;
 import rtg.deco.DecoLog;
@@ -23,7 +23,6 @@ import rtg.deco.trees.DecoLargePine;
 import rtg.deco.trees.DecoShrub;
 import rtg.deco.trees.DecoSmallPine;
 import rtg.surface.SurfaceBase;
-import rtg.surface.SurfaceMountainStone;
 import rtg.surface.SurfaceMountainStoneMix1;
 import rtg.terrain.TerrainBase;
 import rtg.terrain.TerrainHilly;
@@ -54,7 +53,7 @@ public class RealisticBiomeDarkRedwood extends RealisticBiomeBase
 			{
 				int j6 = chunkX + rand.nextInt(16) + 8;
 				int k10 = chunkY + rand.nextInt(16) + 8;
-				int z52 = world.getHeightValue(j6, k10);
+				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 	
 				if(z52 < 110)
 				{
@@ -71,7 +70,7 @@ public class RealisticBiomeDarkRedwood extends RealisticBiomeBase
 			{
 				int j6 = chunkX + rand.nextInt(16) + 8;
 				int k10 = chunkY + rand.nextInt(16) + 8;
-				int z52 = world.getHeightValue(j6, k10);
+				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 	
 				if(z52 < 120)
 				{
@@ -86,7 +85,7 @@ public class RealisticBiomeDarkRedwood extends RealisticBiomeBase
     	{
 			int x22 = chunkX + rand.nextInt(16) + 8;
 			int z22 = chunkY + rand.nextInt(16) + 8;
-			int y22 = world.getHeightValue(x22, z22);
+			int y22 = world.getTopSolidOrLiquidBlock(new BlockPos(x22, 0, z22)).getY();
 			if(y22 < 100)
 			{
 				(new DecoLog(1, 3 + rand.nextInt(4), false)).generate(world, rand, x22, y22, z22);	
@@ -97,7 +96,7 @@ public class RealisticBiomeDarkRedwood extends RealisticBiomeBase
     	{
 			int i1 = chunkX + rand.nextInt(16) + 8;
 			int j1 = chunkY + rand.nextInt(16) + 8;
-		    int k1 = world.getHeightValue(i1, j1);
+		    int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 			if(k1 < 110)
 			{
 				(new DecoShrub(rand.nextInt(4) + 1, 0, rand.nextInt(3))).generate(world, rand, i1, k1, j1);

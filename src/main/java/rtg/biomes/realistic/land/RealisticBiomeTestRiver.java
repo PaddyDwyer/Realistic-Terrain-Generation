@@ -2,21 +2,10 @@ package rtg.biomes.realistic.land;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenBlockBlob;
-import net.minecraft.world.gen.feature.WorldGenPumpkin;
-import net.minecraft.world.gen.feature.WorldGenReed;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenerator;
 import rtg.api.RTGBiomes;
 import rtg.biomes.realistic.RealisticBiomeBase;
-import rtg.deco.DecoCacti;
-import rtg.deco.DecoFlowers;
-import rtg.deco.DecoGrass;
-import rtg.deco.trees.DecoSavannah;
 import rtg.surface.SurfaceBase;
 import rtg.surface.SurfaceMountainStoneMix1;
 import rtg.terrain.TerrainBase;

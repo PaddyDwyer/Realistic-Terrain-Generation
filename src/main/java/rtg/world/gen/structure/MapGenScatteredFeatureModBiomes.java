@@ -1,5 +1,8 @@
 package rtg.world.gen.structure;
 
+import java.util.List;
+import java.util.Random;
+
 import com.google.common.collect.ImmutableList;
 
 import net.minecraft.util.WeightedRandom;
@@ -10,12 +13,6 @@ import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureStart;
 import net.minecraftforge.common.BiomeDictionary;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import rtg.util.Logger;
 
 /**
  * Author: Choonster (https://github.com/Choonster)

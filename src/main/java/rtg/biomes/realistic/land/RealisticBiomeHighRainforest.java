@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -37,7 +38,7 @@ public class RealisticBiomeHighRainforest extends RealisticBiomeBase
 		{
 			int j6 = chunkX + 8;//12 + rand.nextInt(8);
 			int k10 = chunkY + 8;//12 + rand.nextInt(8);
-			int z52 = world.getHeightValue(j6, k10);
+			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 	
 			WorldGenerator worldgenerator = new DecoJungleFat(Blocks.log, 3, Blocks.sponge, 7, 15 + rand.nextInt(15), 4 + rand.nextInt(2), 14f, 3, 0.2f, 0.25f);
 			worldgenerator.setScale(1.0D, 1.0D, 1.0D);

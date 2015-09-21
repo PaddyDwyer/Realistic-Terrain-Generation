@@ -3,6 +3,7 @@ package rtg.support.edit;
 import java.util.Random;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenPumpkin;
 import net.minecraft.world.gen.feature.WorldGenReed;
@@ -32,7 +33,7 @@ public class EditRiverOasis extends EditBase
 				{
 					int j6 = chunkX + rand.nextInt(16) + 8;
 					int k10 = chunkY + rand.nextInt(16) + 8;
-					int z52 = world.getHeightValue(j6, k10);
+					int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 	
 					if(z52 < 100f || (z52 < 120f && rand.nextInt(10) == 0))
 					{

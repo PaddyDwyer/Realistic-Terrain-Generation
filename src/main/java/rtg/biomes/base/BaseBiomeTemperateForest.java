@@ -1,9 +1,6 @@
 package rtg.biomes.base;
 
-import rtg.data.VillageMaterialData;
-import rtg.data.VillageMaterials;
 import net.minecraft.entity.passive.EntityWolf;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class BaseBiomeTemperateForest extends BiomeGenBase

@@ -1,15 +1,11 @@
 package rtg.support;
 
-import enhancedbiomes.api.EBBiomes;
+import net.minecraft.world.biome.BiomeGenBase;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
-import rtg.surface.*;
-import rtg.terrain.*;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.biome.BiomeGenBase;
 import rtg.support.Support.BiomeCategory;
+import rtg.surface.SurfaceMountainSnow;
+import rtg.terrain.TerrainMountainRiver;
 
 public class SupportEB 
 {

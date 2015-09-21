@@ -1,15 +1,12 @@
 package rtg.biomes.realistic.vanilla;
 
-import rtg.biomes.vanilla.VanillaBiomes;
-import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
-import rtg.surface.SurfaceBase;
-import rtg.surface.vanilla.SurfaceVanillaRiver;
-import rtg.terrain.TerrainBase;
-import rtg.terrain.vanilla.TerrainVanillaRiver;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
+import rtg.biomes.vanilla.VanillaBiomes;
+import rtg.biomes.vanilla.VanillaBiomes.Climate;
+import rtg.surface.vanilla.SurfaceVanillaRiver;
+import rtg.terrain.vanilla.TerrainVanillaRiver;
 
 public class RealisticBiomeVanillaRiver extends RealisticBiomeVanilla
 {	

@@ -1,7 +1,5 @@
 package rtg;
 
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -12,10 +10,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import rtg.biomes.base.BaseBiomes;
-import rtg.biomes.vanilla.VanillaBiomes;
-import rtg.config.ConfigRTG;
 import rtg.config.RTGConfig;
-import rtg.data.TreeReplacement;
 import rtg.data.VillageMaterials;
 import rtg.debug.DebugHandler;
 import rtg.init.ModMapGen;

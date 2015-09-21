@@ -7,7 +7,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import rtg.config.ConfigRTG;
-import rtg.util.Logger;
 import rtg.util.RandomUtil;
 
 public class DecoBlob extends WorldGenerator

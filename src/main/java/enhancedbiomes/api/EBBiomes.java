@@ -1,7 +1,5 @@
 package enhancedbiomes.api;
 
-import net.minecraft.world.biome.BiomeGenBase;
-
 public class EBBiomes
 {
 	/*

@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
@@ -13,9 +14,9 @@ import net.minecraft.world.gen.feature.WorldGenReed;
 import net.minecraft.world.gen.feature.WorldGenShrub;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import rtg.api.RTGBiomes;
+import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.config.ConfigRTG;
 import rtg.deco.DecoBlob;
 import rtg.deco.DecoCacti;
@@ -47,7 +48,7 @@ public class RealisticBiomeCanyon extends RealisticBiomeBase
 			{
 				int i1 = chunkX + rand.nextInt(16) + 8;
 				int j1 = chunkY + rand.nextInt(16) + 8;
-				int k1 = world.getHeightValue(i1, j1);
+				int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 				
 				if (k1 < 70)
 				{
@@ -62,7 +63,7 @@ public class RealisticBiomeCanyon extends RealisticBiomeBase
 			{
 				int j6 = chunkX + rand.nextInt(16) + 8;
 				int k10 = chunkY + rand.nextInt(16) + 8;
-				int z52 = world.getHeightValue(j6, k10);
+				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 	
 				WorldGenerator worldgenerator;
 				worldgenerator = new WorldGenShrub(0, 0);
@@ -76,7 +77,7 @@ public class RealisticBiomeCanyon extends RealisticBiomeBase
 			{
 				int j6 = chunkX + rand.nextInt(16) + 8;
 				int k10 = chunkY + rand.nextInt(16) + 8;
-				int z52 = world.getHeightValue(j6, k10);
+				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 	
 				WorldGenerator worldgenerator;
 				worldgenerator = new WorldGenShrub(0, 0);

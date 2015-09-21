@@ -1,13 +1,12 @@
 package rtg.biomes.realistic.vanilla;
 
-import rtg.biomes.vanilla.VanillaBiomes;
-import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
-import rtg.surface.vanilla.SurfaceVanillaMegaTaigaHills;
-import rtg.terrain.vanilla.TerrainVanillaMegaTaigaHills;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
+import rtg.biomes.vanilla.VanillaBiomes;
+import rtg.biomes.vanilla.VanillaBiomes.Climate;
+import rtg.surface.vanilla.SurfaceVanillaMegaTaigaHills;
+import rtg.terrain.vanilla.TerrainVanillaMegaTaigaHills;
 
 public class RealisticBiomeVanillaMegaTaigaHills extends RealisticBiomeVanilla
 {	

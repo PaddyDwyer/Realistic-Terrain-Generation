@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
@@ -18,8 +19,6 @@ import rtg.deco.DecoGrass;
 import rtg.deco.trees.DecoJungleFat;
 import rtg.deco.trees.DecoJungleSmall;
 import rtg.deco.trees.DecoJungleTall;
-import rtg.deco.trees.DecoLargePine;
-import rtg.deco.trees.DecoSavannah;
 import rtg.surface.SurfaceBase;
 import rtg.surface.SurfaceGrassland;
 import rtg.terrain.TerrainBase;
@@ -48,7 +47,7 @@ public class RealisticBiomeRedwoodJungle extends RealisticBiomeBase
 			{
 				int i1 = chunkX + rand.nextInt(16) + 8;
 				int j1 = chunkY + rand.nextInt(16) + 8;
-				int k1 = world.getHeightValue(i1, j1);
+				int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 				(new WorldGenBlockBlob(Blocks.mossy_cobblestone, 0)).generate(world, rand, i1, k1, j1);
 			}
 		}
@@ -58,7 +57,7 @@ public class RealisticBiomeRedwoodJungle extends RealisticBiomeBase
 		{
 			int j6 = chunkX + rand.nextInt(6) + 13;
 			int k10 = chunkY + rand.nextInt(6) + 13;
-			int z52 = world.getHeightValue(j6, k10);
+			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 			if(z52 < 110)
 			{
@@ -74,7 +73,7 @@ public class RealisticBiomeRedwoodJungle extends RealisticBiomeBase
 			{
 				int j6 = chunkX + rand.nextInt(12) + 10;
 				int k10 = chunkY + rand.nextInt(12) + 10;
-				int z52 = world.getHeightValue(j6, k10);
+				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 		
 				WorldGenerator worldgenerator = rand.nextInt(24) == 0 ? new DecoJungleFat(Blocks.log, 3, Blocks.leaves, 3, 14 + rand.nextInt(8), 5 + rand.nextInt(2), 16f, 5, 0.32f, 0.1f) : new DecoJungleTall(Blocks.log, 3, Blocks.leaves, 3, 3 + rand.nextInt(7), 3 + rand.nextInt(2), 9f, 3, 0.32f, 0.1f);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
@@ -86,7 +85,7 @@ public class RealisticBiomeRedwoodJungle extends RealisticBiomeBase
 		{
 			int j6 = chunkX + rand.nextInt(16) + 8;
 			int k10 = chunkY + rand.nextInt(16) + 8;
-			int z52 = world.getHeightValue(j6, k10);
+			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 			WorldGenerator worldgenerator = rand.nextInt(10) == 0 ? new DecoJungleSmall(Blocks.log, 3, Blocks.leaves, 3, 1 + rand.nextInt(4), 0, 5f, 2, 0.32f, 0.14f) : new WorldGenShrub(0, 0);
 			worldgenerator.setScale(1.0D, 1.0D, 1.0D);

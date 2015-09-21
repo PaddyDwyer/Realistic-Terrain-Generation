@@ -1,23 +1,39 @@
 package rtg.support;
 
-import net.minecraft.block.Block;
+import biomesoplenty.api.content.BOPCBiomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.config.ConfigBOP;
-import rtg.config.ConfigRTG;
-import rtg.support.edit.*;
-import rtg.surface.*;
+import rtg.support.Support.BiomeCategory;
+import rtg.support.edit.EditBase;
+import rtg.support.edit.EditRiverOasis;
+import rtg.surface.SurfaceBase;
+import rtg.surface.SurfaceCanyon;
+import rtg.surface.SurfaceDuneValley;
+import rtg.surface.SurfaceGrassland;
+import rtg.surface.SurfaceGrasslandMix1;
+import rtg.surface.SurfaceMountainSnow;
+import rtg.surface.SurfaceMountainStone;
+import rtg.surface.SurfaceTundra;
 import rtg.surface.river.SurfaceRiverOasis;
-import rtg.terrain.*;
+import rtg.terrain.TerrainCanyon;
+import rtg.terrain.TerrainDuneValley;
+import rtg.terrain.TerrainGrasslandFlats;
+import rtg.terrain.TerrainGrasslandHills;
+import rtg.terrain.TerrainHighland;
+import rtg.terrain.TerrainHilly;
+import rtg.terrain.TerrainMarsh;
+import rtg.terrain.TerrainMountain;
+import rtg.terrain.TerrainMountainRiver;
+import rtg.terrain.TerrainMountainSpikes;
+import rtg.terrain.TerrainSwampMountain;
+import rtg.terrain.TerrainSwampRiver;
 import rtg.terrain.vanilla.TerrainVanillaForest;
 import rtg.terrain.vanilla.TerrainVanillaPlains;
-import biomesoplenty.api.content.BOPCBiomes;
-import rtg.support.Support.BiomeCategory;
 
 public class SupportBOP 
 {

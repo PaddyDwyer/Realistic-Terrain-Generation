@@ -2,14 +2,13 @@ package rtg.surface.river;
 
 import java.util.Random;
 
-import rtg.api.RTGBiomes;
-import rtg.surface.SurfaceBase;
-import rtg.util.CellNoise;
-import rtg.util.PerlinNoise;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import rtg.surface.SurfaceBase;
+import rtg.util.CellNoise;
+import rtg.util.PerlinNoise;
 
 public class SurfaceRiverOasis extends SurfaceBase
 {

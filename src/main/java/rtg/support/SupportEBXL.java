@@ -1,19 +1,32 @@
 package rtg.support;
 
-import com.google.common.base.Optional;
-
 import extrabiomes.api.BiomeManager;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
-import rtg.support.edit.*;
-import rtg.surface.*;
-import rtg.surface.river.SurfaceRiverOasis;
-import rtg.terrain.*;
 import rtg.support.Support.BiomeCategory;
+import rtg.support.edit.EditBase;
+import rtg.support.edit.EditRiverOasis;
+import rtg.surface.SurfaceBase;
+import rtg.surface.SurfaceDesertMountain;
+import rtg.surface.SurfaceGrassland;
+import rtg.surface.SurfaceGrasslandMix1;
+import rtg.surface.SurfaceMarshFix;
+import rtg.surface.SurfaceMountainSnow;
+import rtg.surface.SurfaceMountainStone;
+import rtg.surface.SurfacePolar;
+import rtg.surface.river.SurfaceRiverOasis;
+import rtg.terrain.TerrainGrasslandFlats;
+import rtg.terrain.TerrainGrasslandHills;
+import rtg.terrain.TerrainHighland;
+import rtg.terrain.TerrainHilly;
+import rtg.terrain.TerrainMarsh;
+import rtg.terrain.TerrainMountainRiver;
+import rtg.terrain.TerrainMountainSpikes;
+import rtg.terrain.TerrainPolar;
+import rtg.terrain.TerrainSwampMountain;
+import rtg.terrain.TerrainSwampRiver;
 
 public class SupportEBXL 
 {

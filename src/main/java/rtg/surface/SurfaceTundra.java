@@ -2,14 +2,13 @@ package rtg.surface;
 
 import java.util.Random;
 
-import rtg.util.CellNoise;
-import rtg.util.CliffCalculator;
-import rtg.util.PerlinNoise;
-import rtg.util.SnowheightCalculator;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import rtg.util.CellNoise;
+import rtg.util.CliffCalculator;
+import rtg.util.PerlinNoise;
 
 public class SurfaceTundra extends SurfaceBase
 {

@@ -3,17 +3,13 @@ package rtg.support;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import rtg.api.RTGBiomes;
-import rtg.biomes.base.BaseBiomes;
 import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.support.edit.EditBase;
 import rtg.surface.SurfaceBase;
 import rtg.terrain.TerrainBase;
 import rtg.util.CellNoise;
-import rtg.util.CliffCalculator;
 import rtg.util.PerlinNoise;
 
 public class RealisticBiomeSupport extends RealisticBiomeBase

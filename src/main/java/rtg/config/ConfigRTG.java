@@ -4,9 +4,8 @@ import java.io.File;
 
 import org.apache.logging.log4j.Level;
 
-import net.minecraftforge.fml.common.FMLLog;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.FMLLog;
 
 public class ConfigRTG
 {

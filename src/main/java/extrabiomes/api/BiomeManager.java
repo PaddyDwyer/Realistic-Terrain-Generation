@@ -12,10 +12,10 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.util.Collection;
 import java.util.Random;
 
+import com.google.common.base.Optional;
+
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import com.google.common.base.Optional;
 
 /**
  * Allows direct access to Extrabiome's biomes. This class' members will be populated during the @Init event. If a biome is absent after the

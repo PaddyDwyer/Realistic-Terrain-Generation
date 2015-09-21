@@ -1,9 +1,9 @@
 package rtg.biomes.base;
 
-import rtg.data.VillageMaterialData;
-import rtg.data.VillageMaterials;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
+import rtg.data.VillageMaterialData;
+import rtg.data.VillageMaterials;
 
 public class BaseBiomeHotDesert extends BiomeGenBase
 {

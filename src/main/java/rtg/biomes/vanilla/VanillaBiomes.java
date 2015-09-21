@@ -1,8 +1,7 @@
 package rtg.biomes.vanilla;
 
-import rtg.biomes.realistic.RealisticBiomeBase;
-import rtg.util.Logger;
 import net.minecraft.world.biome.BiomeGenBase;
+import rtg.biomes.realistic.RealisticBiomeBase;
 
 public class VanillaBiomes
 {	

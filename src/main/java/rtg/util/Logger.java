@@ -1,7 +1,8 @@
 package rtg.util;
 
-import net.minecraftforge.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
+
+import net.minecraftforge.fml.common.FMLLog;
 import rtg.reference.ModInfo;
 
 public class Logger {

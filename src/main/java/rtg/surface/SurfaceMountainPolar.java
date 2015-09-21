@@ -2,11 +2,11 @@ package rtg.surface;
 
 import java.util.Random;
 
-import rtg.util.CellNoise;
-import rtg.util.PerlinNoise;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import rtg.util.CellNoise;
+import rtg.util.PerlinNoise;
 
 public class SurfaceMountainPolar extends SurfaceBase
 {

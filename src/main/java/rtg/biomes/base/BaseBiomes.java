@@ -1,12 +1,10 @@
 package rtg.biomes.base;
 
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.registry.LanguageRegistry;
 import rtg.api.RTGBiomes;
 import rtg.config.ConfigRTG;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.BiomeDictionary;
-import net.minecraftforge.common.BiomeDictionary.Type;
-import net.minecraftforge.common.BiomeManager;
 
 public class BaseBiomes 
 {

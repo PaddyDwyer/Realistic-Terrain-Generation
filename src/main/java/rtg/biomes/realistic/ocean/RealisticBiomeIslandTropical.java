@@ -6,24 +6,13 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenShrub;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import rtg.api.RTGBiomes;
+import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.biomes.realistic.RealisticBiomeBase;
-import rtg.deco.DecoFlowers;
-import rtg.deco.DecoGrass;
-import rtg.deco.trees.DecoJungleSmall;
-import rtg.deco.trees.DecoJungleTall;
-import rtg.deco.trees.DecoPalm;
-import rtg.deco.trees.DecoShrub;
-import rtg.map.MapAncientRuins;
 import rtg.map.MapVolcano;
 import rtg.surface.SurfaceBase;
 import rtg.surface.SurfaceIslandMountainStone;
 import rtg.util.CellNoise;
-import rtg.util.CliffCalculator;
 import rtg.util.PerlinNoise;
 import rtg.world.ChunkManagerRealistic;
 
@@ -46,7 +35,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 		{
 			int j6 = chunkX + rand.nextInt(16) + 8;
 			int k10 = chunkY + rand.nextInt(16) + 8;
-			int z52 = world.getHeightValue(j6, k10);
+			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 			if(z52 < 80)
 			{
@@ -60,7 +49,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 		{
 			int j6 = chunkX + rand.nextInt(16) + 8;
 			int k10 = chunkY + rand.nextInt(16) + 8;
-			int z52 = world.getHeightValue(j6, k10);
+			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 			if(z52 > 68 && z52 < 80 && rand.nextInt(3) != 0)
 			{
@@ -74,7 +63,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 		{
 			int j6 = chunkX + rand.nextInt(16) + 8;
 			int k10 = chunkY + rand.nextInt(16) + 8;
-			int z52 = world.getHeightValue(j6, k10);
+			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 			if((z52 > 68 && z52 < 105) || rand.nextInt(12) == 0 && z52 < 115)
 			{
@@ -88,7 +77,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 		{
 			int j6 = chunkX + rand.nextInt(16) + 8;
 			int k10 = chunkY + rand.nextInt(16) + 8;
-			int z52 = world.getHeightValue(j6, k10);
+			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 			if(z52 > 67 && z52 < 100)
 			{

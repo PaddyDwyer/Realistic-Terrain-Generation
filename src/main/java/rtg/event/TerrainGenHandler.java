@@ -1,9 +1,9 @@
 package rtg.event;
 
-import rtg.world.gen.structure.MapGenScatteredFeatureModBiomes;
+import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.event.terraingen.InitMapGenEvent;
+import rtg.world.gen.structure.MapGenScatteredFeatureModBiomes;
 
 /**
  * Author: Choonster (https://github.com/Choonster)

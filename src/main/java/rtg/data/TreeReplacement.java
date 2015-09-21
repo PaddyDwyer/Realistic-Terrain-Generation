@@ -1,15 +1,11 @@
 package rtg.data;
 
-import java.util.Random;
-
+import net.minecraft.init.Blocks;
+import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import rtg.RTG;
 import rtg.deco.trees.DecoSavannah;
 import rtg.deco.trees.DecoSmallPine;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.world.World;
-import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class TreeReplacement 
 {
