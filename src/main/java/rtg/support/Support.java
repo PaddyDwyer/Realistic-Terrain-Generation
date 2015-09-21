@@ -2,7 +2,7 @@ package rtg.support;
 
 import java.util.ArrayList;
 
-import cpw.mods.fml.common.Loader;
+import net.minecraftforge.fml.common.Loader;
 import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.config.ConfigRTG;
 

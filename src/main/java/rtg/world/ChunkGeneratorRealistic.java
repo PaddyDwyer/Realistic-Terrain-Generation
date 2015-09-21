@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import cpw.mods.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import rtg.api.RTGBiomes;

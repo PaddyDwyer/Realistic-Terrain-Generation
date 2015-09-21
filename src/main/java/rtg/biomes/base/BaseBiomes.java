@@ -1,6 +1,6 @@
 package rtg.biomes.base;
 
-import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraftforge.fml.common.registry.LanguageRegistry;
 import rtg.api.RTGBiomes;
 import rtg.config.ConfigRTG;
 import net.minecraft.world.biome.BiomeGenBase;
