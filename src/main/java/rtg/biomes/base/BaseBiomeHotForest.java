@@ -25,7 +25,7 @@ public class BaseBiomeHotForest extends BiomeGenBase
 		vmd.logBlockMeta = 0;
 		vmd.pathBlock = Blocks.cobblestone;
 		vmd.stairsWoodBlock = Blocks.acacia_stairs;
-		vmd.slabsBlock = Blocks.fence;
+		vmd.slabsBlock = Blocks.oak_fence;
 		VillageMaterials.registerVillageMaterial(vmd);
 	}
 	

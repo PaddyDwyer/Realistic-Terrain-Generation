@@ -22,7 +22,7 @@ public class BaseBiomeHotDesert extends BiomeGenBase
 		vmd.logBlockMeta = 0;
 		vmd.pathBlock = Blocks.sandstone;
 		vmd.stairsWoodBlock = Blocks.sandstone_stairs;
-		vmd.slabsBlock = Blocks.fence;
+		vmd.slabsBlock = Blocks.oak_fence;
 		vmd.cobbleBlock = Blocks.sandstone;
 		VillageMaterials.registerVillageMaterial(vmd);
 	}
