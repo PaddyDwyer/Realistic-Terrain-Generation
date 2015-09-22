@@ -57,7 +57,7 @@ public class RealisticBiomePolar extends RealisticBiomeBase
 				
 				WorldGenerator worldgenerator = new DecoSmallSpruce(rand.nextInt(2));
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
     }

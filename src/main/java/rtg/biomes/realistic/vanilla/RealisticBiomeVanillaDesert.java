@@ -6,6 +6,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.GeneratorBushFeature;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
 import net.minecraft.world.gen.feature.WorldGenDesertWells;
 import net.minecraft.world.gen.feature.WorldGenShrub;
@@ -39,7 +40,7 @@ public class RealisticBiomeVanillaDesert extends RealisticBiomeVanilla
 	           int k = chunkX + rand.nextInt(360) + 8;
 	           int l = chunkY + rand.nextInt(360) + 8;
 	           WorldGenDesertWells worldgendesertwells = new WorldGenDesertWells();
-	           worldgendesertwells.generate(world, rand, k, world.getTopSolidOrLiquidBlock(new BlockPos(k, 0, l)).getY() + 1, l);
+	           worldgendesertwells.generate(world, rand, new BlockPos(k, world.getTopSolidOrLiquidBlock(new BlockPos(k, 0, l)).getY() + 1, l));
 	        }	
 		if(river > 0.7f)
 		{
@@ -55,7 +56,7 @@ public class RealisticBiomeVanillaDesert extends RealisticBiomeVanilla
 					{
 						WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new WorldGenShrub(0, 0) : new DecoSavannah(1);
 						worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-						worldgenerator.generate(world, rand, j6, z52, k10);
+						worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 					}
 				}
 			}
@@ -78,7 +79,7 @@ public class RealisticBiomeVanillaDesert extends RealisticBiomeVanilla
 			int i17 = chunkX + rand.nextInt(16) + 8;
 			int i20 = 64 + rand.nextInt(64);
 			int l22 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenDeadBush(Blocks.deadbush)).generate(world, rand, i17, i20, l22);
+			(new GeneratorBushFeature(Blocks.deadbush)).generate(world, rand, new BlockPos(i17, i20, l22));
 		}
     }
 }

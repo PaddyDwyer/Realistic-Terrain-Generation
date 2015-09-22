@@ -7,6 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.GeneratorBushFeature;
 import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.feature.WorldGenPumpkin;
@@ -54,7 +55,7 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 			int l4 = world.getTopSolidOrLiquidBlock(new BlockPos(i2, 0, i8)).getY();
 			if(l4 > 63)
 			{
-				(new WorldGenLakes(Blocks.water)).generate(world, rand, i2, l4, i8);
+				(new WorldGenLakes(Blocks.water)).generate(world, rand, new BlockPos(i2, l4, i8));
 			}
 		}
         
@@ -80,7 +81,7 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 
 			WorldGenerator worldgenerator = rand.nextInt(6) == 0 ? new WorldGenTrees(false) : rand.nextInt(12) == 0 ? new DecoBirch(4 + rand.nextInt(5), 6 + rand.nextInt(5)) : rand.nextInt(6) == 0 ? new DecoSmallPine(3 + rand.nextInt(2), 3 + rand.nextInt(3), 0) : new DecoSmallPine(6 + rand.nextInt(5), 3 + rand.nextInt(6), 0);
 			worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-			worldgenerator.generate(world, rand, j6, z52, k10);
+			worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 		}
 		
 		if(l < 0.5f)
@@ -126,11 +127,11 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 			
 			if(rand.nextBoolean())
 			{
-				(new WorldGenFlowers(Blocks.brown_mushroom)).generate(world, rand, k15, k17, k20);
+				(new GeneratorBushFeature(Blocks.brown_mushroom)).generate(world, rand, new BlockPos(k15, k17, k20));
 			}
 			else
 			{
-				(new WorldGenFlowers(Blocks.red_mushroom)).generate(world, rand, k15, k17, k20);
+				(new GeneratorBushFeature(Blocks.red_mushroom)).generate(world, rand, new BlockPos(k15, k17, k20));
 			}
 		}
 		
@@ -139,7 +140,7 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 			int j16 = chunkX + rand.nextInt(16) + 8;
 			int j18 = rand.nextInt(128);
 			int j21 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenPumpkin()).generate(world, rand, j16, j18, j21);
+			(new WorldGenPumpkin()).generate(world, rand, new BlockPos(j16, j18, j21));
 		}
 		
 		for(int f23 = 0; f23 < 4f * strength; f23++)

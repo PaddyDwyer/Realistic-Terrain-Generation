@@ -67,13 +67,13 @@ public class RealisticBiomeTaigaHills extends RealisticBiomeBase
 			{
 				WorldGenerator worldgenerator = rand.nextInt(10) != 0 ? new DecoPineTree(4, rand.nextInt(4) == 0 ? 1 : 0) : rand.nextInt(3) != 0 ? new DecoSmallPine(3 + rand.nextInt(6), 6 + rand.nextInt(8), 0) : new DecoSmallSpruce(rand.nextInt(2) + 1);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 			else if(z52 < 120)
 			{
 				WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new DecoSmallPine(1 + rand.nextInt(3), 3 + rand.nextInt(5), rand.nextInt(2)) : new DecoSmallSpruce(rand.nextInt(2));
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
 
@@ -112,7 +112,7 @@ public class RealisticBiomeTaigaHills extends RealisticBiomeBase
 			int j16 = chunkX + rand.nextInt(16) + 8;
 			int j18 = rand.nextInt(100);
 			int j21 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenPumpkin()).generate(world, rand, j16, j18, j21);
+			(new WorldGenPumpkin()).generate(world, rand, new BlockPos(j16, j18, j21));
 		}
 		
 		for(int f23 = 0; f23 < 4f * strength; f23++)

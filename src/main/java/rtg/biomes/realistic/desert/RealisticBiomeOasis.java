@@ -68,7 +68,7 @@ public class RealisticBiomeOasis extends RealisticBiomeBase
 			{
 				WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new WorldGenShrub(0, 0) : rand.nextInt(6) == 0 ? new DecoPalm() : new DecoSavannah(1, false);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
 		
@@ -87,7 +87,7 @@ public class RealisticBiomeOasis extends RealisticBiomeBase
 		{
 			int i18 = chunkX + rand.nextInt(16) + 8;
 			int i23 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenReed()).generate(world, rand, i18, 60 + rand.nextInt(8), i23);
+			(new WorldGenReed()).generate(world, rand, new BlockPos(i18, 60 + rand.nextInt(8), i23));
 		}
 		
 		if(rand.nextInt(28) == 0)
@@ -95,7 +95,7 @@ public class RealisticBiomeOasis extends RealisticBiomeBase
 			int j16 = chunkX + rand.nextInt(16) + 8;
 			int j18 = rand.nextInt(128);
 			int j21 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenPumpkin()).generate(world, rand, j16, j18, j21);
+			(new WorldGenPumpkin()).generate(world, rand, new BlockPos(j16, j18, j21));
 		}
 		
 		for(int f23 = 0; f23 < 3; f23++)
@@ -138,7 +138,7 @@ public class RealisticBiomeOasis extends RealisticBiomeBase
 			int i17 = chunkX + rand.nextInt(16) + 8;
 			int i20 = rand.nextInt(160);
 			int l22 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenDeadBush(Blocks.deadbush)).generate(world, rand, i17, i20, l22);
+			(new WorldGenDeadBush()).generate(world, rand, new BlockPos(i17, i20, l22));
 		}
     }
     

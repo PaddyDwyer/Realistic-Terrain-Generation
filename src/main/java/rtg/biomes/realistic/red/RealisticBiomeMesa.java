@@ -7,6 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.GeneratorBushFeature;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenCactus;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
@@ -59,7 +60,7 @@ public class RealisticBiomeMesa extends RealisticBiomeBase
 				
 				if (k1 < 83)
 				{
-					(new WorldGenBlockBlob(Blocks.cobblestone, 0)).generate(world, rand, i1, k1, j1);
+					(new WorldGenBlockBlob(Blocks.cobblestone, 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 				}
 			}
 		}
@@ -78,7 +79,7 @@ public class RealisticBiomeMesa extends RealisticBiomeBase
 					{
 						WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new WorldGenShrub(0, 0) : new DecoSavannah(1);
 						worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-						worldgenerator.generate(world, rand, j6, z52, k10);
+						worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 					}
 				}
 			}
@@ -98,7 +99,7 @@ public class RealisticBiomeMesa extends RealisticBiomeBase
 			{
 				int i18 = chunkX + rand.nextInt(16) + 8;
 				int i23 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenReed()).generate(world, rand, i18, 60 + rand.nextInt(8), i23);
+				(new WorldGenReed()).generate(world, rand, new BlockPos(i18, 60 + rand.nextInt(8), i23));
 			}
 			
 			if(rand.nextInt(28) == 0)
@@ -106,7 +107,7 @@ public class RealisticBiomeMesa extends RealisticBiomeBase
 				int j16 = chunkX + rand.nextInt(16) + 8;
 				int j18 = rand.nextInt(128);
 				int j21 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenPumpkin()).generate(world, rand, j16, j18, j21);
+				(new WorldGenPumpkin()).generate(world, rand, new BlockPos(j16, j18, j21));
 			}
 			
 			for(int f23 = 0; f23 < 3; f23++)
@@ -146,7 +147,7 @@ public class RealisticBiomeMesa extends RealisticBiomeBase
 					WorldGenerator worldgenerator;
 					worldgenerator = new WorldGenShrub(0, 0);
 					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-					worldgenerator.generate(world, rand, j6, z52, k10);
+					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
 			
@@ -155,7 +156,7 @@ public class RealisticBiomeMesa extends RealisticBiomeBase
 				int i17 = chunkX + rand.nextInt(16) + 8;
 				int i20 = 60 + rand.nextInt(40);
 				int l22 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenDeadBush(Blocks.deadbush)).generate(world, rand, i17, i20, l22);
+				(new GeneratorBushFeature(Blocks.deadbush)).generate(world, rand, new BlockPos(i17, i20, l22));
 			}
 			
 			for(int k18 = 0; k18 < 18; k18++)
@@ -163,7 +164,7 @@ public class RealisticBiomeMesa extends RealisticBiomeBase
 				int k21 = chunkX + rand.nextInt(16) + 8;
 				int j23 = 60 + rand.nextInt(40);
 				int k24 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenCactus()).generate(world, rand, k21, j23, k24);
+				(new WorldGenCactus()).generate(world, rand, new BlockPos(k21, j23, k24));
 			}
 		}
     }

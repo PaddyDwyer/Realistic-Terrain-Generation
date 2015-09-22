@@ -48,7 +48,7 @@ public class RealisticBiomeRedwoodJungle extends RealisticBiomeBase
 				int i1 = chunkX + rand.nextInt(16) + 8;
 				int j1 = chunkY + rand.nextInt(16) + 8;
 				int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
-				(new WorldGenBlockBlob(Blocks.mossy_cobblestone, 0)).generate(world, rand, i1, k1, j1);
+				(new WorldGenBlockBlob(Blocks.mossy_cobblestone, 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 			}
 		}
 		
@@ -63,7 +63,7 @@ public class RealisticBiomeRedwoodJungle extends RealisticBiomeBase
 			{
 				WorldGenerator worldgenerator = new DecoJungleFat(Blocks.log, 3, Blocks.leaves, 3, 20 + rand.nextInt(8), 7 + rand.nextInt(2), 23f, 7, 0.22f, 0.2f);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
 		
@@ -77,7 +77,7 @@ public class RealisticBiomeRedwoodJungle extends RealisticBiomeBase
 		
 				WorldGenerator worldgenerator = rand.nextInt(24) == 0 ? new DecoJungleFat(Blocks.log, 3, Blocks.leaves, 3, 14 + rand.nextInt(8), 5 + rand.nextInt(2), 16f, 5, 0.32f, 0.1f) : new DecoJungleTall(Blocks.log, 3, Blocks.leaves, 3, 3 + rand.nextInt(7), 3 + rand.nextInt(2), 9f, 3, 0.32f, 0.1f);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
 		
@@ -89,14 +89,14 @@ public class RealisticBiomeRedwoodJungle extends RealisticBiomeBase
 
 			WorldGenerator worldgenerator = rand.nextInt(10) == 0 ? new DecoJungleSmall(Blocks.log, 3, Blocks.leaves, 3, 1 + rand.nextInt(4), 0, 5f, 2, 0.32f, 0.14f) : new WorldGenShrub(0, 0);
 			worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-			worldgenerator.generate(world, rand, j6, z52, k10);
+			worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 		}
 
 		for(int b = 0; b < 2f * strength; b++)
 		{
 			int i18 = chunkX + rand.nextInt(16) + 8;
 			int i23 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenReed()).generate(world, rand, i18, 60 + rand.nextInt(8), i23);
+			(new WorldGenReed()).generate(world, rand, new BlockPos(i18, 60 + rand.nextInt(8), i23));
 		}
 		
 		for(int l14 = 0; l14 < 13; l14++)

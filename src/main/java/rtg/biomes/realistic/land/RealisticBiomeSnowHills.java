@@ -50,7 +50,7 @@ public class RealisticBiomeSnowHills extends RealisticBiomeBase
 			int l4 = world.getTopSolidOrLiquidBlock(new BlockPos(i2, 0, i8)).getY();
 			if(l4 > 63 && l4 < 105)
 			{
-				(new WorldGenLakes(Blocks.water)).generate(world, rand, i2, l4, i8);
+				(new WorldGenLakes(Blocks.water)).generate(world, rand, new BlockPos(i2, l4, i8));
 			}
 		}
 	    
@@ -70,7 +70,7 @@ public class RealisticBiomeSnowHills extends RealisticBiomeBase
 			int j16 = chunkX + rand.nextInt(16) + 8;
 			int j18 = rand.nextInt(128);
 			int j21 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenPumpkin()).generate(world, rand, j16, j18, j21);
+			(new WorldGenPumpkin()).generate(world, rand, new BlockPos(j16, j18, j21));
 		}
 		
 		for(int f23 = 0; f23 < 2f * strength; f23++)
@@ -100,13 +100,13 @@ public class RealisticBiomeSnowHills extends RealisticBiomeBase
 			{
 				WorldGenerator worldgenerator = rand.nextInt(8) != 0 ? new DecoSmallSpruce(1 + rand.nextInt(2)) : new DecoSmallPine(1 + rand.nextInt(3), 2 + rand.nextInt(4));
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 			else if(z52 < 110)
 			{
 				WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new DecoSmallSpruce(rand.nextInt(2)) : new DecoSmallPine(2 + rand.nextInt(2), 4 + rand.nextInt(5));
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
 		

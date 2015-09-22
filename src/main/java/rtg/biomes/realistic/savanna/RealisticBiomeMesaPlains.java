@@ -7,6 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.GeneratorBushFeature;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
 import net.minecraft.world.gen.feature.WorldGenShrub;
@@ -53,7 +54,7 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 				
 				if (k1 < 83)
 				{
-					(new WorldGenBlockBlob(Blocks.cobblestone, 0)).generate(world, rand, i1, k1, j1);
+					(new WorldGenBlockBlob(Blocks.cobblestone, 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 				}
 			}
 		}
@@ -70,7 +71,7 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 				{
 					WorldGenerator worldgenerator = rand.nextInt(3) != 0 ? new WorldGenShrub(0, 0) : new DecoSavannah(1, false);
 					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-					worldgenerator.generate(world, rand, j6, z52, k10);
+					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
 		}
@@ -86,7 +87,7 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 				{
 					WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new WorldGenShrub(0, 0) : rand.nextInt(12) == 0 ? new DecoSavannah(0) : new DecoSavannah(1);
 					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-					worldgenerator.generate(world, rand, j6, z52, k10);
+					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
 		}
@@ -96,7 +97,7 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 			int i17 = chunkX + rand.nextInt(16) + 8;
 			int i20 = 64 + rand.nextInt(100);
 			int l22 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenDeadBush(Blocks.deadbush)).generate(world, rand, i17, i20, l22);
+			(new GeneratorBushFeature(Blocks.deadbush)).generate(world, rand, new BlockPos(i17, i20, l22));
 		}
 		
 		for(int k18 = 0; k18 < 15; k18++)

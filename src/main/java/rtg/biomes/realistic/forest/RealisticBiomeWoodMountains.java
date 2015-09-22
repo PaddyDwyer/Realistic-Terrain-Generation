@@ -57,7 +57,7 @@ public class RealisticBiomeWoodMountains extends RealisticBiomeBase
 			{
 				WorldGenerator worldgenerator = rand.nextInt(10) == 0 ? new DecoBigTree() : rand.nextInt(6) != 0 ? new WorldGenTrees(false) : new WorldGenForest(false, false);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
 		
@@ -99,7 +99,7 @@ public class RealisticBiomeWoodMountains extends RealisticBiomeBase
 			int j16 = chunkX + rand.nextInt(16) + 8;
 			int j18 = rand.nextInt(100);
 			int j21 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenPumpkin()).generate(world, rand, j16, j18, j21);
+			(new WorldGenPumpkin()).generate(world, rand, new BlockPos(j16, j18, j21));
 		}
 		
 		for(int f23 = 0; f23 < 8f * strength; f23++)

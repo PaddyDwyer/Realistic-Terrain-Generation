@@ -7,6 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.gen.GeneratorBushFeature;
 import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
 import net.minecraft.world.gen.feature.WorldGenReed;
@@ -54,7 +55,7 @@ public class RealisticBiomeCanyonForest extends RealisticBiomeBase
 				
 				if (k1 < 70)
 				{
-					(new WorldGenBlockBlob(Blocks.mossy_cobblestone, 0)).generate(world, rand, i1, k1, j1);
+					(new WorldGenBlockBlob(Blocks.mossy_cobblestone, 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 				}
 			}
 		}
@@ -70,14 +71,14 @@ public class RealisticBiomeCanyonForest extends RealisticBiomeBase
 				WorldGenerator worldgenerator;
 				worldgenerator = new WorldGenShrub(0, 0);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 			
 			if(rand.nextInt(3) == 0) 
 			{
 				int i18 = chunkX + rand.nextInt(16) + 8;
 				int i23 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenReed()).generate(world, rand, i18, 60 + rand.nextInt(8), i23);
+				(new WorldGenReed()).generate(world, rand, new BlockPos(i18, 60 + rand.nextInt(8), i23));
 			}
 			
 			for(int b33 = 0; b33 < 7f * strength; b33++)
@@ -90,13 +91,13 @@ public class RealisticBiomeCanyonForest extends RealisticBiomeBase
 				{
 					WorldGenerator worldgenerator = rand.nextInt(3) == 0 ? new WorldGenShrub(0, 0) : new DecoSavannah(2, false);
 					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-					worldgenerator.generate(world, rand, j6, z52, k10);
+					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 				else if(z52 < 111)
 				{
 					WorldGenerator worldgenerator = rand.nextInt(3) == 0 ? new WorldGenShrub(0, 0) : new DecoSavannah(1, false);
 					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-					worldgenerator.generate(world, rand, j6, z52, k10);
+					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
 
@@ -136,13 +137,13 @@ public class RealisticBiomeCanyonForest extends RealisticBiomeBase
 				{
 					WorldGenerator worldgenerator = new WorldGenShrub(0, 0);
 					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-					worldgenerator.generate(world, rand, j6, z52, k10);
+					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 				else if(z52 < 127)
 				{
 					WorldGenerator worldgenerator = rand.nextInt(3) != 0 ? new WorldGenShrub(0, 0) : new DecoSavannah(1, false);
 					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-					worldgenerator.generate(world, rand, j6, z52, k10);
+					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
 
@@ -151,7 +152,7 @@ public class RealisticBiomeCanyonForest extends RealisticBiomeBase
 				int i17 = chunkX + rand.nextInt(16) + 8;
 				int i20 = 64 + rand.nextInt(100);
 				int l22 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenDeadBush(Blocks.deadbush)).generate(world, rand, i17, i20, l22);
+				(new GeneratorBushFeature(Blocks.deadbush)).generate(world, rand, new BlockPos(i17, i20, l22));
 			}
 			
 			for(int k18 = 0; k18 < 25; k18++)

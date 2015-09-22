@@ -42,7 +42,7 @@ public class RealisticBiomeHighRainforest extends RealisticBiomeBase
 	
 			WorldGenerator worldgenerator = new DecoJungleFat(Blocks.log, 3, Blocks.sponge, 7, 15 + rand.nextInt(15), 4 + rand.nextInt(2), 14f, 3, 0.2f, 0.25f);
 			worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-			worldgenerator.generate(world, rand, j6, z52, k10);
+			worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 		}
     }
     

@@ -39,7 +39,7 @@ public class RealisticBiomeVanillaBeach extends RealisticBiomeVanilla
 				{
 					WorldGenerator worldgenerator = new DecoPalm();
 					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-					worldgenerator.generate(world, rand, j6, z52, k10);
+					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
             }

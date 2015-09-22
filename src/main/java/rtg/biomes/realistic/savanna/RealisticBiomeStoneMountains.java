@@ -56,7 +56,7 @@ public class RealisticBiomeStoneMountains extends RealisticBiomeBase
 
 				if (k1 < 80)
 				{
-					(new WorldGenBlockBlob(Blocks.cobblestone, 0)).generate(world, rand, i1, k1, j1);
+					(new WorldGenBlockBlob(Blocks.cobblestone, 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 				}
 			}
 		}
@@ -75,7 +75,7 @@ public class RealisticBiomeStoneMountains extends RealisticBiomeBase
 					{
 						WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new WorldGenShrub(0, 0) : new DecoSavannah(1);
 						worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-						worldgenerator.generate(world, rand, j6, z52, k10);
+						worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 					}
 				}
 			}
@@ -95,7 +95,7 @@ public class RealisticBiomeStoneMountains extends RealisticBiomeBase
 			{
 				int i18 = chunkX + rand.nextInt(16) + 8;
 				int i23 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenReed()).generate(world, rand, i18, 60 + rand.nextInt(8), i23);
+				(new WorldGenReed()).generate(world, rand, new BlockPos(i18, 60 + rand.nextInt(8), i23));
 			}
 			
 			if(rand.nextInt(28) == 0)
@@ -103,7 +103,7 @@ public class RealisticBiomeStoneMountains extends RealisticBiomeBase
 				int j16 = chunkX + rand.nextInt(16) + 8;
 				int j18 = rand.nextInt(128);
 				int j21 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenPumpkin()).generate(world, rand, j16, j18, j21);
+				(new WorldGenPumpkin()).generate(world, rand, new BlockPos(j16, j18, j21));
 			}
 			
 			for(int f23 = 0; f23 < 3; f23++)
@@ -143,7 +143,7 @@ public class RealisticBiomeStoneMountains extends RealisticBiomeBase
 				{
 					WorldGenerator worldgenerator = rand.nextInt(14) != 0 ? new WorldGenShrub(0, 0) : new DecoSavannah(1);
 					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-					worldgenerator.generate(world, rand, j6, z52, k10);
+					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
 	
@@ -162,7 +162,7 @@ public class RealisticBiomeStoneMountains extends RealisticBiomeBase
 			{
 				int i18 = chunkX + rand.nextInt(16) + 8;
 				int i23 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenReed()).generate(world, rand, i18, 60 + rand.nextInt(8), i23);
+				(new WorldGenReed()).generate(world, rand, new BlockPos(i18, 60 + rand.nextInt(8), i23));
 			}
 			
 			if(rand.nextInt(28) == 0)
@@ -170,7 +170,7 @@ public class RealisticBiomeStoneMountains extends RealisticBiomeBase
 				int j16 = chunkX + rand.nextInt(16) + 8;
 				int j18 = rand.nextInt(128);
 				int j21 = chunkY + rand.nextInt(16) + 8;
-				(new WorldGenPumpkin()).generate(world, rand, j16, j18, j21);
+				(new WorldGenPumpkin()).generate(world, rand, new BlockPos(j16, j18, j21));
 			}
 			
 			for(int f23 = 0; f23 < 3; f23++)
