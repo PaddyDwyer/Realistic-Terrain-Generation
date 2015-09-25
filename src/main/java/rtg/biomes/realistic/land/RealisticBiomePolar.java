@@ -45,7 +45,7 @@ public class RealisticBiomePolar extends RealisticBiomeBase
 			    int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 				if(k1 < 64)
 				{
-					(new DecoBlob(Blocks.packed_ice, 0)).generate(world, rand, i1, k1, j1);
+					(new DecoBlob(Blocks.packed_ice, 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 				}
 			}
 			

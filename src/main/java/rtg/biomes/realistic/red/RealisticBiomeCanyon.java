@@ -114,7 +114,7 @@ public class RealisticBiomeCanyon extends RealisticBiomeBase
 				int k21 = chunkX + rand.nextInt(16) + 8;
 				int j23 = rand.nextInt(160);
 				int k24 = chunkY + rand.nextInt(16) + 8;
-				(new DecoCacti(true)).generate(world, rand, k21, j23, k24);
+				(new DecoCacti(true)).generate(world, rand, new BlockPos(k21, j23, k24));
 			}
 		}
 	}

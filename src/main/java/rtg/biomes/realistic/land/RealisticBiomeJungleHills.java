@@ -58,11 +58,11 @@ public class RealisticBiomeJungleHills extends RealisticBiomeBase
 
 			if(rand.nextInt(6) == 0)
 			{
-				(new DecoGrass(Blocks.double_plant, 2)).generate(world, rand, l19, k22, j24);
+				(new DecoGrass(Blocks.double_plant, 2)).generate(world, rand, new BlockPos(l19, k22, j24));
 			}
 			else
 			{
-				(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, l19, k22, j24);
+				(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, new BlockPos(l19, k22, j24));
 			}
 		}
     }

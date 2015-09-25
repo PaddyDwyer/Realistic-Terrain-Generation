@@ -41,7 +41,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			{
 				WorldGenerator worldgenerator = new DecoPalm();
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
     	
@@ -55,7 +55,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			{
 				WorldGenerator worldgenerator = new DecoJungleTall(Blocks.log, 3, Blocks.leaves, 3, 3 + rand.nextInt(3), 0, 9f, 3, 0.32f, 0.1f);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
     	
@@ -69,7 +69,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			{
 				WorldGenerator worldgenerator = new DecoJungleSmall(Blocks.log, 3, Blocks.leaves, 3, 3 + rand.nextInt(2), 0, 5f, 2, 0.32f, 0.14f);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
 		
@@ -83,7 +83,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			{
 				WorldGenerator worldgenerator = new WorldGenShrub(0, 0);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
 		
@@ -92,7 +92,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			int j15 = chunkX + rand.nextInt(16) + 8;
 			int j17 = 64 + rand.nextInt(64);
 			int j20 = chunkY + rand.nextInt(16) + 8;
-			(new DecoFlowers(new int[]{0,1,2,3,4,5,6,7,8,9,10,11})).generate(world, rand, j15, j17, j20);
+			(new DecoFlowers(new int[]{0,1,2,3,4,5,6,7,8,9,10,11})).generate(world, rand, new BlockPos(j15, j17, j20));
 		}
     	
 		for(int l14 = 0; l14 < 6f * strength; l14++)
@@ -100,7 +100,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			int l19 = chunkX + rand.nextInt(16) + 8;
 			int k22 = 64 + rand.nextInt(64);
 			int j24 = chunkY + rand.nextInt(16) + 8;
-			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, l19, k22, j24);
+			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, new BlockPos(l19, k22, j24));
 		}*/
     }
     

@@ -33,14 +33,14 @@ public class RealisticBiomeVanillaPlains extends RealisticBiomeVanilla
 			{
 				WorldGenerator worldgenerator = rand.nextInt(6) == 0 ? new WorldGenTrees(false) : rand.nextInt(12) == 0 ? new DecoBirch(4 + rand.nextInt(5), 6 + rand.nextInt(5)) : rand.nextInt(6) == 0 ? new DecoSmallPine(3 + rand.nextInt(2), 3 + rand.nextInt(3), 0) : new DecoSmallPine(6 + rand.nextInt(5), 3 + rand.nextInt(6), 0);
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 			
 			if(z52 < 120)
 			{
 				WorldGenerator worldgenerator = new DecoWillow();
 				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-				worldgenerator.generate(world, rand, j6, z52, k10);
+				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 			
 			for(int f23 = 0; f23 < 8f * strength; f23++)
@@ -48,7 +48,7 @@ public class RealisticBiomeVanillaPlains extends RealisticBiomeVanilla
 				int j15 = chunkX + rand.nextInt(16) + 8;
 				int j17 = rand.nextInt(128);
 				int j20 = chunkY + rand.nextInt(16) + 8;
-				(new DecoFlowers(new int[]{0,1,2,3,4,5,6,7,8,9,10,11})).generate(world, rand, j15, j17, j20);
+				(new DecoFlowers(new int[]{0,1,2,3,4,5,6,7,8,9,10,11})).generate(world, rand, new BlockPos(j15, j17, j20));
 			}
 		}
 	}*/

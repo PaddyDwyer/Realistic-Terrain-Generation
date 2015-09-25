@@ -61,7 +61,7 @@ public class RealisticBiomeTundraPlains extends RealisticBiomeBase
 		    int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 			if(k1 < 85 && (k1 < 64 || rand.nextInt(5) == 0))
 			{
-		    	(new DecoBlob(Blocks.cobblestone, 0)).generate(world, rand, i1, k1, j1);
+		    	(new DecoBlob(Blocks.cobblestone, 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 			}
 		}
 		
@@ -82,7 +82,7 @@ public class RealisticBiomeTundraPlains extends RealisticBiomeBase
 		    int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 			if(k1 < 90)
 			{
-				(new DecoShrub(rand.nextInt(4) + 1, rand.nextInt(2), rand.nextInt(2))).generate(world, rand, i1, k1, j1);
+				(new DecoShrub(rand.nextInt(4) + 1, rand.nextInt(2), rand.nextInt(2))).generate(world, rand, new BlockPos(i1, k1, j1));
 			}
     	}
 
@@ -99,7 +99,7 @@ public class RealisticBiomeTundraPlains extends RealisticBiomeBase
 			int j15 = chunkX + rand.nextInt(16) + 8;
 			int j17 = rand.nextInt(128);
 			int j20 = chunkY + rand.nextInt(16) + 8;
-			(new DecoFlowers(new int[]{0})).generate(world, rand, j15, j17, j20);
+			(new DecoFlowers(new int[]{0})).generate(world, rand, new BlockPos(j15, j17, j20));
 		}
     	
 		for(int l14 = 0; l14 < 4f * strength; l14++)
@@ -107,7 +107,7 @@ public class RealisticBiomeTundraPlains extends RealisticBiomeBase
 			int l19 = chunkX + rand.nextInt(16) + 8;
 			int k22 = rand.nextInt(128);
 			int j24 = chunkY + rand.nextInt(16) + 8;
-			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, l19, k22, j24);
+			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, new BlockPos(l19, k22, j24));
 		}
     }
     

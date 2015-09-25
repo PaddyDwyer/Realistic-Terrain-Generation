@@ -52,7 +52,7 @@ public class RealisticBiomeTaigaHills extends RealisticBiomeBase
 		    int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 			if(k1 < 95 && (k1 < 64 || rand.nextInt(15) == 0))
 			{
-		    	(new DecoBlob(Blocks.mossy_cobblestone, 0)).generate(world, rand, i1, k1, j1);
+		    	(new DecoBlob(Blocks.mossy_cobblestone, 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 			}
 		}
 		
@@ -84,7 +84,7 @@ public class RealisticBiomeTaigaHills extends RealisticBiomeBase
 			int y22 = world.getTopSolidOrLiquidBlock(new BlockPos(x22, 0, z22)).getY();
 			if(y22 < 100)
 			{
-				(new DecoLog(1, 3 + rand.nextInt(4), false)).generate(world, rand, x22, y22, z22);	
+				(new DecoLog(1, 3 + rand.nextInt(4), false)).generate(world, rand, new BlockPos(x22, y22, z22));	
 			}
     	}
     		
@@ -95,7 +95,7 @@ public class RealisticBiomeTaigaHills extends RealisticBiomeBase
 		    int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 			if(k1 < 110)
 			{
-				(new DecoShrub(rand.nextInt(4) + 1, rand.nextInt(2), rand.nextInt(2))).generate(world, rand, i1, k1, j1);
+				(new DecoShrub(rand.nextInt(4) + 1, rand.nextInt(2), rand.nextInt(2))).generate(world, rand, new BlockPos(i1, k1, j1));
 			}
     	}
 
@@ -104,7 +104,7 @@ public class RealisticBiomeTaigaHills extends RealisticBiomeBase
 			int k21 = chunkX + rand.nextInt(16) + 8;
 			int j23 = rand.nextInt(60) + 60;
 			int k24 = chunkY + rand.nextInt(16) + 8;
-			(new DecoWildWheat(rand.nextInt(3))).generate(world, rand, k21, j23, k24);
+			(new DecoWildWheat(rand.nextInt(3))).generate(world, rand, new BlockPos(k21, j23, k24));
 		}
     	
 		if(rand.nextInt((int)(20f / strength)) == 0)
@@ -120,7 +120,7 @@ public class RealisticBiomeTaigaHills extends RealisticBiomeBase
 			int j15 = chunkX + rand.nextInt(16) + 8;
 			int j17 = rand.nextInt(128);
 			int j20 = chunkY + rand.nextInt(16) + 8;
-			(new DecoFlowers(new int[]{9,0,3})).generate(world, rand, j15, j17, j20);
+			(new DecoFlowers(new int[]{9,0,3})).generate(world, rand, new BlockPos(j15, j17, j20));
 		}
     	
 		for(int l14 = 0; l14 < 12f * strength; l14++)
@@ -128,7 +128,7 @@ public class RealisticBiomeTaigaHills extends RealisticBiomeBase
 			int l19 = chunkX + rand.nextInt(16) + 8;
 			int k22 = rand.nextInt(128);
 			int j24 = chunkY + rand.nextInt(16) + 8;
-			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, l19, k22, j24);
+			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, new BlockPos(l19, k22, j24));
 		}
     }
     

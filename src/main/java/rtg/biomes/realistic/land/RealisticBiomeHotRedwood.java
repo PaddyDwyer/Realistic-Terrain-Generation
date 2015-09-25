@@ -67,7 +67,7 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 		    int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 			if(k1 < 95 && (k1 < 64 || rand.nextInt(7) == 0))
 			{
-		    	(new DecoBlob(Blocks.cobblestone, 0)).generate(world, rand, i1, k1, j1);
+		    	(new DecoBlob(Blocks.cobblestone, 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 			}
 		}
 		
@@ -92,7 +92,7 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 				int k22 = 64 + rand.nextInt(64);
 				int j24 = chunkY + rand.nextInt(16) + 8;
 
-				(new DecoWaterGrass(Blocks.tallgrass, 1, 65)).generate(world, rand, l19, k22, j24);
+				(new DecoWaterGrass(Blocks.tallgrass, 1, 65)).generate(world, rand, new BlockPos(l19, k22, j24));
 			}
 		}
 		
@@ -101,7 +101,7 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 			int x22 = chunkX + rand.nextInt(16) + 8;
 			int z22 = chunkY + rand.nextInt(16) + 8;
 			int y22 = world.getTopSolidOrLiquidBlock(new BlockPos(x22, 0, z22)).getY();
-			(new DecoLog(0, 3 + rand.nextInt(4), false)).generate(world, rand, x22, y22, z22);	
+			(new DecoLog(0, 3 + rand.nextInt(4), false)).generate(world, rand, new BlockPos(x22, y22, z22));	
     	}
 		
     	for(int b = 0; b < 2f * strength; b++)
@@ -111,11 +111,11 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 		    int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
 		    if(rand.nextInt(10) == 0)
 		    {
-    		    (new DecoShrub(rand.nextInt(5) + 4, rand.nextInt(2), 0)).generate(world, rand, i1, k1, j1);
+    		    (new DecoShrub(rand.nextInt(5) + 4, rand.nextInt(2), 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 		    }
 		    else
 		    {
-		    	(new DecoShrub(rand.nextInt(4) + 1, rand.nextInt(2), 0)).generate(world, rand, i1, k1, j1);
+		    	(new DecoShrub(rand.nextInt(4) + 1, rand.nextInt(2), 0)).generate(world, rand, new BlockPos(i1, k1, j1));
 		    }
     	}
 
@@ -148,7 +148,7 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 			int j15 = chunkX + rand.nextInt(16) + 8;
 			int j17 = rand.nextInt(128);
 			int j20 = chunkY + rand.nextInt(16) + 8;
-			(new DecoFlowers(new int[]{9,9,9,9,3,3,3,3,3,2,2,2,11,11,11})).generate(world, rand, j15, j17, j20);
+			(new DecoFlowers(new int[]{9,9,9,9,3,3,3,3,3,2,2,2,11,11,11})).generate(world, rand, new BlockPos(j15, j17, j20));
 		}
 
 		for(int l14 = 0; l14 < 10f * strength; l14++)
@@ -156,7 +156,7 @@ public class RealisticBiomeHotRedwood extends RealisticBiomeBase
 			int l19 = chunkX + rand.nextInt(16) + 8;
 			int k22 = rand.nextInt(128);
 			int j24 = chunkY + rand.nextInt(16) + 8;
-			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, l19, k22, j24);
+			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, new BlockPos(l19, k22, j24));
 		}
     }
 

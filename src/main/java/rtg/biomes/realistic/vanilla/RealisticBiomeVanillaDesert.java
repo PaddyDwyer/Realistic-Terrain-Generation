@@ -68,7 +68,7 @@ public class RealisticBiomeVanillaDesert extends RealisticBiomeVanilla
 				int k24 = chunkY + rand.nextInt(16) + 8;
 				if(j23 < 120f)
 				{
-					(new DecoCacti(false)).generate(world, rand, k21, j23, k24);
+					(new DecoCacti(false)).generate(world, rand, new BlockPos(k21, j23, k24));
 				}
 			}
 		}

@@ -3,6 +3,7 @@ package rtg.deco;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
@@ -11,10 +12,10 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class DecoGrass extends WorldGenerator
 {
-	private BlockDoublePlant block;
+	private BlockBush block;
 	private int metadata;
 
-    public DecoGrass(BlockDoublePlant b, int m)
+    public DecoGrass(BlockBush b, int m)
     {
 		block = b;
 		metadata = m;

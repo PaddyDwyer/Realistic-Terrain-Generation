@@ -36,7 +36,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 	
 			WorldGenerator worldgenerator = new DecoBirch(4 + rand.nextInt(5), 6 + rand.nextInt(5));
 			worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-			worldgenerator.generate(world, rand, j6, z52, k10);
+			worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 		}*/
 		
 		/*
@@ -45,7 +45,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 			int i1 = chunkX + rand.nextInt(16) + 8;
 			int j1 = chunkY + rand.nextInt(16) + 8;
 		    int k1 = world.getTopSolidOrLiquidBlock(new BlockPos(i1, 0, j1)).getY();
-			(new DecoShrub(rand.nextInt(4) + 1, 3, 3)).generate(world, rand, i1, k1, j1);
+			(new DecoShrub(rand.nextInt(4) + 1, 3, 3)).generate(world, rand, new BlockPos(i1, k1, j1));
     	}
 		
 		//for(int a = 0; a < 15f * strength; a++)
@@ -60,7 +60,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 	
 			WorldGenerator worldgenerator = rand.nextInt(24) == 0 ? new DecoJungleFat(Blocks.log, 3, Blocks.leaves, 3, 11 + rand.nextInt(5), 5 + rand.nextInt(2), 16f, 5, 0.32f, 0.1f) : new DecoJungleTall(Blocks.log, 3, Blocks.leaves, 3, 3 + rand.nextInt(4), 3 + rand.nextInt(2), 9f, 3, 0.32f, 0.1f);
 			worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-			worldgenerator.generate(world, rand, j6, z52, k10);
+			worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 		}
 		
 		//GROUND LAYER
@@ -72,7 +72,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 	
 			WorldGenerator worldgenerator = new DecoJungleSmall(Blocks.log, 3, Blocks.leaves, 3, 1 + rand.nextInt(4), 0, 5f, 2, 0.32f, 0.14f);
 			worldgenerator.setScale(1.0D, 1.0D, 1.0D);
-			worldgenerator.generate(world, rand, j6, z52, k10);
+			worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 		}
 		
 		if(rand.nextInt((int)(120f / strength)) == 0)
@@ -80,7 +80,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 			int k21 = chunkX + rand.nextInt(16) + 8;
 			int j23 = rand.nextInt(60) + 60;
 			int k24 = chunkY + rand.nextInt(16) + 8;
-			(new DecoWildWheat(rand.nextInt(3))).generate(world, rand, k21, j23, k24);
+			(new DecoWildWheat(rand.nextInt(3))).generate(world, rand, new BlockPos(k21, j23, k24));
 		}
 		
     	if(rand.nextInt((int)(5f / strength)) == 0)
@@ -90,7 +90,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 			int y22 = world.getTopSolidOrLiquidBlock(new BlockPos(x22, 0, z22)).getY();
 			if(y22 < 100)
 			{
-				(new DecoLog(1, 3 + rand.nextInt(4), false)).generate(world, rand, x22, y22, z22);	
+				(new DecoLog(1, 3 + rand.nextInt(4), false)).generate(world, rand, new BlockPos(x22, y22, z22));	
 			}
     	}
     	
@@ -99,7 +99,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 			int j16 = chunkX + rand.nextInt(16) + 8;
 			int j18 = rand.nextInt(100);
 			int j21 = chunkY + rand.nextInt(16) + 8;
-			(new WorldGenMelon()).generate(world, rand, j16, j18, j21);
+			(new WorldGenMelon()).generate(world, rand, new BlockPos(j16, j18, j21));
 		}*/
 		
 		/* ==============================================================================================
@@ -108,7 +108,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 			int j15 = chunkX + rand.nextInt(16) + 8;
 			int j17 = rand.nextInt(128);
 			int j20 = chunkY + rand.nextInt(16) + 8;
-			(new DecoFlowers(new int[]{0,1,2,3,4,5,6,7,8,9,10,11})).generate(world, rand, j15, j17, j20);
+			(new DecoFlowers(new int[]{0,1,2,3,4,5,6,7,8,9,10,11})).generate(world, rand, new BlockPos(j15, j17, j20));
 		}*/
     	
 		/*for(int l14 = 0; l14 < 12f * strength; l14++)
@@ -116,7 +116,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 			int l19 = chunkX + rand.nextInt(16) + 8;
 			int k22 = rand.nextInt(128);
 			int j24 = chunkY + rand.nextInt(16) + 8;
-			(new DecoGrass(Blocks.tallgrass, 1 + rand.nextInt(2))).generate(world, rand, l19, k22, j24);
+			(new DecoGrass(Blocks.tallgrass, 1 + rand.nextInt(2))).generate(world, rand, new BlockPos(l19, k22, j24));
 		}*/
 		
 		/*
@@ -126,7 +126,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
             int i1 = chunkX + rand.nextInt(16) + 8;
             short short1 = 128;
             int j1 = chunkY + rand.nextInt(16) + 8;
-            worldgenvines.generate(world, rand, i1, short1, j1);
+            worldgenvines.generate(world, rand, new BlockPos(i1, short1, j1));
         }
         */
     }

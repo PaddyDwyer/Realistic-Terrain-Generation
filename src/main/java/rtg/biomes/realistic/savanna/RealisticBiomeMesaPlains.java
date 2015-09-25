@@ -105,7 +105,7 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 			int k21 = chunkX + rand.nextInt(16) + 8;
 			int j23 = 64 + rand.nextInt(80);
 			int k24 = chunkY + rand.nextInt(16) + 8;
-			(new DecoCacti(false)).generate(world, rand, k21, j23, k24);
+			(new DecoCacti(false)).generate(world, rand, new BlockPos(k21, j23, k24));
 		}
 
 		for(int f23 = 0; f23 < 3; f23++)
@@ -113,7 +113,7 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 			int j15 = chunkX + rand.nextInt(16) + 8;
 			int j17 = rand.nextInt(128);
 			int j20 = chunkY + rand.nextInt(16) + 8;
-			(new DecoFlowers(new int[]{9,9,9,9,3,3,3,3,3,2,2,2,11,11,11})).generate(world, rand, j15, j17, j20);
+			(new DecoFlowers(new int[]{9,9,9,9,3,3,3,3,3,2,2,2,11,11,11})).generate(world, rand, new BlockPos(j15, j17, j20));
 		}
 		
 		for(int l14 = 0; l14 < 8f * strength; l14++)
@@ -121,7 +121,7 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 			int l19 = chunkX + rand.nextInt(16) + 8;
 			int k22 = 60 + rand.nextInt(70);
 			int j24 = chunkY + rand.nextInt(16) + 8;
-			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, l19, k22, j24);
+			(new DecoGrass(Blocks.tallgrass, 1)).generate(world, rand, new BlockPos(l19, k22, j24));
 		}
     }
     
