@@ -71,7 +71,6 @@ public class RealisticBiomeTundraPlains extends RealisticBiomeBase
 			int k10 = chunkY + rand.nextInt(16) + 8;
 			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 			WorldGenerator worldgenerator = rand.nextInt(7) == 0 ? new DecoSmallSpruce(0 + rand.nextInt(2)) : new DecoSmallPine(2 + rand.nextInt(3), 4 + rand.nextInt(4), rand.nextInt(2));
-			worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 			worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 		}
 

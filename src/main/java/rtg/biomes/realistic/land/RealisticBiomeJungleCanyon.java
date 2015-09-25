@@ -58,7 +58,6 @@ public class RealisticBiomeJungleCanyon extends RealisticBiomeBase
 			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 	
 			WorldGenerator worldgenerator = new DecoJungleSmall(Blocks.log, 3, Blocks.leaves, 3, 1 + rand.nextInt(4), 0, 5f, 2, 0.32f, 0.14f);
-			worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 			worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 		}
 	}

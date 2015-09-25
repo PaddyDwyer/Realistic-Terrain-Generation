@@ -45,7 +45,6 @@ public class RealisticBiomeJungleHills extends RealisticBiomeBase
 			if(z52 < 100 || rand.nextInt(3) == 0)
 			{
 				WorldGenerator worldgenerator = rand.nextInt(5) == 0 ? new WorldGenShrub(0, 0) : rand.nextInt(3) == 0 ? new WorldGenMegaJungle(false, 5, 10, 3, 3) : new WorldGenTrees(false, 3 + rand.nextInt(5), 3, 3, true);
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}

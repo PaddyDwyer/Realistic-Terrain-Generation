@@ -98,7 +98,6 @@ public class RealisticBiomeSnowLakes extends RealisticBiomeBase
 			if(z52 < 120)
 			{
 				WorldGenerator worldgenerator = rand.nextInt(3) != 0 ? new DecoSmallPine(1 + rand.nextInt(3), 3 + rand.nextInt(5), 0) : new DecoSmallSpruce(rand.nextInt(2));
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}

@@ -80,7 +80,6 @@ public class RealisticBiomeHotForest extends RealisticBiomeBase
 			int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 
 			WorldGenerator worldgenerator = rand.nextInt(6) == 0 ? new WorldGenTrees(false) : rand.nextInt(12) == 0 ? new DecoBirch(4 + rand.nextInt(5), 6 + rand.nextInt(5)) : rand.nextInt(6) == 0 ? new DecoSmallPine(3 + rand.nextInt(2), 3 + rand.nextInt(3), 0) : new DecoSmallPine(6 + rand.nextInt(5), 3 + rand.nextInt(6), 0);
-			worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 			worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 		}
 		

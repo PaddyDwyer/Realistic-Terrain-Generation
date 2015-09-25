@@ -68,7 +68,6 @@ public class RealisticBiomeCanyon extends RealisticBiomeBase
 	
 				WorldGenerator worldgenerator;
 				worldgenerator = new WorldGenShrub(0, 0);
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
@@ -82,7 +81,6 @@ public class RealisticBiomeCanyon extends RealisticBiomeBase
 	
 				WorldGenerator worldgenerator;
 				worldgenerator = new WorldGenShrub(0, 0);
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 			

@@ -100,13 +100,11 @@ public class RealisticBiomeSnowRivers extends RealisticBiomeBase
 			if(z52 < 75)
 			{
 				WorldGenerator worldgenerator = rand.nextInt(8) != 0 ? new DecoSmallSpruce(1 + rand.nextInt(2)) : new DecoSmallPine(1 + rand.nextInt(3), 2 + rand.nextInt(4));
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 			else if(z52 < 110)
 			{
 				WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new DecoSmallSpruce(rand.nextInt(2)) : new DecoSmallPine(2 + rand.nextInt(2), 4 + rand.nextInt(5));
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}

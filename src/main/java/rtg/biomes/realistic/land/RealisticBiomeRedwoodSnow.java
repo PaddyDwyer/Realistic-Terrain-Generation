@@ -57,7 +57,6 @@ public class RealisticBiomeRedwoodSnow extends RealisticBiomeBase
 				if(z52 < 110)
 				{
 					WorldGenerator worldgenerator = new DecoLargePine((int)(14 - ((z52 - 70) / 5f)) + rand.nextInt(8), (int)(15 - ((z52 - 70) / 5f)) + rand.nextInt(12));
-					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
@@ -74,7 +73,6 @@ public class RealisticBiomeRedwoodSnow extends RealisticBiomeBase
 				if(z52 < 120)
 				{
 					WorldGenerator worldgenerator = rand.nextInt(4) == 0 ? new DecoSmallPine(4 + rand.nextInt(7), 6 + rand.nextInt(9), 0) : rand.nextInt(6) != 0 ? new WorldGenTrees(false) : new WorldGenForest(false, false);
-					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}

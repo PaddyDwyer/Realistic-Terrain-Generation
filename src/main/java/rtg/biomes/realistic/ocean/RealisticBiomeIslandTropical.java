@@ -40,7 +40,6 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			if(z52 < 80)
 			{
 				WorldGenerator worldgenerator = new DecoPalm();
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
@@ -54,7 +53,6 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			if(z52 > 68 && z52 < 80 && rand.nextInt(3) != 0)
 			{
 				WorldGenerator worldgenerator = new DecoJungleTall(Blocks.log, 3, Blocks.leaves, 3, 3 + rand.nextInt(3), 0, 9f, 3, 0.32f, 0.1f);
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
@@ -68,7 +66,6 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			if((z52 > 68 && z52 < 105) || rand.nextInt(12) == 0 && z52 < 115)
 			{
 				WorldGenerator worldgenerator = new DecoJungleSmall(Blocks.log, 3, Blocks.leaves, 3, 3 + rand.nextInt(2), 0, 5f, 2, 0.32f, 0.14f);
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
@@ -82,7 +79,6 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 			if(z52 > 67 && z52 < 100)
 			{
 				WorldGenerator worldgenerator = new WorldGenShrub(0, 0);
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}

@@ -67,7 +67,6 @@ public class RealisticBiomeOasis extends RealisticBiomeBase
 			if(z52 < 71f)
 			{
 				WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new WorldGenShrub(0, 0) : rand.nextInt(6) == 0 ? new DecoPalm() : new DecoSavannah(1, false);
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}

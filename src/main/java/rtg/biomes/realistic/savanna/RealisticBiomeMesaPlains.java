@@ -70,7 +70,6 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 				if(z52 < 90)
 				{
 					WorldGenerator worldgenerator = rand.nextInt(3) != 0 ? new WorldGenShrub(0, 0) : new DecoSavannah(1, false);
-					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
@@ -86,7 +85,6 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 				if(z52 < 90)
 				{
 					WorldGenerator worldgenerator = rand.nextInt(4) != 0 ? new WorldGenShrub(0, 0) : rand.nextInt(12) == 0 ? new DecoSavannah(0) : new DecoSavannah(1);
-					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}

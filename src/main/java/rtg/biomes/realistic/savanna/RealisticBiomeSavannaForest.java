@@ -66,7 +66,6 @@ public class RealisticBiomeSavannaForest extends RealisticBiomeBase
 				if(z52 < 100f || (z52 < 120f && rand.nextInt(10) == 0))
 				{
 					WorldGenerator worldgenerator = rand.nextInt(3) != 0 ? new WorldGenShrub(0, 0) : rand.nextInt(10) == 0 ? new DecoSavannah(0): new DecoSavannah(2);
-					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
@@ -100,7 +99,6 @@ public class RealisticBiomeSavannaForest extends RealisticBiomeBase
 				if(z52 < 100f || (z52 < 120f && rand.nextInt(10) == 0))
 				{
 					WorldGenerator worldgenerator = rand.nextInt(9) == 0 ? new WorldGenShrub(0, 0) : rand.nextInt(7) == 0 ? new DecoSavannah(1): new DecoSavannah(2);
-					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}
@@ -128,7 +126,6 @@ public class RealisticBiomeSavannaForest extends RealisticBiomeBase
 				if(z52 < 100f || (z52 < 120f && rand.nextInt(10) == 0))
 				{
 					WorldGenerator worldgenerator = rand.nextBoolean() ? new WorldGenShrub(0, 0) : rand.nextInt(5) == 0 ? new DecoSavannah(0) : new DecoSavannah(1);
-					worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 					worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 				}
 			}

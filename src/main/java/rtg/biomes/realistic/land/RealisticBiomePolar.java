@@ -56,7 +56,6 @@ public class RealisticBiomePolar extends RealisticBiomeBase
 				int z52 = world.getTopSolidOrLiquidBlock(new BlockPos(j6, 0, k10)).getY();
 				
 				WorldGenerator worldgenerator = new DecoSmallSpruce(rand.nextInt(2));
-				worldgenerator.setScale(1.0D, 1.0D, 1.0D);
 				worldgenerator.generate(world, rand, new BlockPos(j6, z52, k10));
 			}
 		}
