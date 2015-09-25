@@ -2,7 +2,9 @@ package rtg.deco;
 
 import java.util.Random;
 
+import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -38,7 +40,8 @@ public class DecoFlowers extends WorldGenerator
     	flowers = f;
     }
     
-    public boolean generate(World world, Random rand, int x, int y, int z)
+//    public boolean generate(World world, Random rand, BlockPos pos)
+    public boolean generate(World world, Random rand, BlockPos pos)
     {
     	int randomFlower = flowers[rand.nextInt(flowers.length)];
     	
@@ -46,13 +49,11 @@ public class DecoFlowers extends WorldGenerator
     	{
             for (int l = 0; l < 64; ++l)
             {
-                int i1 = x + rand.nextInt(8) - rand.nextInt(8);
-                int j1 = y + rand.nextInt(4) - rand.nextInt(4);
-                int k1 = z + rand.nextInt(8) - rand.nextInt(8);
-
-                if (world.isAirBlock(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 254) && Blocks.double_plant.canPlaceBlockAt(world, i1, j1, k1))
+            	BlockPos blockPos1 = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
+                
+                if (world.isAirBlock(blockPos1) && (!world.provider.getHasNoSky() || blockPos1.getY() < 254) && Blocks.double_plant.canPlaceBlockAt(world, blockPos1))
                 {
-                    Blocks.double_plant.func_149889_c(world, i1, j1, k1, randomFlower - 10, 0);
+                    Blocks.double_plant.placeAt(world, blockPos1, BlockDoublePlant.EnumPlantType.byMetadata(randomFlower - 10), 0);
                 }
             }
     	}
@@ -60,13 +61,11 @@ public class DecoFlowers extends WorldGenerator
     	{
 	        for (int l = 0; l < 64; ++l)
 	        {
-	            int i1 = x + rand.nextInt(8) - rand.nextInt(8);
-	            int j1 = y + rand.nextInt(4) - rand.nextInt(4);
-	            int k1 = z + rand.nextInt(8) - rand.nextInt(8);
-	
-	            if (world.isAirBlock(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255) && Blocks.yellow_flower.canBlockStay(world, i1, j1, k1))
+	        	BlockPos blockPos1 = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
+                
+	            if (world.isAirBlock(blockPos1) && (!world.provider.getHasNoSky() || blockPos1.getY() < 255) && Blocks.yellow_flower.canBlockStay(world, blockPos1, Blocks.yellow_flower.getDefaultState()))
 	            {
-	            	world.setBlock(i1, j1, k1, Blocks.yellow_flower, 0, 0);
+	            	world.setBlockState(blockPos1, Blocks.yellow_flower.getDefaultState(), 0);
 	            }
 	        }
     	}
@@ -74,13 +73,11 @@ public class DecoFlowers extends WorldGenerator
     	{
 	        for (int l = 0; l < 64; ++l)
 	        {
-	            int i1 = x + rand.nextInt(8) - rand.nextInt(8);
-	            int j1 = y + rand.nextInt(4) - rand.nextInt(4);
-	            int k1 = z + rand.nextInt(8) - rand.nextInt(8);
-	
-	            if (world.isAirBlock(i1, j1, k1) && (!world.provider.hasNoSky || j1 < 255) && Blocks.red_flower.canBlockStay(world, i1, j1, k1))
+	        	BlockPos blockPos1 = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
+                
+	            if (world.isAirBlock(blockPos1) && (!world.provider.getHasNoSky() || blockPos1.getY() < 255)  && Blocks.red_flower.canBlockStay(world, blockPos1, Blocks.red_flower.getDefaultState()))
 	            {
-	            	world.setBlock(i1, j1, k1, Blocks.red_flower, randomFlower, 0);
+	            	world.setBlockState(blockPos1, Blocks.red_flower.getStateFromMeta(randomFlower), 0);
 	            }
 	        }
     	}

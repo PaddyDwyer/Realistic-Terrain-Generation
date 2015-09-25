@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -13,7 +14,7 @@ public class DecoWillow extends WorldGenerator
 	{
 	}
 
-    public boolean generate(World world, Random rand, int x, int y, int z)
+    public boolean generate(World world, Random rand, BlockPos pos)
     {
     	Block cb;
     	boolean earth = false;
@@ -24,7 +25,7 @@ public class DecoWillow extends WorldGenerator
         	{
             	for(int c2 = -1; c2 <= 1; c2++)
             	{
-            		cb = world.getBlock(x + c1, y + c2, z + c3);
+            		cb = world.getBlockState(pos.add(c1, c2, c3)).getBlock();
             		if(cb == Blocks.grass)
             		{
             			earth = true;
@@ -49,10 +50,10 @@ public class DecoWillow extends WorldGenerator
     	
     	for(int i = 0; i < height; i++)
     	{
-    		world.setBlock(x, y + i, z, Blocks.log, 0, 0);
+    		world.setBlockState(pos.up(i), Blocks.log.getDefaultState(), 0);
     	}
-    	createLeavesAroundBranch(world, rand, x, y + height, z, 3, 2);
-    	createTrunk(world, rand, x, y, z);
+    	createLeavesAroundBranch(world, rand, pos.up(height), 3, 2);
+    	createTrunk(world, rand, pos);
     	
     	int dir = rand.nextInt((int)(360f / branches));
     	int bl;
@@ -72,19 +73,19 @@ public class DecoWillow extends WorldGenerator
     			if(c > branchLenght / 2 && !m)
     			{
     				m = true;
-    				createLeavesAroundBranch(world, rand, x + (int)(c * xd), y + (int)hd, z + (int)(c * yd), 2, 1);
+    				createLeavesAroundBranch(world, rand, pos.add(c * xd, hd, c * yd), 2, 1);
     			}
     			c++;
     			hd += 0.5f;
-    			world.setBlock(x + (int)(c * xd), y + (int)hd, z + (int)(c * yd), Blocks.log, 12, 0);
+    			world.setBlockState(pos.add(c * xd, hd, c * yd), Blocks.log.getStateFromMeta(12), 0);
     		}
-    		createLeavesAroundBranch(world, rand, x + (int)(c * xd), y + (int)hd, z + (int)(c * yd), 2, 1);
+    		createLeavesAroundBranch(world, rand, pos.add(c * xd, hd, c * yd), 2, 1);
     	}
     	
     	return true;
     }
     
-    private void createLeavesAroundBranch(World world, Random rand, int x, int y, int z, int s, int c)
+    private void createLeavesAroundBranch(World world, Random rand, BlockPos pos, int s, int c)
     {
     	int l;
     	int t = (int)Math.pow(s, 2);
@@ -97,12 +98,13 @@ public class DecoWillow extends WorldGenerator
     				l = i*i + j*j + k*k;
     				if(l <= t)
     				{
-    					if(world.isAirBlock(x + i, y + j, z + k) && (l < t - c || rand.nextBoolean()))
+    					BlockPos pos1 = pos.add(i, j, k);
+    					if(world.isAirBlock(pos1) && (l < t - c || rand.nextBoolean()))
     					{
-    						world.setBlock(x + i, y + j, z + k, Blocks.leaves, 6, 0);
+    						world.setBlockState(pos1, Blocks.leaves.getStateFromMeta(6), 0);
     						if(j < -(s - 2) && rand.nextInt(3) != 0)
     						{
-    							createVine(world, rand, x + i, y + j, z + k);
+    							createVine(world, rand, pos1);
     						}
     					}
     				}
@@ -111,30 +113,30 @@ public class DecoWillow extends WorldGenerator
     	}
     }
     
-    private void createVine(World world, Random rand, int x, int y, int z)
+    private void createVine(World world, Random rand, BlockPos pos)
     {
     	int r = rand.nextInt(3) + 5;
     	for(int i = -1; i > -r; i--)
     	{
-			if(!world.isAirBlock(x, y + i, z))
+    		BlockPos pos1 = pos.up(i);
+			if(!world.isAirBlock(pos1))
 			{
 				break;
 			}
-			world.setBlock(x, y + i, z, Blocks.leaves, 6, 0);
+			world.setBlockState(pos1, Blocks.leaves.getStateFromMeta(6), 0);
     	}
     }
     
-    private void createTrunk(World world, Random rand, int x, int y, int z)
+    private void createTrunk(World world, Random rand, BlockPos pos)
     {
-    	int[] pos = new int[]{0,0, 1,0, 0,1, -1,0, 0,-1};
-    	int sh;
+    	int[] vec = new int[]{0,0, 1,0, 0,1, -1,0, 0,-1};
     	for(int t = 0; t < 5; t++)
-    	{    	
-    		sh = rand.nextInt(3) + y;
-    		while(sh > y - 3)
+    	{
+    		BlockPos pos1 = pos.up(rand.nextInt(3));
+    		while(pos1.getY() > pos.getY() - 3)
     		{
-    			world.setBlock(x + pos[t * 2], sh, z + pos[t * 2 + 1], Blocks.log, 12, 0);
-    			sh--;
+    			world.setBlockState(pos1.add(vec[t * 2], 0, vec[t * 2 + 1]), Blocks.log.getStateFromMeta(12), 0);
+    			pos1 = pos1.down();
     		}
     	}
     }

@@ -5,6 +5,8 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
@@ -21,24 +23,27 @@ public class DecoPineTree extends WorldGenAbstractTree
         metadata = m;
     }
 
-    public boolean generate(World p_76484_1_, Random p_76484_2_, int p_76484_3_, int p_76484_4_, int p_76484_5_)
+    public boolean generate(World world, Random rand, BlockPos pos)
     {
-        int l = p_76484_2_.nextInt(height * 2) + height * 2;
-        int i1 = height + p_76484_2_.nextInt(height);
+        int l = rand.nextInt(height * 2) + height * 2;
+        int i1 = height + rand.nextInt(height);
         int j1 = l - i1;
-        int k1 = 2 + p_76484_2_.nextInt(2);
+        int k1 = 2 + rand.nextInt(2);
         boolean flag = true;
 
-        if (p_76484_4_ >= 1 && p_76484_4_ + l + 1 <= 256)
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
+        if (y >= 1 && y + l + 1 <= 256)
         {
             int i2;
             int l3;
 
-            for (int l1 = p_76484_4_; l1 <= p_76484_4_ + 1 + l && flag; ++l1)
+            for (int l1 = y; l1 <= y + 1 + l && flag; ++l1)
             {
                 boolean flag1 = true;
 
-                if (l1 - p_76484_4_ < i1)
+                if (l1 - y < i1)
                 {
                     l3 = 0;
                 }
@@ -47,15 +52,16 @@ public class DecoPineTree extends WorldGenAbstractTree
                     l3 = k1;
                 }
 
-                for (i2 = p_76484_3_ - l3; i2 <= p_76484_3_ + l3 && flag; ++i2)
+                for (i2 = x - l3; i2 <= x + l3 && flag; ++i2)
                 {
-                    for (int j2 = p_76484_5_ - l3; j2 <= p_76484_5_ + l3 && flag; ++j2)
+                    for (int j2 = z - l3; j2 <= z + l3 && flag; ++j2)
                     {
                         if (l1 >= 0 && l1 < 256)
                         {
-                            Block block = p_76484_1_.getBlock(i2, l1, j2);
+                        	BlockPos pos1 = new BlockPos(i2, l1, j2);
+                            Block block = world.getBlockState(pos1).getBlock();
 
-                            if (!block.isAir(p_76484_1_, i2, l1, j2) && !block.isLeaves(p_76484_1_, i2, l1, j2) && block != Blocks.snow_layer)
+                            if (!block.isAir(world, pos1) && !block.isLeaves(world, pos1) && block != Blocks.snow_layer)
                             {
                                 flag = false;
                             }
@@ -74,13 +80,13 @@ public class DecoPineTree extends WorldGenAbstractTree
             }
             else
             {
-                Block block1 = p_76484_1_.getBlock(p_76484_3_, p_76484_4_ - 1, p_76484_5_);
+                Block block1 = world.getBlockState(pos.down()).getBlock();
 
-                boolean isSoil = block1.canSustainPlant(p_76484_1_, p_76484_3_, p_76484_4_ - 1, p_76484_5_, ForgeDirection.UP, (BlockSapling)Blocks.sapling);
-                if (isSoil && p_76484_4_ < 256 - l - 1)
+                boolean isSoil = block1.canSustainPlant(world, pos.down(), EnumFacing.UP, (BlockSapling)Blocks.sapling);
+                if (isSoil && y < 256 - l - 1)
                 {
-                    block1.onPlantGrow(p_76484_1_, p_76484_3_, p_76484_4_ - 1, p_76484_5_, p_76484_3_, p_76484_4_, p_76484_5_);
-                    l3 = p_76484_2_.nextInt(2);
+                    block1.onPlantGrow(world, pos.down(), pos);
+                    l3 = rand.nextInt(2);
                     i2 = 1;
                     byte b0 = 0;
                     int k2;
@@ -88,19 +94,20 @@ public class DecoPineTree extends WorldGenAbstractTree
 
                     for (i4 = 0; i4 <= j1; ++i4)
                     {
-                        k2 = p_76484_4_ + l - i4;
+                        k2 = y + l - i4;
 
-                        for (int l2 = p_76484_3_ - l3; l2 <= p_76484_3_ + l3; ++l2)
+                        for (int l2 = x - l3; l2 <= x + l3; ++l2)
                         {
-                            int i3 = l2 - p_76484_3_;
+                            int i3 = l2 - x;
 
-                            for (int j3 = p_76484_5_ - l3; j3 <= p_76484_5_ + l3; ++j3)
+                            for (int j3 = z - l3; j3 <= z + l3; ++j3)
                             {
-                                int k3 = j3 - p_76484_5_;
+                                int k3 = j3 - z;
+                                BlockPos pos1 = new BlockPos(l2, k2, j3);
 
-                                if ((Math.abs(i3) != l3 || Math.abs(k3) != l3 || l3 <= 0) && p_76484_1_.getBlock(l2, k2, j3).canBeReplacedByLeaves(p_76484_1_, l2, k2, j3))
+                                if ((Math.abs(i3) != l3 || Math.abs(k3) != l3 || l3 <= 0) && world.getBlockState(pos1).getBlock().canBeReplacedByLeaves(world, pos1))
                                 {
-                                    p_76484_1_.setBlock(l2, k2, j3, Blocks.leaves, metadata, 0);
+                                    world.setBlockState(pos1, Blocks.leaves.getStateFromMeta(metadata), 0);
                                 }
                             }
                         }
@@ -122,21 +129,21 @@ public class DecoPineTree extends WorldGenAbstractTree
                         }
                     }
 
-                    i4 = p_76484_2_.nextInt(3);
+                    i4 = rand.nextInt(3);
 
                     for (k2 = 0; k2 < l - i4; ++k2)
                     {
-                        Block block2 = p_76484_1_.getBlock(p_76484_3_, p_76484_4_ + k2, p_76484_5_);
+                        Block block2 = world.getBlockState(pos.up(k2)).getBlock();
 
-                        if (block2.isAir(p_76484_1_, p_76484_3_, p_76484_4_ + k2, p_76484_5_) || block2.isLeaves(p_76484_1_, p_76484_3_, p_76484_4_ + k2, p_76484_5_) || block2 == Blocks.snow_layer)
+                        if (block2.isAir(world, pos.up(k2)) || block2.isLeaves(world, pos.up(k2)) || block2 == Blocks.snow_layer)
                         {
-                        	p_76484_1_.setBlock(p_76484_3_, p_76484_4_ + k2, p_76484_5_, Blocks.log, 0, 0);
+                        	world.setBlockState(pos.up(k2), Blocks.log.getDefaultState(), 0);
                         }
                     }
                     
                     if(height > 4)
                     {
-                    	createTrunk(p_76484_1_, p_76484_2_, p_76484_3_, p_76484_4_, p_76484_5_);
+                    	createTrunk(world, rand, pos);
                     }
 
                     return true;
@@ -153,22 +160,21 @@ public class DecoPineTree extends WorldGenAbstractTree
         }
     }
     
-    private void createTrunk(World world, Random rand, int x, int y, int z)
+    private void createTrunk(World world, Random rand, BlockPos pos)
     {
-    	int[] pos = new int[]{0,0, 1,0, 0,1, -1,0, 0,-1};
-    	int sh;
-    	Block b;
+    	int[] vec = new int[]{0,0, 1,0, 0,1, -1,0, 0,-1};
+    	BlockPos pos1;
     	for(int t = 0; t < 5; t++)
     	{    	
-    		sh = rand.nextInt(4) + y - 2;
-    		while(sh > y - 1)
+    		pos1 = pos.up(rand.nextInt(3));
+    		while(pos1.getY() > pos.getY() - 1)
     		{
-    			if(world.getBlock(x + pos[t * 2], sh, z + pos[t * 2 + 1]) == Blocks.grass)
+    			if(world.getBlockState(pos1.add(vec[t * 2], 0, vec[t * 2 + 1])).getBlock() == Blocks.grass)
     			{
     				break;
     			}
-    			world.setBlock(x + pos[t * 2], sh, z + pos[t * 2 + 1], Blocks.log, 12, 0);
-    			sh--;
+    			world.setBlockState(pos1.add(vec[t * 2], 0, vec[t * 2 + 1]), Blocks.log.getStateFromMeta(12), 0);
+    			pos1.down();
     		}
     	}
     }

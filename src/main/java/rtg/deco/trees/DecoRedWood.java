@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -22,9 +23,9 @@ public class DecoRedWood extends WorldGenerator
 		metadata = m;
 	}
 
-    public boolean generate(World world, Random rand, int x, int y, int z)
+    public boolean generate(World world, Random rand, BlockPos pos)
     {
-    	Block g = world.getBlock(x, y - 1, z);
+    	Block g = world.getBlockState(pos.down()).getBlock();
     	if(g != Blocks.grass && g != Blocks.dirt && g != Blocks.sand)
     	{
     		return false;
@@ -32,29 +33,29 @@ public class DecoRedWood extends WorldGenerator
     	
     	for(int l1 = 0; l1 < 5; l1++)
     	{
-			genLeaves(world, rand, x - 1 + rand.nextInt(3), y + height - l1, z - 1 + rand.nextInt(3), 1);
-			genLeaves(world, rand, x - 1 + rand.nextInt(3), y + height - l1, z - 1 + rand.nextInt(3), 1);
+			genLeaves(world, rand, pos.add(-1 + rand.nextInt(3), height - l1, -1 + rand.nextInt(3)), 1);
+			genLeaves(world, rand, pos.add(-1 + rand.nextInt(3), height - l1, -1 + rand.nextInt(3)), 1);
     	}
     	for(int l2 = 5; l2 < leaves; l2++)
     	{
-			genLeaves(world, rand, x - 2 + rand.nextInt(5), y + height - l2, z - 2 + rand.nextInt(5), 2);
+			genLeaves(world, rand, pos.add(-2 + rand.nextInt(5), height - l2, -2 + rand.nextInt(5)), 2);
 			if(rand.nextBoolean())
 			{
-				genLeaves(world, rand, x - 2 + rand.nextInt(5), y + height - l2, z - 2 + rand.nextInt(5), 2);
+				genLeaves(world, rand, pos.add(-2 + rand.nextInt(5), height - l2, -2 + rand.nextInt(5)), 2);
 			}
     	}
     	
     	for(int i = 0; i < height; i++)
     	{
-        	world.setBlock(x, y + i, z, Blocks.log, 0, 0);
+        	world.setBlockState(pos.up(i), Blocks.log.getDefaultState(), 0);
     	}
-    	world.setBlock(x, y + height, z, Blocks.leaves, metadata, 0);
-    	createTrunk(world, rand, x, y, z);
+    	world.setBlockState(pos.up(height), Blocks.leaves.getStateFromMeta(metadata), 0);
+    	createTrunk(world, rand, pos);
     	
     	return true;
     }
 
-    public void genLeaves(World world, Random rand, int x, int y, int z, int size)
+    public void genLeaves(World world, Random rand, BlockPos pos, int size)
     {
     	int i;
     	int j;
@@ -64,9 +65,10 @@ public class DecoRedWood extends WorldGenerator
     		for(j = -1; j <= 1; j++)
     		{
     			dis = Math.abs(i) + Math.abs(j);
-    			if(world.isAirBlock(x + i, y + 1, z + j) && (dis < size - 1 || (dis < size && rand.nextBoolean())))
+    			BlockPos pos1 = pos.add(i, 1 ,j);
+    			if(world.isAirBlock(pos1) && (dis < size - 1 || (dis < size && rand.nextBoolean())))
     			{
-    				world.setBlock(x + i, y + 1, z + j, Blocks.leaves, metadata, 0);
+    				world.setBlockState(pos1, Blocks.leaves.getStateFromMeta(metadata), 0);
     			}
     		}
     	}
@@ -76,35 +78,37 @@ public class DecoRedWood extends WorldGenerator
     		for(j = -2; j <= 2; j++)
     		{
     			dis = Math.abs(i) + Math.abs(j);
-    			if(world.isAirBlock(x + i, y, z + j) && (dis < size * 2 - 1 || (dis < size * 2 && rand.nextBoolean())))
+    			BlockPos pos1 = pos.add(i, 0 ,j);
+    			if(world.isAirBlock(pos1) && (dis < size * 2 - 1 || (dis < size * 2 && rand.nextBoolean())))
     			{
-    				world.setBlock(x + i, y, z + j, Blocks.leaves, metadata, 0);
+    				world.setBlockState(pos1, Blocks.leaves.getStateFromMeta(metadata), 0);
     			}
     		}
     	}
     	
     	if(size > 1)
     	{
-    		world.setBlock(x, y, z, Blocks.log, 12, 0);
+    		world.setBlockState(pos, Blocks.log.getStateFromMeta(12), 0);
     	}
     }
     
-    private void createTrunk(World world, Random rand, int x, int y, int z)
+    private void createTrunk(World world, Random rand, BlockPos pos)
     {
-    	int[] pos = new int[]{0,0, 1,0, 0,1, -1,0, 0,-1, 1,1, 1,-1, -1,1, -1,-1};
-    	int sh;
+    	int[] vec = new int[]{0,0, 1,0, 0,1, -1,0, 0,-1, 1,1, 1,-1, -1,1, -1,-1};
+    	BlockPos pos1;
     	Block b;
     	for(int t = 0; t < 9; t++)
     	{    	
-    		sh = pos[t*2] == 0 || pos[t*2+1] == 0 ? rand.nextInt(trunk * 2) + y + trunk : rand.nextInt(trunk) + y - 1;
-    		while(sh > y - 2)
+    		pos1 = pos.up(vec[t*2] == 0 || vec[t*2+1] == 0 ? rand.nextInt(trunk * 2) + trunk : rand.nextInt(trunk) - 1);
+    		while(pos1.getY() > pos.getY() - 2)
     		{
-    			if(world.getBlock(x + pos[t * 2], sh, z + pos[t * 2 + 1]) == Blocks.grass)
+    			BlockPos pos2 = pos.add(vec[t * 2], 0, vec[t * 2 + 1]);
+    			if(world.getBlockState(pos2).getBlock() == Blocks.grass)
     			{
     				break;
     			}
-    			world.setBlock(x + pos[t * 2], sh, z + pos[t * 2 + 1], Blocks.log, 12, 0);
-    			sh--;
+    			world.setBlockState(pos2, Blocks.log.getStateFromMeta(12), 0);
+    			pos1 = pos.down();
     		}
     	}
     }

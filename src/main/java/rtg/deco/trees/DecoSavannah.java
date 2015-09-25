@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -23,9 +24,9 @@ public class DecoSavannah extends WorldGenerator
     	sand = s;
     }
 
-    public boolean generate(World world, Random rand, int x, int y, int z)
+    public boolean generate(World world, Random rand, BlockPos pos)
     {
-    	Block b = world.getBlock(x, y - 1, z);
+    	Block b = world.getBlockState(pos.down()).getBlock();
     	if(b != Blocks.grass && b != Blocks.dirt && ((sand && b != Blocks.sand) || !sand))
     	{
     		return false;
@@ -38,9 +39,9 @@ public class DecoSavannah extends WorldGenerator
 	    	
 	    	for(int i = 0; i < h; i++)
 	    	{
-	    		world.setBlock(x, y + i, z, Blocks.log2, 0, 0);
+	    		world.setBlockState(pos.up(i), Blocks.log2.getDefaultState(), 0);
 	    	}
-			genLeaves(world, rand, x, y + h, z);
+			genLeaves(world, rand, pos.up(h));
 			
 			int sh, eh, dir;
 			float xd, yd, c;
@@ -54,13 +55,16 @@ public class DecoSavannah extends WorldGenerator
 				yd = (float)Math.sin(dir * Math.PI / 180f) * 2f;
 				c = 1;
 				
+				BlockPos pos1 = pos.add(xd * c, sh, yd * c);
+				
 				while(sh < h)
 				{
-					world.setBlock(x + (int)(xd * c), y + sh, z + (int)(yd * c), Blocks.log2, 0, 0);
+					world.setBlockState(pos1, Blocks.log2.getDefaultState(), 0);
 					sh++;
 					c += 0.5f;
+					pos1 = pos.add(xd * c, sh, yd * c);
 				}
-				genLeaves(world, rand, x + (int)(xd * c), y + sh, z + (int)(yd * c));
+				genLeaves(world, rand, pos1);
 			}
     	}
     	else if(type == 1)
@@ -70,9 +74,9 @@ public class DecoSavannah extends WorldGenerator
 	    	
 	    	for(int i = 0; i < h; i++)
 	    	{
-	    		world.setBlock(x, y + i, z, Blocks.log2, 0, 0);
+	    		world.setBlockState(pos.up(i), Blocks.log2.getDefaultState(), 0);
 	    	}
-			genLeaves(world, rand, x, y + h, z);
+			genLeaves(world, rand, pos.up(h));
 			
 			int sh, eh, dir;
 			float xd, yd, c;
@@ -86,13 +90,16 @@ public class DecoSavannah extends WorldGenerator
 				yd = (float)Math.sin(dir * Math.PI / 180f) * 2f;
 				c = 1;
 				
+				BlockPos pos1 = pos.add(xd * c, sh, yd * c);
+				
 				while(sh < h)
 				{
-					world.setBlock(x + (int)(xd * c), y + sh, z + (int)(yd * c), Blocks.log2, 0, 0);
+					world.setBlockState(pos1, Blocks.log2.getDefaultState(), 0);
 					sh++;
 					c += 0.5f;
+					pos1 = pos.add(xd * c, sh, yd * c);
 				}
-				genLeaves(world, rand, x + (int)(xd * c), y + sh, z + (int)(yd * c));
+				genLeaves(world, rand, pos1);
 			}
     	}
     	else if(type == 2)
@@ -102,9 +109,9 @@ public class DecoSavannah extends WorldGenerator
 	    	
 	    	for(int i = 0; i < h; i++)
 	    	{
-	    		world.setBlock(x, y + i, z, Blocks.log2);
+	    		world.setBlockState(pos.up(i), Blocks.log2.getDefaultState());
 	    	}
-			genLeaves(world, rand, x, y + h, z);
+			genLeaves(world, rand, pos.up(h));
 			
 			int sh, eh, dir;
 			float xd, yd, c;
@@ -118,20 +125,23 @@ public class DecoSavannah extends WorldGenerator
 				yd = (float)Math.sin(dir * Math.PI / 180f) * 2f;
 				c = 1;
 				
+				BlockPos pos1 = pos.add(xd * c, sh, yd * c);
+				
 				while(sh < h)
 				{
-					world.setBlock(x + (int)(xd * c), y + sh, z + (int)(yd * c), Blocks.log2);
+					world.setBlockState(pos1, Blocks.log2.getDefaultState());
 					sh++;
 					c += 0.5f;
+					pos1 = pos.add(xd * c, sh, yd * c);
 				}
-				genLeaves(world, rand, x + (int)(xd * c), y + sh, z + (int)(yd * c));
+				genLeaves(world, rand, pos1);
 			}
     	}
     	
     	return true;
     }
     
-    public void genLeaves(World world, Random rand, int x, int y, int z)
+    public void genLeaves(World world, Random rand, BlockPos pos)
     {
     	if(type == 0)
     	{
@@ -141,9 +151,10 @@ public class DecoSavannah extends WorldGenerator
 	    	{
 	    		for(j = -2; j <= 2; j++)
 	    		{
-	    			if(world.isAirBlock(x + i, y + 1, z + j) && Math.abs(i) + Math.abs(j) < 4)
+	    			BlockPos pos1 = pos.add(i, 1, j);
+	    			if(world.isAirBlock(pos1) && Math.abs(i) + Math.abs(j) < 4)
 	    			{
-	    				world.setBlock(x + i, y + 1, z + j, Blocks.leaves2, 0, 0);
+	    				world.setBlockState(pos1, Blocks.leaves2.getDefaultState(), 0);
 	    			}
 	    		}
 	    	}
@@ -152,14 +163,15 @@ public class DecoSavannah extends WorldGenerator
 	    	{
 	    		for(j = -3; j <= 3; j++)
 	    		{
-	    			if(world.isAirBlock(x + i, y, z + j) && Math.abs(i) + Math.abs(j) < 5)
+	    			BlockPos pos1 = pos.add(i, 0, j);
+	    			if(world.isAirBlock(pos1) && Math.abs(i) + Math.abs(j) < 5)
 	    			{
-	    				world.setBlock(x + i, y, z + j, Blocks.leaves2, 0, 0);
+	    				world.setBlockState(pos1, Blocks.leaves2.getDefaultState(), 0);
 	    			}
 	    		}
 	    	}
 	    	
-	    	world.setBlock(x, y, z, Blocks.log2);
+	    	world.setBlockState(pos, Blocks.log2.getDefaultState());
     	}
     	else
     	{
@@ -169,9 +181,10 @@ public class DecoSavannah extends WorldGenerator
 	    	{
 	    		for(j = -1; j <= 1; j++)
 	    		{
-	    			if(world.isAirBlock(x + i, y + 1, z + j))
+	    			BlockPos pos1 = pos.add(i, 1, j);
+	    			if(world.isAirBlock(pos1))
 	    			{
-	    				world.setBlock(x + i, y + 1, z + j, Blocks.leaves2, 0, 0);
+	    				world.setBlockState(pos1, Blocks.leaves2.getDefaultState(), 0);
 	    			}
 	    		}
 	    	}
@@ -180,14 +193,15 @@ public class DecoSavannah extends WorldGenerator
 	    	{
 	    		for(j = -2; j <= 2; j++)
 	    		{
-	    			if(world.isAirBlock(x + i, y, z + j) && Math.abs(i) + Math.abs(j) < 4)
+	    			BlockPos pos1 = pos.add(i, 0, j);
+	    			if(world.isAirBlock(pos1) && Math.abs(i) + Math.abs(j) < 4)
 	    			{
-	    				world.setBlock(x + i, y, z + j, Blocks.leaves2, 0, 0);
+	    				world.setBlockState(pos1, Blocks.leaves2.getDefaultState(), 0);
 	    			}
 	    		}
 	    	}
 	    	
-	    	world.setBlock(x, y, z, Blocks.log2);
+	    	world.setBlockState(pos, Blocks.log2.getDefaultState());
     	}
     }
 }

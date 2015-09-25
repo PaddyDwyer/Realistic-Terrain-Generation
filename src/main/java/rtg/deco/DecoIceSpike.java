@@ -5,33 +5,35 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class DecoIceSpike extends WorldGenerator
 {
-    public boolean generate(World world, Random rand, int x, int y, int z)
+//    public boolean generate(World world, Random rand, BlockPos pos)
+    public boolean generate(World world, Random rand, BlockPos pos)
     {
-        while (world.isAirBlock(x, y, z) && y > 2)
+        while (world.isAirBlock(pos) && pos.getY() > 2)
         {
-            --y;
+            pos = pos.down();
         }
 
-        Block block = world.getBlock(x, y, z);
+        Block block = world.getBlockState(pos).getBlock();
         if (block != Blocks.snow && block != Blocks.snow_layer)
         {
             return false;
         }
         else
         {
-            y += rand.nextInt(4);
+            pos = pos.up(rand.nextInt(4));
             int l = rand.nextInt(4) + 7;
             int i1 = l / 4 + rand.nextInt(2);
 
             if (i1 > 1 && rand.nextInt(60) == 0)
             {
-                y += 10 + rand.nextInt(30);
+                pos = pos.up(10 + rand.nextInt(30));
             }
 
             int j1;
@@ -53,20 +55,22 @@ public class DecoIceSpike extends WorldGenerator
 
                         if ((l1 == 0 && i2 == 0 || f1 * f1 + f2 * f2 <= f * f) && (l1 != -k1 && l1 != k1 && i2 != -k1 && i2 != k1 || rand.nextFloat() <= 0.75F))
                         {
-                            block = world.getBlock(x + l1, y + j1, z + i2);
+                        	BlockPos pos1 = pos.add(l1, j1, i2);
+                            block = world.getBlockState(pos1).getBlock();
 
                             if (block.getMaterial() == Material.air || block == Blocks.dirt || block == Blocks.snow || block == Blocks.ice)
                             {
-                                this.func_150515_a(world, x + l1, y + j1, z + i2, Blocks.packed_ice);
+                                this.func_175906_a(world, pos1, Blocks.packed_ice);
                             }
 
                             if (j1 != 0 && k1 > 1)
                             {
-                                block = world.getBlock(x + l1, y - j1, z + i2);
+                            	pos1 = pos.add(l1, -j1, i2);
+                                block = world.getBlockState(pos1).getBlock();
 
                                 if (block.getMaterial() == Material.air || block == Blocks.dirt || block == Blocks.snow || block == Blocks.ice)
                                 {
-                                    this.func_150515_a(world, x + l1, y - j1, z + i2, Blocks.packed_ice);
+                                    this.func_175906_a(world, pos1, Blocks.packed_ice);
                                 }
                             }
                         }
@@ -91,7 +95,7 @@ public class DecoIceSpike extends WorldGenerator
 
                 while (k1 <= j1)
                 {
-                    l1 = y - 1;
+                    l1 = pos.getY() - 1;
                     int k2 = 50;
 
                     if (Math.abs(j2) == 1 && Math.abs(k1) == 1)
@@ -103,11 +107,12 @@ public class DecoIceSpike extends WorldGenerator
                     {
                         if (l1 > 50)
                         {
-                            block = world.getBlock(x + j2, l1, z + k1);
+                        	BlockPos pos1 = pos.add(j2, -1, k1);
+                            block = world.getBlockState(pos1).getBlock();
 
                             if (block.getMaterial() == Material.air || block == Blocks.dirt || block == Blocks.snow || block == Blocks.ice || block == Blocks.packed_ice)
                             {
-                                this.func_150515_a(world, x + j2, l1, z + k1, Blocks.packed_ice);
+                                this.func_175906_a(world, pos1, Blocks.packed_ice);
                                 --l1;
                                 --k2;
 

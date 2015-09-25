@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -23,31 +24,30 @@ public class DecoCacti extends WorldGenerator
 		eHeight = extraHeight;
 	}
 
-    public boolean generate(World world, Random rand, int x, int y, int z)
+//    public boolean generate(World world, Random rand, BlockPos pos)
+    public boolean generate(World world, Random rand, BlockPos pos)
     {
     	Block b;
         for (int l = 0; l < 10; ++l)
         {
-            int i1 = x + rand.nextInt(8) - rand.nextInt(8);
-            int j1 = y + rand.nextInt(4) - rand.nextInt(4);
-            int k1 = z + rand.nextInt(8) - rand.nextInt(8);
-
-            if (world.isAirBlock(i1, j1, k1))
+        	BlockPos blockPos1 = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
+            
+            if (world.isAirBlock(blockPos1))
             {
-            	b = world.getBlock(i1, j1 - 1, k1);
+                b = world.getBlockState(blockPos1.down()).getBlock();
             	if(b == Blocks.sand || (!sand && (b == Blocks.grass || b == Blocks.dirt)))
             	{
 	                int l1 = 1 + rand.nextInt(rand.nextInt(3) + 1);
 	                if(b == Blocks.grass || b == Blocks.dirt)
 	                {
-	                	world.setBlock(i1, j1 - 1, k1, Blocks.sand, 0, 2);
+	                	world.setBlockState(blockPos1.down(), Blocks.sand.getDefaultState(), 2);
 	                }
 	
 	                for (int i2 = 0; i2 < l1 + eHeight; ++i2)
 	                {
-	                    if (Blocks.cactus.canBlockStay(world, i1, j1 + i2, k1))
+	                    if (Blocks.cactus.canBlockStay(world, blockPos1.up(i2)))
 	                    {
-	                    	world.setBlock(i1, j1 + i2, k1, Blocks.cactus, 0, 2);
+	                    	world.setBlockState(blockPos1.up(i2), Blocks.cactus.getDefaultState(), 2);
 	                    }
 	                }
             	}

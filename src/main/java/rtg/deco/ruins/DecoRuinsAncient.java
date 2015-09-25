@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 public class DecoRuinsAncient 
@@ -15,25 +16,25 @@ public class DecoRuinsAncient
 		block = b;
 	}
 	
-	public boolean generate(World world, Random rand, int x, int y, int z) 
+	public boolean generate(World world, Random rand, BlockPos pos) 
 	{
 		int type = rand.nextInt(2);
 		
-		Block g = world.getBlock(x, y - 1, z);
+		Block g = world.getBlockState(pos.down()).getBlock();
     	if(g.getMaterial() != Material.ground && g.getMaterial() != Material.grass && g.getMaterial() != Material.sand && g.getMaterial() != Material.rock)
     	{
     		return false;
     	}
     	
-    	int high = y;
-    	int low = y;
+    	int high = pos.getY();
+    	int low = pos.getY();
     	for(int cX = -6; cX <= 6; cX += 12)
     	{
     		for(int cZ = -6; cZ <= 6; cZ += 12)
     		{
-    			for(int cY = y + 10; cY > 40; cY--)
+    			for(int cY = 10; cY > 40; cY--)
     			{
-					Block b = world.getBlock(x + cX, cY, z + cZ);
+					Block b = world.getBlockState(pos.add(cX, cY, cZ)).getBlock();
 			    	if(b.getMaterial() == Material.ground || b.getMaterial() == Material.grass || b.getMaterial() == Material.sand || b.getMaterial() == Material.rock)
 			    	{
 			    		high = cY > high ? cY : high;
@@ -54,13 +55,11 @@ public class DecoRuinsAncient
 		{
 			for(int a = rand.nextInt(4) + 3; a > -1; a--)
 			{
-				int sX = x - 4 + rand.nextInt(9);
-				int sZ = z - 4 + rand.nextInt(9);
-				int sY = y + 10;
+				BlockPos pos1 = pos.add(-4 + rand.nextInt(9), 10, -4 + rand.nextInt(9));
 				
-				for(; sY > 50; sY--)
+				for(int sY = pos1.getY(); sY > 50; sY--)
 				{
-					Block b = world.getBlock(sX, sY - 1, sZ);
+					Block b = world.getBlockState(pos1.down()).getBlock();
 			    	if(b.getMaterial() == Material.ground || b.getMaterial() == Material.grass || b.getMaterial() == Material.sand || b.getMaterial() == Material.rock)
 			    	{
 			    		break;
@@ -70,7 +69,7 @@ public class DecoRuinsAncient
 				int h = rand.nextInt(3) + 2 - rand.nextInt(2);
 				for(int i = 0; i < h; i++)
 				{
-					world.setBlock(sX, sY + i, sZ, block, 0, 0);
+					world.setBlockState(pos1.up(i), block.getDefaultState(), 0);
 				}
 			}
 		}
@@ -83,7 +82,7 @@ public class DecoRuinsAncient
 					int h = rand.nextInt(4) + (i == 0 && j == 0 ? 3 : 1);
 					for(int k = -2; k < h; k++)
 					{
-						world.setBlock(x + i, y + k, z + j, block, 0, 0);
+						world.setBlockState(pos.add(i, k, j), block.getDefaultState(), 0);
 					}
 				}
 			}

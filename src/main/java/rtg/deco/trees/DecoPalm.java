@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -71,16 +72,16 @@ public class DecoPalm extends WorldGenerator
 	}
 	
 	@Override
-	public boolean generate(World world, Random rand, int x, int y, int z) 
+	public boolean generate(World world, Random rand, BlockPos pos) 
 	{
-    	Block b = world.getBlock(x, y - 1, z);
+    	Block b = world.getBlockState(pos.down()).getBlock();
     	if(b != Blocks.grass && b != Blocks.dirt && b != Blocks.sand)
     	{
     		return false;
     	}
     	
     	double horDir = getRandomDir(rand);
-    	float verDir = 0.3f + rand.nextFloat() * 0.4f, length = 15f, posX = (float)x, posY = (float)y, posZ = (float)z, c = 0f, loss = 0f;
+    	float verDir = 0.3f + rand.nextFloat() * 0.4f, length = 15f, c = 0f, loss = 0f;
     	
 		if(verDir < 0f)
 		{
@@ -99,38 +100,37 @@ public class DecoPalm extends WorldGenerator
 		
 		while(c < length)
 		{
-			world.setBlock((int)posX, (int)posY, (int)posZ, Blocks.log, 15, 2);
+			world.setBlockState(pos, Blocks.log.getStateFromMeta(15), 2);
 			
 			if(c < length - 3)
 			{
 				loss = Math.abs(velX) + Math.abs(velZ);
-				posX += velX *= 0.9f;
-				posZ += velZ *= 0.9f;
+				velX *= 0.9f;
+				velZ *= 0.9f;
 				loss = loss - (Math.abs(velX) + Math.abs(velZ));
-				posY += velY += loss;
+				velY += loss;
+				pos.add(velX, velY, velZ);
 			}
 			else
 			{
-				posY += velY;
+				pos = pos.add(0, velY, 0);
 			}
 			
 			c += 1f;
 		}
 		
-		x = (int)posX;
-		y = (int)posY - 1;
-		z = (int)posZ;
+		BlockPos pos1 = pos.down();
 		
     	for(int j = 0; j < leavesLength; j+=3)
     	{
-    		world.setBlock(x + leaves[j], y + leaves[j + 1], z + leaves[j + 2], Blocks.leaves, 3, 2);
+    		world.setBlockState(pos.add(leaves[j], leaves[j + 1], leaves[j + 2]), Blocks.leaves.getStateFromMeta(3), 2);
     	}
     	
     	for(int k = 0; k < cocoasLength; k+=4)
     	{
     		if(rand.nextInt(20) == 0)
     		{
-    			world.setBlock(x + cocoas[k + 1], y + cocoas[k + 2], z + cocoas[k + 3], Blocks.cocoa, cocoas[k + 0] + 8, 2);
+    			world.setBlockState(pos.add(cocoas[k + 1], cocoas[k + 2], cocoas[k + 3]), Blocks.cocoa.getStateFromMeta(cocoas[k + 0] + 8), 2);
     		}
     	}
     	

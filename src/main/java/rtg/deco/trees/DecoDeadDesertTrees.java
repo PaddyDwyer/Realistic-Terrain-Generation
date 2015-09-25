@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -16,9 +17,9 @@ public class DecoDeadDesertTrees extends WorldGenerator
     	type = t;
     }
 
-    public boolean generate(World world, Random rand, int x, int y, int z)
+    public boolean generate(World world, Random rand, BlockPos pos)
     {
-    	Block g = world.getBlock(x, y - 1, z);
+    	Block g = world.getBlockState(pos.down()).getBlock();
     	if(g != Blocks.grass && g != Blocks.dirt && g != Blocks.sand)
     	{
     		return false;
@@ -30,7 +31,7 @@ public class DecoDeadDesertTrees extends WorldGenerator
     		
     		for(i = 0; i < h; i++)
     		{
-    			world.setBlock(x, y + i, z, Blocks.log2, 0, 0);
+    			world.setBlockState(pos.up(i), Blocks.log2.getStateFromMeta(0), 0);
     		}
     		
     		int branches = 2 + rand.nextInt(3);
@@ -46,7 +47,7 @@ public class DecoDeadDesertTrees extends WorldGenerator
 				
 				while(c < l)
 				{
-					world.setBlock(x + (int)(xd * c), y + h + (int)c, z + (int)(zd * c), Blocks.log2, 12, 0);
+					world.setBlockState(pos.add(xd * c, h + c, zd * c), Blocks.log2.getStateFromMeta(12), 0);
 					c += 1f;
 				}
     		}
@@ -56,15 +57,15 @@ public class DecoDeadDesertTrees extends WorldGenerator
     		int h = rand.nextInt(3) + 2;
 	    	for(int i = 0; i < h; i++)
 	    	{
-	    		world.setBlock(x, y + i, z, Blocks.log2, 0, 0);
+	    		world.setBlockState(pos.up(i), Blocks.log2.getStateFromMeta(0), 0);
 	    	}
 	    	
 	    	h--;
-	    	world.setBlock(x + 1, y + h, z, Blocks.leaves2, 0, 0);
-	    	world.setBlock(x - 1, y + h, z, Blocks.leaves2, 0, 0);
-	    	world.setBlock(x, y + h, z + 1, Blocks.leaves2, 0, 0);
-	    	world.setBlock(x, y + h, z - 1, Blocks.leaves2, 0, 0);
-	    	world.setBlock(x, y + h + 1, z, Blocks.leaves2, 0, 0);
+	    	world.setBlockState(pos.add(1, h, 0), Blocks.leaves2.getDefaultState(), 0);
+	    	world.setBlockState(pos.add(-1, h, 0), Blocks.leaves2.getDefaultState(), 0);
+	    	world.setBlockState(pos.add(0, h, 1), Blocks.leaves2.getDefaultState(), 0);
+	    	world.setBlockState(pos.add(0, h, -1), Blocks.leaves2.getDefaultState(), 0);
+	    	world.setBlockState(pos.add(0, h+1, 0), Blocks.leaves2.getDefaultState(), 0);
     	}
     	
     	return true;
