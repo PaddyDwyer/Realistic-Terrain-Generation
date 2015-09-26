@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
@@ -101,7 +102,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
     }
     
     @Override
-    public void rMapGen(Block[] blocks, byte[] metadata, World world, ChunkManagerRealistic cmr, Random mapRand, int baseX, int baseY, int chunkX, int chunkY, PerlinNoise perlin, CellNoise cell, float noise[])
+    public void rMapGen(ChunkPrimer chunkPrimer, World world, ChunkManagerRealistic cmr, Random mapRand, int baseX, int baseY, int chunkX, int chunkY, PerlinNoise perlin, CellNoise cell, float noise[])
     {
         if(baseX % 4 == 0 && baseY % 4 == 0 && mapRand.nextInt(6) == 0)
         {
@@ -112,7 +113,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 	            long j1 = mapRand.nextLong() / 2L * 2L + 1L;
 	            mapRand.setSeed((long)chunkX * i1 + (long)chunkY * j1 ^ world.getSeed());
 	
-	            MapVolcano.build(blocks, metadata, world, mapRand, baseX, baseY, chunkX, chunkY, perlin, cell, noise);
+	            MapVolcano.build(chunkPrimer, world, mapRand, baseX, baseY, chunkX, chunkY, perlin, cell, noise);
         	}
         }
     }
@@ -141,8 +142,8 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
     }
     
     @Override
-    public void rReplace(Block[] blocks, byte[] metadata, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
+    public void rReplace(ChunkPrimer chunkPrimer, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
     {
-    	surface.paintTerrain(blocks, metadata, i, j, x, y, depth, world, rand, perlin, cell, noise, river, base);
+    	surface.paintTerrain(chunkPrimer, i, j, x, y, depth, world, rand, perlin, cell, noise, river, base);
     }
 }

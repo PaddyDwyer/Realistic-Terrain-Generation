@@ -1,6 +1,7 @@
 package rtg.biomes.realistic.vanilla;
 
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.support.RealisticBiomeSupport;
 import rtg.surface.SurfaceBase;
 import rtg.terrain.TerrainBase;

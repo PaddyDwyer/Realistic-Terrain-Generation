@@ -6,6 +6,8 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.biomes.realistic.desert.RealisticBiomeDesert;
 import rtg.biomes.realistic.desert.RealisticBiomeDesertMountains;
 import rtg.biomes.realistic.desert.RealisticBiomeDuneValley;
@@ -232,7 +234,7 @@ public class RealisticBiomeBase
     {
     }
     
-    public void generateMapGen(Block[] blocks, byte[] metadata, Long seed, World world, ChunkManagerRealistic cmr, Random mapRand, int chunkX, int chunkY, PerlinNoise perlin, CellNoise cell, float noise[])
+    public void generateMapGen(ChunkPrimer chunkPrimer, Long seed, World world, ChunkManagerRealistic cmr, Random mapRand, int chunkX, int chunkY, PerlinNoise perlin, CellNoise cell, float noise[])
     {
         int k = 5;
         mapRand.setSeed(seed);
@@ -243,12 +245,12 @@ public class RealisticBiomeBase
             for(int baseY = chunkY - k; baseY <= chunkY + k; baseY++)
             {
             	mapRand.setSeed((long)baseX * l + (long)baseY * l1 ^ seed);
-                rMapGen(blocks, metadata, world, cmr, mapRand, baseX, baseY, chunkX, chunkY, perlin, cell, noise);
+                rMapGen(chunkPrimer, world, cmr, mapRand, baseX, baseY, chunkX, chunkY, perlin, cell, noise);
             }
         }
     }
     
-    public void rMapGen(Block[] blocks, byte[] metadata, World world, ChunkManagerRealistic cmr, Random mapRand, int chunkX, int chunkY, int baseX, int baseY, PerlinNoise perlin, CellNoise cell, float noise[])
+    public void rMapGen(ChunkPrimer chunkPrimer, World world, ChunkManagerRealistic cmr, Random mapRand, int chunkX, int chunkY, int baseX, int baseY, PerlinNoise perlin, CellNoise cell, float noise[])
     {
     }
     
@@ -257,12 +259,12 @@ public class RealisticBiomeBase
     	return 63f;
     }
     
-    public void rReplace(Block[] blocks, byte[] metadata, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
+    public void rReplace(ChunkPrimer chunkPrimer, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
     {
     	Block b;
 		for(int k = 255; k > -1; k--)
 		{
-			b = blocks[(y * 16 + x) * 256 + k];
+			b = chunkPrimer.getBlockState((y * 16 + x) * 256 + k).getBlock();
             if(b == Blocks.air)
             {
             	depth = -1;
@@ -275,16 +277,16 @@ public class RealisticBiomeBase
         		{
     				if(k < 62)
     				{
-    					blocks[(y * 16 + x) * 256 + k] = Blocks.dirt;
+    					chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.dirt.getDefaultState());
     				}
     				else
     				{
-    					blocks[(y * 16 + x) * 256 + k] = Blocks.grass;
+    					chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.grass.getDefaultState());
     				}
         		}
         		else if(depth < 6)
         		{
-        			blocks[(y * 16 + x) * 256 + k] = Blocks.dirt;
+					chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.dirt.getDefaultState());
         		}
             }
 		}

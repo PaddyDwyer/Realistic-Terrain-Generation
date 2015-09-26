@@ -6,6 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.api.RTGBiomes;
 import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.util.CellNoise;
@@ -30,12 +31,12 @@ public class RealisticBiomeOceanTest extends RealisticBiomeBase
     }
 
 	@Override
-    public void rReplace(Block[] blocks, byte[] metadata, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
+    public void rReplace(ChunkPrimer chunkPrimer, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
     {
     	Block b;
 		for(int k = 255; k > -1; k--)
 		{
-			b = blocks[(y * 16 + x) * 256 + k];
+			b = chunkPrimer.getBlockState((y * 16 + x) * 256 + k).getBlock();
             if(b == Blocks.air)
             {
             	depth = -1;
@@ -48,16 +49,16 @@ public class RealisticBiomeOceanTest extends RealisticBiomeBase
         		{
     				if(k < 62)
     				{
-    					blocks[(y * 16 + x) * 256 + k] = Blocks.sand;
+    					chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.sand.getDefaultState());
     				}
     				else
     				{
-    					blocks[(y * 16 + x) * 256 + k] = Blocks.sand;
+    					chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.sand.getDefaultState());
     				}
         		}
         		else if(depth < 6)
         		{
-        			blocks[(y * 16 + x) * 256 + k] = Blocks.sand;
+					chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.sand.getDefaultState());
         		}
             }
 		}

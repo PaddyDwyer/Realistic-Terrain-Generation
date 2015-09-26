@@ -2,6 +2,7 @@ package rtg.biomes.realistic.vanilla;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.biomes.vanilla.VanillaBiomes;
 import rtg.biomes.vanilla.VanillaBiomes.Climate;
 import rtg.surface.vanilla.SurfaceVanillaBirchForestHills;
