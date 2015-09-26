@@ -509,11 +509,6 @@ public class ChunkManagerRealistic extends WorldChunkManager
     	return false;
     }
 
-    public ChunkPosition findBiomePosition(int p_150795_1_, int p_150795_2_, int p_150795_3_, List p_150795_4_, Random p_150795_5_)
-    {
-    	return null;
-    }
-
     public void cleanupCache()
     {
         this.biomeCache.cleanupCache();

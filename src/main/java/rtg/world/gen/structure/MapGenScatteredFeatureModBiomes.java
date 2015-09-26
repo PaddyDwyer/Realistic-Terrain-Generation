@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.google.common.collect.ImmutableList;
 
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -26,6 +27,8 @@ public class MapGenScatteredFeatureModBiomes extends MapGenScatteredFeature {
 	public final List<BiomeDictionary.Type> biomeTypes = ImmutableList.of(BiomeDictionary.Type.JUNGLE, BiomeDictionary.Type.SANDY, BiomeDictionary.Type.SWAMP);
 
 	protected boolean canSpawnStructureAtCoords(int chunkX, int chunkZ) {
+        int k = chunkX;
+        int l = chunkZ;
 		// These fields are private in the super class and always constant for non-flat worlds so inline them here
 		// Flat worlds don't fire InitMapGenEvent, so this class will never be used in a flat world
 		final int minDistanceBetweenScatteredFeatures = 8; //Original value = 8
@@ -48,7 +51,7 @@ public class MapGenScatteredFeatureModBiomes extends MapGenScatteredFeature {
 		j1 += random.nextInt(maxDistanceBetweenScatteredFeatures - minDistanceBetweenScatteredFeatures);
 
 		if (chunkX == i1 && chunkZ == j1) {
-			BiomeGenBase biomegenbase = this.worldObj.getWorldChunkManager().getBiomeGenAt(chunkX * 16 + 8, chunkZ * 16 + 8);
+            BiomeGenBase biomegenbase = this.worldObj.getWorldChunkManager().getBiomeGenerator(new BlockPos(k * 16 + 8, 0, l * 16 + 8));
 
 			if (biomegenbase != null) {
 				for (BiomeDictionary.Type type : biomeTypes) {
@@ -86,7 +89,7 @@ public class MapGenScatteredFeatureModBiomes extends MapGenScatteredFeature {
 
 			this.components.clear();
 
-			BiomeGenBase biomegenbase = worldIn.getBiomeGenForCoords(chunkX * 16 + 8, chunkZ * 16 + 8);
+            BiomeGenBase biomegenbase = worldIn.getBiomeGenForCoords(new BlockPos(chunkX * 16 + 8, 0, chunkX * 16 + 8));
 
 	//		List<WeightedRandomScatteredFeature> possibleFeatures = new ArrayList<WeightedRandomScatteredFeature>();
 
