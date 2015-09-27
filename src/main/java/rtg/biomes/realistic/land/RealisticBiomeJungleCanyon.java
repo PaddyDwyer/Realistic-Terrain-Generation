@@ -32,7 +32,7 @@ public class RealisticBiomeJungleCanyon extends RealisticBiomeBase
 		super(0, RTGBiomes.baseHotForest);
 
 		terrain = new TerrainCanyon(true, 35f, 160f, 60f, 40f, 69f);
-		surface = new SurfaceGrassCanyon(Blocks.grass, Blocks.dirt, (byte)0);
+		surface = new SurfaceGrassCanyon(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), Blocks.stained_hardened_clay.getStateFromMeta(0));
 	}
 
 	@Override

@@ -39,7 +39,7 @@ public class RealisticBiomeCanyon extends RealisticBiomeBase
 		super(0, RTGBiomes.baseHotPlains, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.OASIS));
 
 		terrain = new TerrainCanyon(true, 35f, 160f, 60f, 40f, 69f);
-		surface = new SurfaceCanyon(Blocks.sand, Blocks.sand, (byte)1, 0);
+		surface = new SurfaceCanyon(Blocks.sand.getStateFromMeta(1), Blocks.sand.getStateFromMeta(1), 0);
 	}
 
 	@Override

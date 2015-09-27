@@ -3,9 +3,11 @@ package rtg.surface;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.util.CellNoise;
 import rtg.util.CliffCalculator;
 import rtg.util.PerlinNoise;
@@ -13,12 +15,10 @@ import rtg.util.PerlinNoise;
 public class SurfaceMesa extends SurfaceBase
 {
 	private int[] claycolor = new int[100];
-	private byte blockByte = 0;
 	
-	public SurfaceMesa(Block top, Block fill, byte b)
+	public SurfaceMesa(IBlockState top, IBlockState fill)
 	{
 		super(top, fill);
-		blockByte = b;
 		
 		int[] c = new int[]{1, 8, 0};
 		PerlinNoise perlin = new PerlinNoise(2L);
@@ -40,14 +40,14 @@ public class SurfaceMesa extends SurfaceBase
 	}
 	
 	@Override
-	public void paintTerrain(Block[] blocks, byte[] metadata, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
+	public void paintTerrain(ChunkPrimer chunkPrimer, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
 	{
 		float c = CliffCalculator.calc(x, y, noise);
 		boolean cliff = c > 1.3f ? true : false;
 		
 		for(int k = 255; k > -1; k--)
 		{
-			Block b = blocks[(y * 16 + x) * 256 + k];
+			Block b = chunkPrimer.getBlockState((y * 16 + x) * 256 + k).getBlock();
             if(b == Blocks.air)
             {
             	depth = -1;
@@ -60,39 +60,35 @@ public class SurfaceMesa extends SurfaceBase
 	        	{
 	            	if(cliff)
 	            	{
-	        			blocks[(y * 16 + x) * 256 + k] = Blocks.stained_hardened_clay;
-	        			metadata[(y * 16 + x) * 256 + k] = getClayColorForHeight(k);
+	        			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.stained_hardened_clay.getStateFromMeta(getClayColorForHeight(k)));
 	            	}
 	            	else
 	            	{
 	        			if(depth > 4)
 	        			{
-		        			blocks[(y * 16 + x) * 256 + k] = Blocks.stained_hardened_clay;
-		        			metadata[(y * 16 + x) * 256 + k] = getClayColorForHeight(k);
+		        			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.stained_hardened_clay.getStateFromMeta(getClayColorForHeight(k)));
 	        			}
 	        			else if(k > 77)
 	        			{
 	        				if(rand.nextInt(5) == 0)
 	        				{
-		        				blocks[(y * 16 + x) * 256 + k] = Blocks.dirt;
+		        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.dirt.getDefaultState());
 	        				}
 	        				else
 	        				{
 		        				if(depth == 0)
 		        				{
-			        				blocks[(y * 16 + x) * 256 + k] = topBlock;
-			        				metadata[(y * 16 + x) * 256 + k] = blockByte;
+			        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, topBlock);
 		        				}
 		        				else
 		        				{
-			        				blocks[(y * 16 + x) * 256 + k] = fillerBlock;
-			        				metadata[(y * 16 + x) * 256 + k] = blockByte;
+			        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, fillerBlock);
 		        				}
 	        				}
 	        			}
 	        			else if(k < 69)
 	        			{
-	        				blocks[(y * 16 + x) * 256 + k] = Blocks.dirt;
+	        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.dirt.getDefaultState());
 	        			}
 	        			else if(k < 78)
 	        			{
@@ -100,43 +96,38 @@ public class SurfaceMesa extends SurfaceBase
 	        				{
 	        					if(k < 72 && rand.nextInt(k - 69 + 1) == 0)
 	        					{
-			        				blocks[(y * 16 + x) * 256 + k] = Blocks.dirt;
+			        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.dirt.getDefaultState());
 	        					}
 		        				else if(rand.nextInt(5) == 0)
 		        				{
-			        				blocks[(y * 16 + x) * 256 + k] = Blocks.dirt;
+			        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.dirt.getDefaultState());
 		        				}
 		        				else
 		        				{
-			        				blocks[(y * 16 + x) * 256 + k] = topBlock;
-			        				metadata[(y * 16 + x) * 256 + k] = blockByte;
+			        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, topBlock);
 		        				}
 	        				}
 	        				else
 	        				{
-		        				blocks[(y * 16 + x) * 256 + k] = fillerBlock;
-		        				metadata[(y * 16 + x) * 256 + k] = blockByte;
+		        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, fillerBlock);
 	        				}
 	        			}
 	        			else
 	        			{
 	        				if(depth == 0)
 	        				{
-		        				blocks[(y * 16 + x) * 256 + k] = topBlock;
-		        				metadata[(y * 16 + x) * 256 + k] = blockByte;
+		        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, topBlock);
 	        				}
 	        				else
 	        				{
-		        				blocks[(y * 16 + x) * 256 + k] = fillerBlock;
-		        				metadata[(y * 16 + x) * 256 + k] = blockByte;
+		        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, fillerBlock);
 	        				}
 	        			}
 	            	}
         		}
         		else if(k > 63)
         		{
-        			blocks[(y * 16 + x) * 256 + k] = Blocks.stained_hardened_clay;
-        			metadata[(y * 16 + x) * 256 + k] = getClayColorForHeight(k);
+        			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.stained_hardened_clay.getStateFromMeta(getClayColorForHeight(k)));
         		}
             }
 		}

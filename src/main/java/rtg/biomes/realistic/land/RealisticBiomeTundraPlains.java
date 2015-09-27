@@ -38,7 +38,7 @@ public class RealisticBiomeTundraPlains extends RealisticBiomeBase
 		super(0, RTGBiomes.baseColdPlains, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD));
 		
 		terrain = new TerrainFlatLakes();
-		surface = new SurfaceTundra(Blocks.grass, Blocks.dirt);
+		surface = new SurfaceTundra(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState());
 	}
 	
 	@Override

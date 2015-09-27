@@ -3,22 +3,24 @@ package rtg.surface;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.util.CellNoise;
 import rtg.util.CliffCalculator;
 import rtg.util.PerlinNoise;
 
 public class SurfaceGrasslandMix1 extends SurfaceBase
 {
-	private Block mixBlock;
-	private Block cliffBlock1;
-	private Block cliffBlock2;
+	private IBlockState mixBlock;
+	private IBlockState cliffBlock1;
+	private IBlockState cliffBlock2;
 	private float width;
 	private float height;
 	
-	public SurfaceGrasslandMix1(Block top, Block filler, Block mix, Block cliff1, Block cliff2, float mixWidth, float mixHeight)
+	public SurfaceGrasslandMix1(IBlockState top, IBlockState filler, IBlockState mix, IBlockState cliff1, IBlockState cliff2, float mixWidth, float mixHeight)
 	{
 		super(top, filler);
 		
@@ -31,14 +33,14 @@ public class SurfaceGrasslandMix1 extends SurfaceBase
 	}
 	
 	@Override
-	public void paintTerrain(Block[] blocks, byte[] metadata, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
+	public void paintTerrain(ChunkPrimer chunkPrimer, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
 	{
 		float c = CliffCalculator.calc(x, y, noise);
 		boolean cliff = c > 1.4f ? true : false;
 		
 		for(int k = 255; k > -1; k--)
 		{
-			Block b = blocks[(y * 16 + x) * 256 + k];
+			Block b = chunkPrimer.getBlockState((y * 16 + x) * 256 + k).getBlock();
             if(b == Blocks.air)
             {
             	depth = -1;
@@ -51,11 +53,11 @@ public class SurfaceGrasslandMix1 extends SurfaceBase
             	{
             		if(depth > -1 && depth < 2)
             		{
-            			blocks[(y * 16 + x) * 256 + k] = rand.nextInt(3) == 0 ? cliffBlock2 : cliffBlock1; 
+            			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, rand.nextInt(3) == 0 ? cliffBlock2 : cliffBlock1);
             		}
             		else if (depth < 10)
             		{
-            			blocks[(y * 16 + x) * 256 + k] = cliffBlock1;
+            			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, cliffBlock1);
             		}
             	}
             	else
@@ -64,16 +66,16 @@ public class SurfaceGrasslandMix1 extends SurfaceBase
 	        		{
 	        			if(perlin.noise2(i / width, j / width) > height) // > 0.27f, i / 12f
 	        			{
-	        				blocks[(y * 16 + x) * 256 + k] = mixBlock;
+	        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, mixBlock);
 	        			}
 	        			else
 	        			{
-	        				blocks[(y * 16 + x) * 256 + k] = topBlock;
+	        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, topBlock);
 	        			}
 	        		}
 	        		else if(depth < 4)
 	        		{
-	        			blocks[(y * 16 + x) * 256 + k] = fillerBlock;
+	        			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, fillerBlock);
 	        		}
             	}
             }

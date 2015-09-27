@@ -31,7 +31,7 @@ public class RealisticBiomeJungleHills extends RealisticBiomeBase
 	{
 		super(0, RTGBiomes.baseJungle);
 		terrain = new TerrainHilly(230f, 120f, 50f);
-		surface = new SurfaceMountainStone(Blocks.grass, Blocks.dirt, false, null, 1f, 1.5f, 60f, 65f, 1.5f);
+		surface = new SurfaceMountainStone(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), false, null, 1f, 1.5f, 60f, 65f, 1.5f);
 	}
 
 	@Override

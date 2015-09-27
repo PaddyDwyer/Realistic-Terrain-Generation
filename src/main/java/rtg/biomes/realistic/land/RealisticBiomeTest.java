@@ -22,7 +22,7 @@ public class RealisticBiomeTest extends RealisticBiomeBase
 	{
 		super(0, RTGBiomes.baseColdForest);
 		
-		surface = new SurfaceMountainSnow(Blocks.grass, Blocks.dirt, true, Blocks.sand, 0.2f);
+		surface = new SurfaceMountainSnow(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), true, Blocks.sand.getDefaultState(), 0.2f);
 	}
 	
 	@Override

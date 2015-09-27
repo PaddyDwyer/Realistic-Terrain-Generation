@@ -39,7 +39,7 @@ public class RealisticBiomeDuneValleyForest extends RealisticBiomeBase
 		super(0, RTGBiomes.baseHotForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.OASIS));
 
 		terrain = new TerrainDuneValley(220f);
-		surface = new SurfaceDuneValley(Blocks.grass, Blocks.dirt, 220f, false, true);
+		surface = new SurfaceDuneValley(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), 220f, false, true);
 	}
 
 	@Override

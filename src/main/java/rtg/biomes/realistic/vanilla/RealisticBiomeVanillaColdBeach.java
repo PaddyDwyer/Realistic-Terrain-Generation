@@ -15,7 +15,7 @@ public class RealisticBiomeVanillaColdBeach extends RealisticBiomeVanilla
 			BiomeGenBase.coldBeach,
 			VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 			new TerrainVanillaColdBeach(),
-			new SurfaceVanillaColdBeach(BiomeGenBase.coldBeach.topBlock, BiomeGenBase.coldBeach.fillerBlock, BiomeGenBase.coldBeach.topBlock, BiomeGenBase.coldBeach.fillerBlock, (byte)0, 1)
+			new SurfaceVanillaColdBeach(BiomeGenBase.coldBeach.topBlock, BiomeGenBase.coldBeach.fillerBlock, BiomeGenBase.coldBeach.topBlock, BiomeGenBase.coldBeach.fillerBlock, (byte)0)
 		);
 	}	
 }

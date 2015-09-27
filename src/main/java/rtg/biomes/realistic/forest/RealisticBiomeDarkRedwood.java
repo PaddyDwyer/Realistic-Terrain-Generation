@@ -3,6 +3,8 @@ package rtg.biomes.realistic.forest;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
@@ -40,8 +42,7 @@ public class RealisticBiomeDarkRedwood extends RealisticBiomeBase
 		super(0, RTGBiomes.baseColdForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE));
 		
 		terrain = new TerrainHilly(230f, 120f, 0f);
-		surface = new SurfaceMountainStoneMix1(Blocks.dirt, Blocks.dirt, false, null, 0f, 1.5f, 60f, 65f, 1.5f, Blocks.stone, 0.15f);
-		((SurfaceMountainStoneMix1)surface).topByte = (byte)2;
+		surface = new SurfaceMountainStoneMix1(Blocks.dirt.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL), Blocks.dirt.getDefaultState(), false, null, 0f, 1.5f, 60f, 65f, 1.5f, Blocks.stone.getDefaultState(), 0.15f);
 	}
 	
 	@Override

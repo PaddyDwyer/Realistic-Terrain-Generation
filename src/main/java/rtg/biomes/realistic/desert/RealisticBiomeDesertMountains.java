@@ -40,7 +40,7 @@ public class RealisticBiomeDesertMountains extends RealisticBiomeBase
 	{
 		super(0, RTGBiomes.baseHotDesert, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.OASIS));
 		terrain = new TerrainHilly(230f, 120f, 0f);
-		surface = new SurfaceDesertMountain(Blocks.sand, Blocks.sandstone, false, null, 0f, 1.5f, 60f, 65f, 1.5f);
+		surface = new SurfaceDesertMountain(Blocks.sand.getDefaultState(), Blocks.sandstone.getDefaultState(), false, null, 0f, 1.5f, 60f, 65f, 1.5f);
 		riverSurface = new SurfaceRiverOasis();
 	}
 

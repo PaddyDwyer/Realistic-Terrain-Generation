@@ -3,9 +3,11 @@ package rtg.surface;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.util.CellNoise;
 import rtg.util.CliffCalculator;
 import rtg.util.PerlinNoise;
@@ -13,7 +15,7 @@ import rtg.util.PerlinNoise;
 public class SurfaceMountainStone extends SurfaceBase
 {
 	private boolean beach;
-	private Block beachBlock;
+	private IBlockState beachBlock;
 	private float min;
 	
 	private float sCliff = 1.5f;
@@ -21,9 +23,8 @@ public class SurfaceMountainStone extends SurfaceBase
 	private float sStrength = 65f;
 	private float cCliff = 1.5f;
 	
-	public byte topByte = 0;
 	
-	public SurfaceMountainStone(Block top, Block fill, boolean genBeach, Block genBeachBlock, float minCliff) 
+	public SurfaceMountainStone(IBlockState top, IBlockState fill, boolean genBeach, IBlockState genBeachBlock, float minCliff) 
 	{
 		super(top, fill);
 		beach = genBeach;
@@ -31,7 +32,7 @@ public class SurfaceMountainStone extends SurfaceBase
 		min = minCliff;
 	}
 	
-	public SurfaceMountainStone(Block top, Block fill, boolean genBeach, Block genBeachBlock, float minCliff, float stoneCliff, float stoneHeight, float stoneStrength, float clayCliff)
+	public SurfaceMountainStone(IBlockState top, IBlockState fill, boolean genBeach, IBlockState genBeachBlock, float minCliff, float stoneCliff, float stoneHeight, float stoneStrength, float clayCliff)
 	{
 		this(top, fill, genBeach, genBeachBlock, minCliff);
 		
@@ -42,7 +43,7 @@ public class SurfaceMountainStone extends SurfaceBase
 	}
 	
 	@Override
-	public void paintTerrain(Block[] blocks, byte[] metadata, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
+	public void paintTerrain(ChunkPrimer chunkPrimer, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
 	{
 		float c = CliffCalculator.calc(x, y, noise);
 		int cliff = 0;
@@ -51,7 +52,7 @@ public class SurfaceMountainStone extends SurfaceBase
     	Block b;
 		for(int k = 255; k > -1; k--)
 		{
-			b = blocks[(y * 16 + x) * 256 + k];
+			b = chunkPrimer.getBlockState((y * 16 + x) * 256 + k).getBlock();
             if(b == Blocks.air)
             {
             	depth = -1;
@@ -82,54 +83,50 @@ public class SurfaceMountainStone extends SurfaceBase
             		
             		if(cliff == 1)
             		{
-            			blocks[(y * 16 + x) * 256 + k] = rand.nextInt(3) == 0 ? Blocks.cobblestone : Blocks.stone; 
+            			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, rand.nextInt(3) == 0 ? Blocks.cobblestone.getDefaultState() : Blocks.stone.getDefaultState());
             		}
             		else if(cliff == 2)
             		{
-        				blocks[(y * 16 + x) * 256 + k] = Blocks.stained_hardened_clay; 
-        				metadata[(y * 16 + x) * 256 + k] = 9; 
+        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.stained_hardened_clay.getStateFromMeta(9));
             		}
             		else if(k < 63)
             		{
             			if(beach)
             			{
-	            			blocks[(y * 16 + x) * 256 + k] = beachBlock;
+	            			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, beachBlock);
 	            			gravel = true;
             			}
             			else if(k < 62)
             			{
-                			blocks[(y * 16 + x) * 256 + k] = fillerBlock;
+                			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, fillerBlock);
             			}
             			else
             			{
-                			blocks[(y * 16 + x) * 256 + k] = topBlock;
-                			metadata[(y * 16 + x) * 256 + k] = topByte;
+                			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, topBlock);
             			}
             		}
             		else
             		{
-            			blocks[(y * 16 + x) * 256 + k] = topBlock;
-            			metadata[(y * 16 + x) * 256 + k] = topByte;
+            			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, topBlock);
             		}
             	}
             	else if(depth < 6)
         		{
             		if(cliff == 1)
             		{
-            			blocks[(y * 16 + x) * 256 + k] = Blocks.stone; 
+            			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.stone.getDefaultState());
             		}
             		else if(cliff == 2)
             		{
-        				blocks[(y * 16 + x) * 256 + k] = Blocks.stained_hardened_clay; 
-        				metadata[(y * 16 + x) * 256 + k] = 9; 
+        				chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.stained_hardened_clay.getStateFromMeta(9));
             		}
             		else if(gravel)
             		{
-            			blocks[(y * 16 + x) * 256 + k] = beachBlock;
+            			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, beachBlock);
             		}
             		else
             		{
-            			blocks[(y * 16 + x) * 256 + k] = fillerBlock;
+            			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, fillerBlock);
             		}
         		}
             }

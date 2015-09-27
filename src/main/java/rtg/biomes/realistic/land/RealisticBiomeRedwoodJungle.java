@@ -36,7 +36,7 @@ public class RealisticBiomeRedwoodJungle extends RealisticBiomeBase
 	{
 		super(0, RTGBiomes.baseJungle);
 		terrain = new TerrainHilly(230f, 100f, 0f);
-		surface = new SurfaceGrassland(Blocks.grass, Blocks.dirt, Blocks.stone, Blocks.cobblestone);
+		surface = new SurfaceGrassland(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState());
 	}
 	
 	@Override

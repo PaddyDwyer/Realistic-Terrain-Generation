@@ -5,17 +5,18 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.util.CellNoise;
 import rtg.util.PerlinNoise;
 
 public class MapAncientRuins 
 {
-	public static void build(Block[] blocks, byte[] metadata, World world, Random mapRand, int chunkX, int chunkY, int baseX, int baseY, PerlinNoise perlin, CellNoise cell, int dis)
+	public static void build(ChunkPrimer chunkPrimer, World world, Random mapRand, int chunkX, int chunkY, int baseX, int baseY, PerlinNoise perlin, CellNoise cell, int dis)
 	{
     	int y = 120;
     	for(; y > 49; y--)
     	{
-    		if(blocks[coordstoArray(8, y - 1, 8)] != Blocks.air)
+    		if(chunkPrimer.getBlockState(coordstoArray(8, y - 1, 8)).getBlock() != Blocks.air)
     		{
     			if(y > 118)
     			{
@@ -38,42 +39,42 @@ public class MapAncientRuins
     	
     	for(i = startX; i < startX + sizeX; i++)
     	{
-    		if(blocks[coordstoArray(startX + i, y - 2, startZ)] != Blocks.air)
+    		if(chunkPrimer.getBlockState(coordstoArray(8, y - 1, 8)).getBlock() != Blocks.air)
     		{
         		height = mapRand.nextInt(4);
         		for(j = 0; j < height; j++)
         		{
-        			blocks[coordstoArray(startX + i, y + j - 1, startZ)] = Blocks.mossy_cobblestone;
+        			chunkPrimer.setBlockState(coordstoArray(startX + i, y + j - 1, startZ), Blocks.mossy_cobblestone.getDefaultState());
         		}
     		}
 
-    		if(blocks[coordstoArray(startX + i, y - 2, startZ + sizeZ)] != Blocks.air)
+    		if(chunkPrimer.getBlockState(coordstoArray(8, y - 1, 8)).getBlock() != Blocks.air)
     		{
 	    		height = mapRand.nextInt(4);
 	    		for(j = 0; j < height; j++)
 	    		{
-	    			blocks[coordstoArray(startX + i, y + j - 1, startZ + sizeZ)] = Blocks.mossy_cobblestone;
+	    			chunkPrimer.setBlockState(coordstoArray(startX + i, y + j - 1, startZ + sizeZ), Blocks.mossy_cobblestone.getDefaultState());
 	    		}
     		}
     	}
     	
     	for(i = startZ + 1; i < startZ + sizeZ - 1; i++)
     	{
-    		if(blocks[coordstoArray(startX, y - 2, startZ + i)] != Blocks.air)
+    		if(chunkPrimer.getBlockState(coordstoArray(8, y - 1, 8)).getBlock() != Blocks.air)
     		{
         		height = mapRand.nextInt(4);
         		for(j = 0; j < height; j++)
         		{
-        			blocks[coordstoArray(startX, y + j - 1, startZ + i)] = Blocks.mossy_cobblestone;
+        			chunkPrimer.setBlockState(coordstoArray(startX, y + j - 1, startZ + i), Blocks.mossy_cobblestone.getDefaultState());
         		}
     		}
 
-    		if(blocks[coordstoArray(startX + sizeX, y - 2, startZ + i)] != Blocks.air)
+    		if(chunkPrimer.getBlockState(coordstoArray(8, y - 1, 8)).getBlock() != Blocks.air)
     		{
 	    		height = mapRand.nextInt(4);
 	    		for(j = 0; j < height; j++)
 	    		{
-	    			blocks[coordstoArray(startX + sizeX, y + j - 1, startZ + i)] = Blocks.mossy_cobblestone;
+	    			chunkPrimer.setBlockState(coordstoArray(startX + sizeX, y + j - 1, startZ + i), Blocks.mossy_cobblestone.getDefaultState());
 	    		}
     		}
     	}

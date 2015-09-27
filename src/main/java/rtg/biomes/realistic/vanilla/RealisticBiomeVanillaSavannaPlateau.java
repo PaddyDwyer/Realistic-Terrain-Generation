@@ -1,6 +1,7 @@
 package rtg.biomes.realistic.vanilla;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.biomes.vanilla.VanillaBiomes;
@@ -10,8 +11,8 @@ import rtg.terrain.vanilla.TerrainVanillaSavannaPlateau;
 
 public class RealisticBiomeVanillaSavannaPlateau extends RealisticBiomeVanilla
 {	
-	public static Block topBlock = BiomeGenBase.savannaPlateau.topBlock;
-	public static Block fillerBlock = BiomeGenBase.savannaPlateau.fillerBlock;
+	public static IBlockState topBlock = BiomeGenBase.savannaPlateau.topBlock;
+	public static IBlockState fillerBlock = BiomeGenBase.savannaPlateau.fillerBlock;
 	
 	public RealisticBiomeVanillaSavannaPlateau()
 	{

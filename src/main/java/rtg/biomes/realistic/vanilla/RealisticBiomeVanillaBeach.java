@@ -23,7 +23,7 @@ public class RealisticBiomeVanillaBeach extends RealisticBiomeVanilla
 			BiomeGenBase.beach,
 			VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.OASIS),
 			new TerrainVanillaBeach(),
-			new SurfaceVanillaBeach(BiomeGenBase.beach.topBlock, BiomeGenBase.beach.fillerBlock, BiomeGenBase.beach.topBlock, BiomeGenBase.beach.fillerBlock, (byte)0, 1)
+			new SurfaceVanillaBeach(BiomeGenBase.beach.topBlock, BiomeGenBase.beach.fillerBlock, BiomeGenBase.beach.topBlock, BiomeGenBase.beach.fillerBlock, (byte)0)
 		);
 	}
 	

@@ -5,13 +5,14 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.util.CellNoise;
 import rtg.util.PerlinNoise;
 import rtg.util.TerrainMath;
 
 public class MapVolcano 
 {
-	public static void build(Block[] blocks, byte[] metadata, World world, Random mapRand, int baseX, int baseY, int chunkX, int chunkY, PerlinNoise perlin, CellNoise cell, float[] noise)
+	public static void build(ChunkPrimer chunkPrimer, World world, Random mapRand, int baseX, int baseY, int chunkX, int chunkY, PerlinNoise perlin, CellNoise cell, float[] noise)
 	{	
 		int i, j;
 		float distance, height, obsidian;
@@ -34,24 +35,24 @@ public class MapVolcano
 					{
 						if(y > 165)
 						{
-							if(blocks[cta(x, y, z)] != Blocks.air)
+							if(chunkPrimer.getBlockState(cta(x, y, z)).getBlock() != Blocks.air)
 							{
-								blocks[cta(x, y, z)] = Blocks.air;
+								chunkPrimer.setBlockState(cta(x, y, z), Blocks.air.getDefaultState());
 							}
 						}
 						else if(y > obsidian && y < 156 + height)
 						{
-							blocks[cta(x, y, z)] = Blocks.obsidian;
+							chunkPrimer.setBlockState(cta(x, y, z), Blocks.obsidian.getDefaultState());
 						}
 						else if(y < 166)
 						{
-							blocks[cta(x, y, z)] = Blocks.lava;
+							chunkPrimer.setBlockState(cta(x, y, z), Blocks.lava.getDefaultState());
 						}
 						else if(y < obsidian + 1)
 						{
-							if(blocks[cta(x, y, z)] == Blocks.air)
+							if(chunkPrimer.getBlockState(cta(x, y, z)).getBlock() == Blocks.air)
 							{
-								blocks[cta(x, y, z)] = Blocks.stone;
+								chunkPrimer.setBlockState(cta(x, y, z), Blocks.stone.getDefaultState());
 							}
 							else
 							{
@@ -72,7 +73,7 @@ public class MapVolcano
 					{
 						if(y <= height)
 						{
-							b = blocks[cta(x, y, z)];
+							b = chunkPrimer.getBlockState(cta(x, y, z)).getBlock(); 
 							if(b == Blocks.air)
 							{
 								if(y > obsidian)
@@ -88,7 +89,7 @@ public class MapVolcano
 							{
 								break;
 							}
-							blocks[cta(x, y, z)] = b;
+							chunkPrimer.setBlockState(cta(x, y, z), b.getDefaultState());
 						}
 					}
 				}

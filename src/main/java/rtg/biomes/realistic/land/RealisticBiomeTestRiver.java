@@ -27,7 +27,7 @@ public class RealisticBiomeTestRiver extends RealisticBiomeBase
 		//celltest.setUseDistance(true);
 		
 		terrain = new TerrainHilly(230f, 120f, 0f);
-		surface = new SurfaceMountainStoneMix1(Blocks.grass, Blocks.dirt, false, null, 0f, 1.5f, 60f, 65f, 1.5f, Blocks.stone, 0.08f);
+		surface = new SurfaceMountainStoneMix1(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), false, null, 0f, 1.5f, 60f, 65f, 1.5f, Blocks.stone.getDefaultState(), 0.08f);
 	}
 	
 	@Override

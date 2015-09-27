@@ -39,7 +39,7 @@ public class RealisticBiomeWoodHills extends RealisticBiomeBase
 		super(0, RTGBiomes.baseTemperateForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE));
 		
 		terrain = new TerrainHilly(230f, 120f, 0f);
-		surface = new SurfaceMountainStone(Blocks.grass, Blocks.dirt, false, null, 0f, 1.5f, 60f, 65f, 1.5f);
+		surface = new SurfaceMountainStone(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), false, null, 0f, 1.5f, 60f, 65f, 1.5f);
 	}
 	
 	@Override

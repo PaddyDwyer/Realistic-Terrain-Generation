@@ -29,7 +29,7 @@ public class RealisticBiomeHighRainforest extends RealisticBiomeBase
 		super(0, RTGBiomes.baseJungle);
 		
 		terrain = new TerrainHighland(0f, 140f, 68f, 200f);
-		surface = new SurfaceGrassland(Blocks.grass, Blocks.dirt, Blocks.stone, Blocks.cobblestone);
+		surface = new SurfaceGrassland(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState());
 	}
 
 

@@ -41,7 +41,7 @@ public class RealisticBiomeStoneMountainsCactus extends RealisticBiomeBase
 	{
 		super(0, RTGBiomes.baseHotPlains, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.OASIS));
 		terrain = new TerrainHilly(230f, 120f, 0f);
-		surface = new SurfaceMountainStoneMix1(Blocks.grass, Blocks.dirt, false, null, 0f, 1.5f, 60f, 65f, 1.5f, Blocks.stone, 0.20f);
+		surface = new SurfaceMountainStoneMix1(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), false, null, 0f, 1.5f, 60f, 65f, 1.5f, Blocks.stone.getDefaultState(), 0.20f);
 		riverSurface = new SurfaceRiverOasis();
 	}
 

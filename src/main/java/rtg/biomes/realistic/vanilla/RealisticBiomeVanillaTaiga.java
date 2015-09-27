@@ -1,6 +1,7 @@
 package rtg.biomes.realistic.vanilla;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.biomes.vanilla.VanillaBiomes;
@@ -10,8 +11,8 @@ import rtg.terrain.vanilla.TerrainVanillaTaiga;
 
 public class RealisticBiomeVanillaTaiga extends RealisticBiomeVanilla
 {	
-	public static Block topBlock = BiomeGenBase.taiga.topBlock;
-	public static Block fillerBlock = BiomeGenBase.taiga.fillerBlock;
+	public static IBlockState topBlock = BiomeGenBase.taiga.topBlock;
+	public static IBlockState fillerBlock = BiomeGenBase.taiga.fillerBlock;
 	
 	public RealisticBiomeVanillaTaiga()
 	{

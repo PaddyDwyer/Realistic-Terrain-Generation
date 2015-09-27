@@ -1,6 +1,7 @@
 package rtg.biomes.realistic.vanilla;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -11,8 +12,8 @@ import rtg.terrain.vanilla.TerrainVanillaIceMountains;
 
 public class RealisticBiomeVanillaIceMountains extends RealisticBiomeVanilla
 {	
-	public static Block topBlock = BiomeGenBase.iceMountains.topBlock;
-	public static Block fillerBlock = BiomeGenBase.iceMountains.fillerBlock;
+	public static IBlockState topBlock = BiomeGenBase.iceMountains.topBlock;
+	public static IBlockState fillerBlock = BiomeGenBase.iceMountains.fillerBlock;
 	
 	public RealisticBiomeVanillaIceMountains()
 	{
@@ -20,7 +21,7 @@ public class RealisticBiomeVanillaIceMountains extends RealisticBiomeVanilla
 			BiomeGenBase.iceMountains,
 			VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.ICE),
 			new TerrainVanillaIceMountains(),
-			new SurfaceVanillaIceMountains(topBlock, fillerBlock, Blocks.packed_ice, Blocks.ice)
+			new SurfaceVanillaIceMountains(topBlock, fillerBlock, Blocks.packed_ice.getDefaultState(), Blocks.ice.getDefaultState())
 		);
 	}	
 }

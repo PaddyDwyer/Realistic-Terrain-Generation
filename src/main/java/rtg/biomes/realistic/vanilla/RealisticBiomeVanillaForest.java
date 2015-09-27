@@ -1,6 +1,7 @@
 package rtg.biomes.realistic.vanilla;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -11,8 +12,8 @@ import rtg.terrain.vanilla.TerrainVanillaForest;
 
 public class RealisticBiomeVanillaForest extends RealisticBiomeVanilla
 {	
-	public static Block topBlock = BiomeGenBase.forest.topBlock;
-	public static Block fillerBlock = BiomeGenBase.forest.fillerBlock;
+	public static IBlockState topBlock = BiomeGenBase.forest.topBlock;
+	public static IBlockState fillerBlock = BiomeGenBase.forest.fillerBlock;
 	
 	public RealisticBiomeVanillaForest()
 	{
@@ -20,7 +21,7 @@ public class RealisticBiomeVanillaForest extends RealisticBiomeVanilla
 			BiomeGenBase.forest,
 			VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 			new TerrainVanillaForest(),
-			new SurfaceVanillaForest(topBlock, fillerBlock, Blocks.stone, Blocks.cobblestone)
+			new SurfaceVanillaForest(topBlock, fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 		);
 	}	
 }

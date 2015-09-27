@@ -39,7 +39,7 @@ public class RealisticBiomeTundraHills extends RealisticBiomeBase
 		super(0, RTGBiomes.baseColdPlains, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD));
 		
 		terrain = new TerrainMountain();
-		surface = new SurfaceTundra(Blocks.grass, Blocks.dirt);
+		surface = new SurfaceTundra(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState());
 	}
 	
 	@Override

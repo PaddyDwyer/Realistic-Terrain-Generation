@@ -39,7 +39,7 @@ public class RealisticBiomeSavanna extends RealisticBiomeBase
 	{
 		super(0, RTGBiomes.baseHotPlains, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT));
 		terrain = new TerrainGrasslandFlats();
-		surface = new SurfaceGrasslandMix1(Blocks.grass, Blocks.dirt, Blocks.sand, Blocks.stone, Blocks.cobblestone, 13f, 0.27f);
+		surface = new SurfaceGrasslandMix1(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), Blocks.sand.getDefaultState(), Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState(), 13f, 0.27f);
 	}
 
 	@Override

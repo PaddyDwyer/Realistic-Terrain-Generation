@@ -42,7 +42,7 @@ public class RealisticBiomeTaigaPlains extends RealisticBiomeBase
 		super(0, RTGBiomes.baseColdForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD));
 		
 		terrain = new TerrainFlatLakes();
-		surface = new SurfaceTundra(Blocks.grass, Blocks.dirt);
+		surface = new SurfaceTundra(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState());
 	}
 	
 	@Override

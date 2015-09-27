@@ -1,6 +1,7 @@
 package rtg.biomes.realistic.vanilla;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
@@ -11,8 +12,8 @@ import rtg.terrain.vanilla.TerrainVanillaTaigaHills;
 
 public class RealisticBiomeVanillaTaigaHills extends RealisticBiomeVanilla
 {	
-	public static Block topBlock = BiomeGenBase.taigaHills.topBlock;
-	public static Block fillerBlock = BiomeGenBase.taigaHills.fillerBlock;
+	public static IBlockState topBlock = BiomeGenBase.taigaHills.topBlock;
+	public static IBlockState fillerBlock = BiomeGenBase.taigaHills.fillerBlock;
 	
 	public RealisticBiomeVanillaTaigaHills()
 	{
@@ -20,7 +21,7 @@ public class RealisticBiomeVanillaTaigaHills extends RealisticBiomeVanilla
 			BiomeGenBase.taigaHills,
 			VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 			new TerrainVanillaTaigaHills(),
-			new SurfaceVanillaTaigaHills(topBlock, fillerBlock, true, Blocks.sand, 0.2f)
+			new SurfaceVanillaTaigaHills(topBlock, fillerBlock, true, Blocks.sand.getDefaultState(), 0.2f)
 		);
 	}	
 }

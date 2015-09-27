@@ -23,7 +23,7 @@ public class RealisticBiomeIslandTundra extends RealisticBiomeBase
 	{
 		super(0, VanillaBiomes.climatizedBiome(BiomeGenBase.ocean, Climate.COLD));
 		
-		surface = new SurfaceIslandMountainStone(Blocks.grass, Blocks.dirt, 67, Blocks.sand, 0f);
+		surface = new SurfaceIslandMountainStone(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), 67, Blocks.sand.getDefaultState(), 0f);
 	}
 
     @Override

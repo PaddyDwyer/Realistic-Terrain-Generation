@@ -40,7 +40,7 @@ public class RealisticBiomeRedwoodSnow extends RealisticBiomeBase
 		super(0, RTGBiomes.baseSnowForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.ICE));
 		
 		terrain = new TerrainHilly(230f, 120f, 90f);
-		surface = new SurfaceMountainSnow(Blocks.grass, Blocks.dirt, true, Blocks.sand, 0.2f);
+		surface = new SurfaceMountainSnow(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), true, Blocks.sand.getDefaultState(), 0.2f);
 	}
 	
 	@Override

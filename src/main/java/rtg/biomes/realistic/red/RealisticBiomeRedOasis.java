@@ -41,7 +41,7 @@ public class RealisticBiomeRedOasis extends RealisticBiomeBase
 	{
 		super(0, RTGBiomes.baseOasis, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.OASIS));
 		terrain = new TerrainHilly(230f, 120f, 20f, 60f, 63f);
-		surface = new SurfaceDesertOasis(Blocks.grass, Blocks.dirt, Blocks.stained_hardened_clay, Blocks.stained_hardened_clay, (byte)1, 1);
+		surface = new SurfaceDesertOasis(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), Blocks.stained_hardened_clay.getStateFromMeta(14), Blocks.stained_hardened_clay.getDefaultState(), Blocks.sand.getStateFromMeta(1), 1);
 		riverSurface = new SurfaceRiverOasis();
 	}
 

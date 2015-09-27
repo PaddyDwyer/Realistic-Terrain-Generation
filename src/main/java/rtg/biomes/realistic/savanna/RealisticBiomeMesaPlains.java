@@ -40,7 +40,7 @@ public class RealisticBiomeMesaPlains extends RealisticBiomeBase
 		super(0, RTGBiomes.baseHotDesert, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT));
 		
 		terrain = new TerrainMesa();
-		surface = new SurfaceCanyon(Blocks.sand, Blocks.sand, (byte)1, 20);
+		surface = new SurfaceCanyon(Blocks.sand.getStateFromMeta(1), Blocks.sand.getStateFromMeta(1), 20);
 	}
 
 	@Override

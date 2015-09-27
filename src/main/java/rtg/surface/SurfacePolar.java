@@ -3,22 +3,24 @@ package rtg.surface;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.util.CellNoise;
 import rtg.util.PerlinNoise;
 import rtg.util.SnowheightCalculator;
 
 public class SurfacePolar extends SurfaceBase
 {
-	public SurfacePolar(Block top, Block fill) 
+	public SurfacePolar(IBlockState top, IBlockState fill) 
 	{
 		super(top, fill);
 	}
 	
 	@Override
-	public void paintTerrain(Block[] blocks, byte[] metadata, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
+	public void paintTerrain(ChunkPrimer chunkPrimer, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
 	{
 		boolean water = false;
 		boolean riverPaint = false;
@@ -37,7 +39,7 @@ public class SurfacePolar extends SurfaceBase
 		Block b;
 		for(int k = 255; k > -1; k--)
 		{
-			b = blocks[(y * 16 + x) * 256 + k];
+			b = chunkPrimer.getBlockState((y * 16 + x) * 256 + k).getBlock();
             if(b == Blocks.air)
             {
             	depth = -1;
@@ -50,25 +52,25 @@ public class SurfacePolar extends SurfaceBase
             	{
             		if(grass && depth < 4)
             		{
-    	        		blocks[(y * 16 + x) * 256 + k] = Blocks.dirt;
+    	        		chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.dirt.getDefaultState());
             		}
             		else if(depth == 0)
             		{
-    	        		blocks[(y * 16 + x) * 256 + k] = rand.nextInt(2) == 0 ? Blocks.stone : Blocks.cobblestone;
+    	        		chunkPrimer.setBlockState((y * 16 + x) * 256 + k, rand.nextInt(2) == 0 ? Blocks.stone.getDefaultState() : Blocks.cobblestone.getDefaultState());
             		}
             	}
         		else if(depth > -1 && depth < 9)
         		{
-        			blocks[(y * 16 + x) * 256 + k] = Blocks.snow;
+        			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.snow.getDefaultState());
             		if(depth == 0 && k > 61 && k < 254)
             		{
-            			SnowheightCalculator.calc(x, y, k, blocks, metadata, noise);
+            			SnowheightCalculator.calc(x, y, k, chunkPrimer, noise);
             		}
         		}
             }
             else if(!water && b == Blocks.water)
             {
-    			blocks[(y * 16 + x) * 256 + k] = Blocks.ice;
+    			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.ice.getDefaultState());
             	water = true;
             }
 		}

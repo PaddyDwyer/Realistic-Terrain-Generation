@@ -16,7 +16,7 @@ public class RealisticBiomeVanillaPlains extends RealisticBiomeVanilla
 			BiomeGenBase.plains,
 			VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 			new TerrainVanillaPlains(),
-			new SurfaceVanillaPlains(BiomeGenBase.plains.topBlock, BiomeGenBase.plains.fillerBlock, Blocks.stone, Blocks.cobblestone)
+			new SurfaceVanillaPlains(BiomeGenBase.plains.topBlock, BiomeGenBase.plains.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 		);
 	}
 	

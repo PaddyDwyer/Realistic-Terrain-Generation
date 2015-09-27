@@ -45,7 +45,7 @@ public class RealisticBiomeMesa extends RealisticBiomeBase
 		super(0, RTGBiomes.baseHotDesert, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.OASIS));
 		
 		terrain = new TerrainMesa();
-		surface = new SurfaceMesa(Blocks.sand, Blocks.sand, (byte)1);
+		surface = new SurfaceMesa(Blocks.sand.getStateFromMeta(1), Blocks.sand.getStateFromMeta(1));
 		riverSurface = new SurfaceRiverOasis();
 	}
 

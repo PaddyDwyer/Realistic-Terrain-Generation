@@ -38,7 +38,7 @@ public class RealisticBiomeSnowHills extends RealisticBiomeBase
 		super(0, RTGBiomes.baseSnowForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.ICE));
 		
 		terrain = new TerrainMountainSpikes();
-		surface = new SurfaceMountainSnow(Blocks.grass, Blocks.dirt, false, null, 0.2f);
+		surface = new SurfaceMountainSnow(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), false, null, 0.2f);
 	}
 	
 	@Override

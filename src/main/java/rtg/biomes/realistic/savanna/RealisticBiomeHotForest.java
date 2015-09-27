@@ -43,7 +43,7 @@ public class RealisticBiomeHotForest extends RealisticBiomeBase
 		super(0, RTGBiomes.baseHotForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT));
 		
 		terrain = new TerrainGrasslandFlats();
-		surface = new SurfaceGrasslandMixBig(Blocks.sand, Blocks.sand, Blocks.grass, Blocks.dirt, Blocks.stone, Blocks.cobblestone, 60f, -0.14f, 14f, 0.25f);
+		surface = new SurfaceGrasslandMixBig(Blocks.sand.getDefaultState(), Blocks.sand.getDefaultState(), Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState(), 60f, -0.14f, 14f, 0.25f);
 	}
 	
 	@Override

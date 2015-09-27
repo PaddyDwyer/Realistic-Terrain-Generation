@@ -2,10 +2,11 @@ package rtg.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class SnowheightCalculator 
 {
-	public static void calc(int x, int y, int k, Block[] blocks, byte[] metadata, float[] noise)
+	public static void calc(int x, int y, int k, ChunkPrimer chunkPrimer, float[] noise)
 	{
 		if(k < 254)
 		{
@@ -13,14 +14,12 @@ public class SnowheightCalculator
 			
 			if(h > 7)
 			{
-				blocks[(y * 16 + x) * 256 + k + 2] = Blocks.snow_layer;
-				blocks[(y * 16 + x) * 256 + k + 1] = Blocks.snow_layer;
-				metadata[(y * 16 + x) * 256 + k + 1] = 7;
+				chunkPrimer.setBlockState((y * 16 + x) * 256 + k + 2, Blocks.snow_layer.getStateFromMeta(7));
+				chunkPrimer.setBlockState((y * 16 + x) * 256 + k + 1, Blocks.snow_layer.getStateFromMeta(7));
 			}
 			else
 			{
-				blocks[(y * 16 + x) * 256 + k + 1] = Blocks.snow_layer;
-				metadata[(y * 16 + x) * 256 + k + 1] = h;
+				chunkPrimer.setBlockState((y * 16 + x) * 256 + k + 1, Blocks.snow_layer.getStateFromMeta(h));
 			}
 		}
 	}

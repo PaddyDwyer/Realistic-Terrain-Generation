@@ -25,7 +25,7 @@ public class RealisticBiomeIslandTropical extends RealisticBiomeBase
 	{
 		super(0, VanillaBiomes.climatizedBiome(BiomeGenBase.ocean, Climate.WET));
 		
-		surface = new SurfaceIslandMountainStone(Blocks.grass, Blocks.dirt, 67, Blocks.sand, 0f);
+		surface = new SurfaceIslandMountainStone(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), 67, Blocks.sand.getDefaultState(), 0f);
 	}
     
     @Override
