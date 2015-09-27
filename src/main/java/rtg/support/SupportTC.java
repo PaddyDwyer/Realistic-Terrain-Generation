@@ -31,7 +31,7 @@ public class SupportTC
 						new RealisticBiomeSupport(
 							b[i], VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 							new TerrainSmallSupport(),
-							new SurfaceGrassland(b[i].topBlock, b[i].fillerBlock, Blocks.stone, Blocks.cobblestone)
+							new SurfaceGrassland(b[i].topBlock, b[i].fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 						),
 						BiomeCategory.SMALL
 					);

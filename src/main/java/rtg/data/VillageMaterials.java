@@ -35,7 +35,7 @@ public class VillageMaterials
 	}
 	
 	@SubscribeEvent
-	public void getVillageBlockMeta(BiomeEvent.GetVillageBlockMeta event)
+	public void getVillageBlockMeta(BiomeEvent.GetVillageBlockID event)
 	{	
 		if(event.biome != null)
 		{
@@ -43,11 +43,11 @@ public class VillageMaterials
 			
 			if(vmd != null)
 			{
-				if (event.original == Blocks.log) { event.replacement = vmd.logBlockMeta; event.setResult(Result.DENY); return; }
-				if (event.original == Blocks.cobblestone) { event.replacement = vmd.cobbleBlockMeta; event.setResult(Result.DENY); return; }
-				if (event.original == Blocks.planks) { event.replacement = vmd.plankBlockMeta; event.setResult(Result.DENY); return; }
-				if (event.original == Blocks.gravel) { event.replacement = vmd.pathBlockMeta; event.setResult(Result.DENY); return; }
-				if (event.original == Blocks.stone_slab) { event.replacement = vmd.slabsBlockMeta; event.setResult(Result.DENY); return; }
+				if (event.original == Blocks.log) { event.replacement = vmd.logBlock; event.setResult(Result.DENY); return; }
+				if (event.original == Blocks.cobblestone) { event.replacement = vmd.cobbleBlock; event.setResult(Result.DENY); return; }
+				if (event.original == Blocks.planks) { event.replacement = vmd.plankBlock; event.setResult(Result.DENY); return; }
+				if (event.original == Blocks.gravel) { event.replacement = vmd.pathBlock; event.setResult(Result.DENY); return; }
+				if (event.original == Blocks.stone_slab) { event.replacement = vmd.slabsBlock; event.setResult(Result.DENY); return; }
 			}
 		}
 	}

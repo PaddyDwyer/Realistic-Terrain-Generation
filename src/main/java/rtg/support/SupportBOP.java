@@ -89,7 +89,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.bayou, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainSwampRiver(),
-				new SurfaceGrassland(BOPCBiomes.bayou.topBlock, BOPCBiomes.bayou.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.bayou.topBlock, BOPCBiomes.bayou.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -100,7 +100,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.bog, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainMarsh(),
-				new SurfaceGrassland(BOPCBiomes.bog.topBlock, BOPCBiomes.bog.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.bog.topBlock, BOPCBiomes.bog.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.HOT
 		);
@@ -111,7 +111,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.borealForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 				new TerrainMountainSpikes(),
-				new SurfaceMountainSnow(BOPCBiomes.borealForest.topBlock, BOPCBiomes.borealForest.fillerBlock, true, Blocks.sand, 0.45f, 1.5f, 60f, 65f, 0.4f, 130f, 50f, 1.5f)
+				new SurfaceMountainSnow(BOPCBiomes.borealForest.topBlock, BOPCBiomes.borealForest.fillerBlock, true, Blocks.sand.getDefaultState(), 0.45f, 1.5f, 60f, 65f, 0.4f, 130f, 50f, 1.5f)
 			),
 			BiomeCategory.COLD
 		);
@@ -122,7 +122,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.brushland, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainGrasslandHills(90f, 180f, 13f, 100f, 38f, 260f, 71f),
-				new SurfaceGrasslandMix1(BOPCBiomes.brushland.topBlock, BOPCBiomes.brushland.fillerBlock, Blocks.sand, Blocks.stone, Blocks.cobblestone, 13f, 0.27f)
+				new SurfaceGrasslandMix1(BOPCBiomes.brushland.topBlock, BOPCBiomes.brushland.fillerBlock, Blocks.sand.getDefaultState(), Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState(), 13f, 0.27f)
 			),
 			BiomeCategory.HOT
 		);
@@ -147,7 +147,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.canyon, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainCanyon(true, 35f, 160f, 60f, 40f, 69f),
-				new SurfaceCanyon(BOPCBiomes.canyon.topBlock, BOPCBiomes.canyon.fillerBlock, (byte)0, 0)
+				new SurfaceCanyon(BOPCBiomes.canyon.topBlock, BOPCBiomes.canyon.fillerBlock, 0)
 			),
 			BiomeCategory.HOT
 		);
@@ -158,7 +158,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.canyonRavine, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainCanyon(true, 35f, 160f, 60f, 40f, 69f),
-				new SurfaceCanyon(BOPCBiomes.canyonRavine.topBlock, BOPCBiomes.canyonRavine.fillerBlock, (byte)0, 0)
+				new SurfaceCanyon(BOPCBiomes.canyonRavine.topBlock, BOPCBiomes.canyonRavine.fillerBlock, 0)
 			),
 			BiomeCategory.HOT
 		); 
@@ -169,7 +169,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.chaparral, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainGrasslandHills(90f, 180f, 13f, 100f, 38f, 260f, 71f),
-				new SurfaceGrasslandMix1(BOPCBiomes.chaparral.topBlock, BOPCBiomes.chaparral.fillerBlock, Blocks.sand, Blocks.stone, Blocks.cobblestone, 26f, 0.35f)
+				new SurfaceGrasslandMix1(BOPCBiomes.chaparral.topBlock, BOPCBiomes.chaparral.fillerBlock, Blocks.sand.getDefaultState(), Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState(), 26f, 0.35f)
 			),
 			BiomeCategory.HOT
 		);
@@ -180,7 +180,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.cherryBlossomGrove, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainHighland(6f, 120f, 65f, 200f),
-				new SurfaceMountainStone(BOPCBiomes.borealForest.topBlock, BOPCBiomes.borealForest.fillerBlock, true, Blocks.sand, 0.45f, 1.5f, 60f, 65f, 1.5f)
+				new SurfaceMountainStone(BOPCBiomes.borealForest.topBlock, BOPCBiomes.borealForest.fillerBlock, true, Blocks.sand.getDefaultState(), 0.45f, 1.5f, 60f, 65f, 1.5f)
 			),
 			BiomeCategory.COLD
 		);
@@ -211,7 +211,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.crag, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainMountain(),
-				new SurfaceGrassland(BOPCBiomes.crag.topBlock, BOPCBiomes.crag.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.crag.topBlock, BOPCBiomes.crag.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -222,7 +222,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.deadForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainGrasslandHills(50f, 180f, 13f, 100f, 28f, 260f, 70f),
-				new SurfaceGrassland(BOPCBiomes.deadForest.topBlock, BOPCBiomes.deadForest.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.deadForest.topBlock, BOPCBiomes.deadForest.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);
@@ -233,7 +233,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.deadSwamp, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainMarsh(),
-				new SurfaceGrassland(BOPCBiomes.deadSwamp.topBlock, BOPCBiomes.deadSwamp.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.deadSwamp.topBlock, BOPCBiomes.deadSwamp.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -244,7 +244,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.deciduousForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.deciduousForest.topBlock, BOPCBiomes.deciduousForest.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.deciduousForest.topBlock, BOPCBiomes.deciduousForest.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.HOT
 		);
@@ -255,7 +255,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.denseForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.denseForest.topBlock, BOPCBiomes.denseForest.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.denseForest.topBlock, BOPCBiomes.denseForest.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 	    	),
 			BiomeCategory.COLD
 		);
@@ -266,7 +266,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.eucalyptusForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainHighland(0f, 180f, 68f, 120f),
-				new SurfaceGrassland(BOPCBiomes.eucalyptusForest.topBlock, BOPCBiomes.eucalyptusForest.fillerBlock, Blocks.stone, Blocks.cobblestone)						
+				new SurfaceGrassland(BOPCBiomes.eucalyptusForest.topBlock, BOPCBiomes.eucalyptusForest.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())						
 			),
 			BiomeCategory.WET
 		); 
@@ -277,7 +277,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.fen, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.fen.topBlock, BOPCBiomes.fen.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.fen.topBlock, BOPCBiomes.fen.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.HOT
 		);
@@ -288,7 +288,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.flowerField, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainGrasslandHills(40f, 180f, 13f, 100f, 28f, 260f, 70f),
-				new SurfaceGrassland(BOPCBiomes.flowerField.topBlock, BOPCBiomes.flowerField.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.flowerField.topBlock, BOPCBiomes.flowerField.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -298,7 +298,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.frostForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.ICE),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.frostForest.topBlock, BOPCBiomes.frostForest.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.frostForest.topBlock, BOPCBiomes.frostForest.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.SNOW
 		);
@@ -320,7 +320,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.garden, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainMountainSpikes(),
-				new SurfaceMountainSnow(BOPCBiomes.garden.topBlock, BOPCBiomes.garden.fillerBlock, true, Blocks.sand, 0.45f, 1.5f, 60f, 65f, 0.4f, 130f, 50f, 1.5f)
+				new SurfaceMountainSnow(BOPCBiomes.garden.topBlock, BOPCBiomes.garden.fillerBlock, true, Blocks.sand.getDefaultState(), 0.45f, 1.5f, 60f, 65f, 0.4f, 130f, 50f, 1.5f)
 			),
 			BiomeCategory.COLD
 		);
@@ -331,7 +331,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.glacier, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 				new TerrainMountainSpikes(),
-				new SurfaceMountainSnow(BOPCBiomes.glacier.topBlock, BOPCBiomes.glacier.fillerBlock, true, Blocks.sand, 0.45f, 1.5f, 60f, 65f, 0.4f, 130f, 50f, 1.5f)
+				new SurfaceMountainSnow(BOPCBiomes.glacier.topBlock, BOPCBiomes.glacier.fillerBlock, true, Blocks.sand.getDefaultState(), 0.45f, 1.5f, 60f, 65f, 0.4f, 130f, 50f, 1.5f)
 			),
 			BiomeCategory.SNOW
 		);
@@ -342,7 +342,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.grassland, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainGrasslandHills(47f, 180f, 13f, 100f, 28f, 260f, 70f),
-				new SurfaceGrassland(BOPCBiomes.grassland.topBlock, BOPCBiomes.grassland.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.grassland.topBlock, BOPCBiomes.grassland.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -352,7 +352,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.grove, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.grove.topBlock, BOPCBiomes.grove.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.grove.topBlock, BOPCBiomes.grove.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);
@@ -402,7 +402,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.landOfLakes, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainGrasslandFlats(),
-				new SurfaceGrassland(BOPCBiomes.landOfLakes.topBlock, BOPCBiomes.landOfLakes.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.landOfLakes.topBlock, BOPCBiomes.landOfLakes.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);		
@@ -413,7 +413,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.landOfLakesMarsh, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainMarsh(),
-				new SurfaceGrassland(BOPCBiomes.landOfLakes.topBlock, BOPCBiomes.landOfLakes.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.landOfLakes.topBlock, BOPCBiomes.landOfLakes.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);		
@@ -435,7 +435,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.lushDesert, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainGrasslandHills(90f, 180f, 13f, 100f, 38f, 260f, 71f),
-				new SurfaceGrassland(BOPCBiomes.lushDesert.topBlock, BOPCBiomes.lushDesert.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.lushDesert.topBlock, BOPCBiomes.lushDesert.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.HOT
 		);
@@ -446,7 +446,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.lushSwamp, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainSwampRiver(),
-				new SurfaceGrassland(BOPCBiomes.lushSwamp.topBlock, BOPCBiomes.lushSwamp.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.lushSwamp.topBlock, BOPCBiomes.lushSwamp.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -457,7 +457,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.mangrove, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainSwampRiver(),
-				new SurfaceGrassland(BOPCBiomes.mangrove.topBlock, BOPCBiomes.mangrove.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.mangrove.topBlock, BOPCBiomes.mangrove.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -468,7 +468,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.mapleWoods, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.mapleWoods.topBlock, BOPCBiomes.mapleWoods.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.mapleWoods.topBlock, BOPCBiomes.mapleWoods.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);
@@ -479,7 +479,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.marsh, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainMarsh(),
-				new SurfaceGrassland(BOPCBiomes.marsh.topBlock, BOPCBiomes.marsh.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.marsh.topBlock, BOPCBiomes.marsh.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -511,7 +511,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.moor, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainHighland(0f, 70f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.moor.topBlock, BOPCBiomes.moor.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.moor.topBlock, BOPCBiomes.moor.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -521,7 +521,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.mountain, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainMountainRiver(),
-				new SurfaceMountainStone(BOPCBiomes.mountain.topBlock, BOPCBiomes.mountain.fillerBlock, true, Blocks.sand, 0.75f)
+				new SurfaceMountainStone(BOPCBiomes.mountain.topBlock, BOPCBiomes.mountain.fillerBlock, true, Blocks.sand.getDefaultState(), 0.75f)
 			),
 			BiomeCategory.HOT
 		);
@@ -532,7 +532,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.mysticGrove, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.mysticGrove.topBlock, BOPCBiomes.mysticGrove.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.mysticGrove.topBlock, BOPCBiomes.mysticGrove.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -543,7 +543,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.oasis, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.OASIS),
 				new TerrainGrasslandFlats(),
-				new SurfaceGrassland(BOPCBiomes.oasis.topBlock, BOPCBiomes.oasis.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.oasis.topBlock, BOPCBiomes.oasis.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);		
@@ -554,7 +554,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.ominousWoods, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.ominousWoods.topBlock, BOPCBiomes.ominousWoods.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.ominousWoods.topBlock, BOPCBiomes.ominousWoods.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -564,7 +564,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.orchard, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainVanillaPlains(),
-				new SurfaceGrassland(BOPCBiomes.orchard.topBlock, BOPCBiomes.orchard.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.orchard.topBlock, BOPCBiomes.orchard.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -574,7 +574,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.originValley, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainHighland(10f, 80f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.originValley.topBlock, BOPCBiomes.originValley.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.originValley.topBlock, BOPCBiomes.originValley.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -601,7 +601,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.prairie, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainGrasslandHills(90f, 180f, 13f, 100f, 38f, 260f, 71f),
-				new SurfaceGrassland(BOPCBiomes.prairie.topBlock, BOPCBiomes.prairie.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.prairie.topBlock, BOPCBiomes.prairie.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.HOT
 		);
@@ -612,7 +612,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.quagmire, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainMountain(),
-				new SurfaceGrassland(BOPCBiomes.quagmire.topBlock, BOPCBiomes.quagmire.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.quagmire.topBlock, BOPCBiomes.quagmire.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);
@@ -645,7 +645,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.sacredSprings, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainHighland(0f, 120f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.sacredSprings.topBlock, BOPCBiomes.sacredSprings.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.sacredSprings.topBlock, BOPCBiomes.sacredSprings.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -656,7 +656,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.scrubland, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainVanillaPlains(),
-				new SurfaceGrassland(BOPCBiomes.scrubland.topBlock, BOPCBiomes.scrubland.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.scrubland.topBlock, BOPCBiomes.scrubland.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -667,7 +667,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.seasonalForest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.seasonalForest.topBlock, BOPCBiomes.seasonalForest.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.seasonalForest.topBlock, BOPCBiomes.seasonalForest.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);
@@ -678,7 +678,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.seasonalForestClearing, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainHighland(0f, 140f, 68f, 170f),
-				new SurfaceGrassland(BOPCBiomes.seasonalForestClearing.topBlock, BOPCBiomes.seasonalForestClearing.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.seasonalForestClearing.topBlock, BOPCBiomes.seasonalForestClearing.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);
@@ -689,7 +689,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.shield, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 				new TerrainGrasslandHills(90f, 180f, 13f, 100f, 38f, 260f, 71f),
-				new SurfaceGrassland(BOPCBiomes.shield.topBlock, BOPCBiomes.shield.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.shield.topBlock, BOPCBiomes.shield.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);
@@ -700,7 +700,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.shrubland, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainGrasslandHills(70f, 150f, 13f, 90f, 38f, 200f, 71f),
-				new SurfaceGrassland(BOPCBiomes.shrubland.topBlock, BOPCBiomes.shrubland.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.shrubland.topBlock, BOPCBiomes.shrubland.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.HOT
 		);
@@ -711,7 +711,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.silkglades, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainMarsh(),
-				new SurfaceGrassland(BOPCBiomes.silkglades.topBlock, BOPCBiomes.silkglades.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.silkglades.topBlock, BOPCBiomes.silkglades.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);
@@ -722,7 +722,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.sludgepit, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainMarsh(),
-				new SurfaceGrassland(BOPCBiomes.sludgepit.topBlock, BOPCBiomes.sludgepit.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.sludgepit.topBlock, BOPCBiomes.sludgepit.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);	
@@ -733,7 +733,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.spruceWoods, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 				new TerrainVanillaForest(),
-				new SurfaceGrassland(BOPCBiomes.spruceWoods.topBlock, BOPCBiomes.spruceWoods.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.spruceWoods.topBlock, BOPCBiomes.spruceWoods.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);		
@@ -744,7 +744,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.steppe, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainGrasslandHills(70f, 180f, 13f, 100f, 38f, 260f, 71f),
-				new SurfaceGrassland(BOPCBiomes.steppe.topBlock, BOPCBiomes.steppe.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.steppe.topBlock, BOPCBiomes.steppe.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -765,7 +765,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.thicket, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 				new TerrainGrasslandHills(70f, 180f, 13f, 100f, 38f, 260f, 71f),
-				new SurfaceGrassland(BOPCBiomes.thicket.topBlock, BOPCBiomes.thicket.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.thicket.topBlock, BOPCBiomes.thicket.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -775,7 +775,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.tropicalRainforest, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.tropicalRainforest.topBlock, BOPCBiomes.tropicalRainforest.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.tropicalRainforest.topBlock, BOPCBiomes.tropicalRainforest.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -786,7 +786,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.tropics, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainHighland(10f, 80f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.tropics.topBlock, BOPCBiomes.tropics.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.tropics.topBlock, BOPCBiomes.tropics.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -797,7 +797,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.tundra, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.ICE),
 				new TerrainGrasslandHills(90f, 180f, 13f, 100f, 38f, 260f, 71f),
-				new SurfaceGrassland(BOPCBiomes.tundra.topBlock, BOPCBiomes.tundra.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.tundra.topBlock, BOPCBiomes.tundra.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.SNOW
 		);
@@ -808,7 +808,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.volcano, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainMarsh(),
-				new SurfaceGrassland(BOPCBiomes.volcano.topBlock, BOPCBiomes.volcano.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.volcano.topBlock, BOPCBiomes.volcano.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.HOT
 		);
@@ -819,7 +819,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.wasteland, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainHighland(10f, 80f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.wasteland.topBlock, BOPCBiomes.wasteland.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.wasteland.topBlock, BOPCBiomes.wasteland.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			)
 		);
 		
@@ -829,7 +829,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.wetland, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 				new TerrainMarsh(),
-				new SurfaceGrassland(BOPCBiomes.wetland.topBlock, BOPCBiomes.wetland.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.wetland.topBlock, BOPCBiomes.wetland.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET
 		);
@@ -840,7 +840,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.woodland, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.woodland.topBlock, BOPCBiomes.woodland.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.woodland.topBlock, BOPCBiomes.woodland.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD
 		);
@@ -851,7 +851,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.xericShrubland, VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 				new TerrainHighland(0f, 140f, 68f, 200f),
-				new SurfaceGrassland(BOPCBiomes.xericShrubland.topBlock, BOPCBiomes.xericShrubland.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.xericShrubland.topBlock, BOPCBiomes.xericShrubland.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.HOT
 		);
@@ -863,7 +863,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.coralReef, VanillaBiomes.climatizedBiome(BiomeGenBase.ocean, Climate.WET),
 				new TerrainCanyon(false, -25f, 0f, 0f, 0f, 30f),
-				new SurfaceGrassland(BOPCBiomes.coralReef.topBlock, BOPCBiomes.coralReef.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.coralReef.topBlock, BOPCBiomes.coralReef.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET	
 		);
@@ -874,7 +874,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.kelpForest, VanillaBiomes.climatizedBiome(BiomeGenBase.ocean, Climate.TEMPERATE),
 				new TerrainCanyon(false, -25f, 0f, 0f, 0f, 30f),
-				new SurfaceGrassland(BOPCBiomes.kelpForest.topBlock, BOPCBiomes.kelpForest.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.kelpForest.topBlock, BOPCBiomes.kelpForest.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD	
 		);	
@@ -885,7 +885,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.dryRiver, VanillaBiomes.climatizedBiome(BiomeGenBase.ocean, Climate.WET),
 				new TerrainCanyon(false, -25f, 0f, 0f, 0f, 30f),
-				new SurfaceGrassland(BOPCBiomes.dryRiver.topBlock, BOPCBiomes.dryRiver.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.dryRiver.topBlock, BOPCBiomes.dryRiver.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.WET	
 		);
@@ -896,7 +896,7 @@ public class SupportBOP
 			new RealisticBiomeSupport(
 				BOPCBiomes.lushRiver, VanillaBiomes.climatizedBiome(BiomeGenBase.ocean, Climate.TEMPERATE),
 				new TerrainCanyon(false, -25f, 0f, 0f, 0f, 30f),
-				new SurfaceGrassland(BOPCBiomes.lushRiver.topBlock, BOPCBiomes.lushRiver.fillerBlock, Blocks.stone, Blocks.cobblestone)
+				new SurfaceGrassland(BOPCBiomes.lushRiver.topBlock, BOPCBiomes.lushRiver.fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 			),
 			BiomeCategory.COLD	
 		);	

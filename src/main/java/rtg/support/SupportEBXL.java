@@ -39,7 +39,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.alpine.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.ICE),
 					new TerrainMountainRiver(),
-					new SurfaceMountainSnow(Blocks.grass, Blocks.dirt, false, null, 0.45f)
+					new SurfaceMountainSnow(Blocks.grass.getDefaultState(), Blocks.dirt.getDefaultState(), false, null, 0.45f)
 				), 
 				BiomeCategory.SNOW
 			);
@@ -52,7 +52,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.autumnwoods.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 					new TerrainHighland(0f, 140f, 68f, 200f),
-					new SurfaceGrassland(BiomeManager.autumnwoods.get().topBlock, BiomeManager.autumnwoods.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.autumnwoods.get().topBlock, BiomeManager.autumnwoods.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.COLD
 			);
@@ -91,7 +91,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.forestedisland.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 					new TerrainGrasslandHills(90f, 180f, 13f, 100f, 1f, 260f, 59f),
-					new SurfaceGrassland(BiomeManager.forestedisland.get().topBlock, BiomeManager.forestedisland.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.forestedisland.get().topBlock, BiomeManager.forestedisland.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.COLD
 			);
@@ -156,7 +156,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.greenswamp.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 					new TerrainSwampRiver(),
-					new SurfaceGrassland(BiomeManager.greenswamp.get().topBlock, BiomeManager.greenswamp.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.greenswamp.get().topBlock, BiomeManager.greenswamp.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.WET
 			);
@@ -169,7 +169,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.marsh.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 					new TerrainMarsh(),
-					new SurfaceMarshFix(BiomeManager.marsh.get().topBlock, BiomeManager.marsh.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceMarshFix(BiomeManager.marsh.get().topBlock, BiomeManager.marsh.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.WET
 			);
@@ -182,7 +182,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.meadow.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 					new TerrainGrasslandHills(90f, 180f, 13f, 100f, 38f, 260f, 71f),
-					new SurfaceGrassland(BiomeManager.meadow.get().topBlock, BiomeManager.meadow.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.meadow.get().topBlock, BiomeManager.meadow.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.COLD
 			);
@@ -195,7 +195,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.minijungle.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 					new TerrainHighland(0f, 140f, 68f, 200f),
-					new SurfaceGrassland(BiomeManager.minijungle.get().topBlock, BiomeManager.minijungle.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.minijungle.get().topBlock, BiomeManager.minijungle.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.WET
 			);
@@ -272,7 +272,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.rainforest.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 					new TerrainHilly(230f, 100f, 0f),
-					new SurfaceGrassland(BiomeManager.rainforest.get().topBlock, BiomeManager.rainforest.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.rainforest.get().topBlock, BiomeManager.rainforest.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.WET
 			);
@@ -285,7 +285,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.redwoodforest.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 					new TerrainHilly(230f, 120f, 0f),
-					new SurfaceMountainStone(BiomeManager.redwoodforest.get().topBlock, BiomeManager.redwoodforest.get().fillerBlock, true, Blocks.sand, 0.2f)
+					new SurfaceMountainStone(BiomeManager.redwoodforest.get().topBlock, BiomeManager.redwoodforest.get().fillerBlock, true, Blocks.sand.getDefaultState(), 0.2f)
 				), 
 				BiomeCategory.COLD
 			);
@@ -298,7 +298,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.redwoodlush.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 					new TerrainHilly(230f, 120f, 0f),
-					new SurfaceMountainStone(BiomeManager.redwoodlush.get().topBlock, BiomeManager.redwoodlush.get().fillerBlock, true, Blocks.sand, 0.2f)
+					new SurfaceMountainStone(BiomeManager.redwoodlush.get().topBlock, BiomeManager.redwoodlush.get().fillerBlock, true, Blocks.sand.getDefaultState(), 0.2f)
 				), 
 				BiomeCategory.WET
 			);
@@ -311,7 +311,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.savanna.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.HOT),
 					new TerrainGrasslandFlats(),
-					new SurfaceGrasslandMix1(BiomeManager.savanna.get().topBlock, BiomeManager.savanna.get().fillerBlock, Blocks.sand, Blocks.stone, Blocks.cobblestone, 13f, 0.27f)
+					new SurfaceGrasslandMix1(BiomeManager.savanna.get().topBlock, BiomeManager.savanna.get().fillerBlock, Blocks.sand.getDefaultState(), Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState(), 13f, 0.27f)
 				), 
 				BiomeCategory.HOT
 			);
@@ -324,7 +324,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.shrubland.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 					new TerrainGrasslandHills(90f, 180f, 13f, 100f, 38f, 260f, 71f),
-					new SurfaceGrassland(BiomeManager.shrubland.get().topBlock, BiomeManager.shrubland.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.shrubland.get().topBlock, BiomeManager.shrubland.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.COLD
 			);
@@ -337,7 +337,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.snowforest.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.ICE),
 					new TerrainHighland(0f, 140f, 68f, 200f),
-					new SurfaceGrassland(BiomeManager.snowforest.get().topBlock, BiomeManager.snowforest.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.snowforest.get().topBlock, BiomeManager.snowforest.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.SNOW
 			);
@@ -350,7 +350,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.snowyrainforest.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.ICE),
 					new TerrainHilly(230f, 120f, 0f),
-					new SurfaceGrassland(BiomeManager.snowforest.get().topBlock, BiomeManager.snowforest.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.snowforest.get().topBlock, BiomeManager.snowforest.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.SNOW
 			);
@@ -363,7 +363,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.temperaterainforest.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.WET),
 					new TerrainHilly(230f, 120f, 0f),
-					new SurfaceMountainStone(BiomeManager.temperaterainforest.get().topBlock, BiomeManager.temperaterainforest.get().fillerBlock, true, Blocks.sand, 0.2f)
+					new SurfaceMountainStone(BiomeManager.temperaterainforest.get().topBlock, BiomeManager.temperaterainforest.get().fillerBlock, true, Blocks.sand.getDefaultState(), 0.2f)
 				), 
 				BiomeCategory.WET
 			);
@@ -376,7 +376,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.tundra.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.COLD),
 					new TerrainGrasslandHills(90f, 180f, 13f, 100f, 38f, 260f, 71f),
-					new SurfaceGrassland(BiomeManager.tundra.get().topBlock, BiomeManager.tundra.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.tundra.get().topBlock, BiomeManager.tundra.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.COLD
 			);
@@ -390,7 +390,7 @@ public class SupportEBXL
 					BiomeManager.wasteland.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.OASIS),
 					new TerrainGrasslandHills(30f, 180f, 13f, 100f, 28f, 260f, 70f),
 					new SurfaceBase[]{
-						new SurfaceGrassland(BiomeManager.wasteland.get().topBlock, BiomeManager.wasteland.get().fillerBlock, Blocks.stone, Blocks.cobblestone),
+						new SurfaceGrassland(BiomeManager.wasteland.get().topBlock, BiomeManager.wasteland.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState()),
 						new SurfaceRiverOasis()
 					},
 					new EditBase[]{
@@ -408,7 +408,7 @@ public class SupportEBXL
 				new RealisticBiomeSupport(
 					BiomeManager.woodlands.get(), VanillaBiomes.climatizedBiome(BiomeGenBase.river, Climate.TEMPERATE),
 					new TerrainHighland(0f, 140f, 68f, 200f),
-					new SurfaceGrassland(BiomeManager.woodlands.get().topBlock, BiomeManager.woodlands.get().fillerBlock, Blocks.stone, Blocks.cobblestone)
+					new SurfaceGrassland(BiomeManager.woodlands.get().topBlock, BiomeManager.woodlands.get().fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 				), 
 				BiomeCategory.COLD
 			);

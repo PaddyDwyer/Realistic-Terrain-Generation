@@ -1,5 +1,8 @@
 package rtg.data;
 
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.BlockPlanks.EnumType;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -28,18 +31,18 @@ public class TreeReplacement
 		System.out.println("Zwieber nie gaan stele nu he");
 		if(e.world.getWorldInfo().getTerrainType() == RTG.worldtype)
 		{
-			int type = e.world.getBlockMetadata(e.x, e.y, e.z);
+			BlockPlanks.EnumType type = (EnumType) e.world.getBlockState(e.pos).getValue(BlockSapling.TYPE);
 			System.out.println("tiepe: " + type);
-			if(type == 9)
+			if(type == BlockPlanks.EnumType.SPRUCE)
 			{
-				e.world.setBlock(e.x, e.y, e.z, Blocks.air);
-				(new DecoSmallPine(3 + e.rand.nextInt(3), 5 + e.rand.nextInt(5))).generate(e.world, e.rand, e.x, e.y, e.z);
+				e.world.setBlockState(e.pos, Blocks.air.getDefaultState());
+				(new DecoSmallPine(3 + e.rand.nextInt(3), 5 + e.rand.nextInt(5))).generate(e.world, e.rand, e.pos);
 				return true;
 			}			
-			if(type == 12)
+			if(type == BlockPlanks.EnumType.ACACIA)
 			{
-				e.world.setBlock(e.x, e.y, e.z, Blocks.air);
-				(new DecoSavannah(1)).generate(e.world, e.rand, e.x, e.y, e.z);
+				e.world.setBlockState(e.pos, Blocks.air.getDefaultState());
+				(new DecoSavannah(1)).generate(e.world, e.rand, e.pos);
 				return true;
 			}
 		}

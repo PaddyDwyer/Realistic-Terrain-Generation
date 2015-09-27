@@ -3,8 +3,10 @@ package rtg.support;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 import rtg.biomes.realistic.RealisticBiomeBase;
 import rtg.support.edit.EditBase;
 import rtg.surface.SurfaceBase;
@@ -58,7 +60,7 @@ public class RealisticBiomeSupport extends RealisticBiomeBase
     {
     	if(strength > 0.3f)
     	{
-        	customBiome.decorate(world, rand, chunkX, chunkY);
+    		customBiome.decorate(world, null, new BlockPos(chunkX, 0, chunkY));
     	}
 
     	for(int e = 0; e < editLength; e++)
@@ -74,11 +76,11 @@ public class RealisticBiomeSupport extends RealisticBiomeBase
     }
     
     @Override
-    public void rReplace(Block[] blocks, byte[] metadata, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
+    public void rReplace(ChunkPrimer chunkPrimer, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
     {
     	for(int s = 0; s < surfacesLength; s++)
     	{
-    		surfaces[s].paintTerrain(blocks, metadata, i, j, x, y, depth, world, rand, perlin, cell, noise, river, base);
+    		surfaces[s].paintTerrain(chunkPrimer, i, j, x, y, depth, world, rand, perlin, cell, noise, river, base);
     	}
     }
 }

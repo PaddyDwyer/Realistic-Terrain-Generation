@@ -16,14 +16,12 @@ public class BaseBiomeHotDesert extends BiomeGenBase
 		spawnableCreatureList.clear();
 		
 		VillageMaterialData vmd = new VillageMaterialData(this);
-		vmd.plankBlock = Blocks.sandstone;
-		vmd.plankBlockMeta = 0;
-		vmd.logBlock = Blocks.sandstone;
-		vmd.logBlockMeta = 0;
-		vmd.pathBlock = Blocks.sandstone;
-		vmd.stairsWoodBlock = Blocks.sandstone_stairs;
-		vmd.slabsBlock = Blocks.oak_fence;
-		vmd.cobbleBlock = Blocks.sandstone;
+		vmd.plankBlock = Blocks.sandstone.getDefaultState();
+		vmd.logBlock = Blocks.sandstone.getDefaultState();
+		vmd.pathBlock = Blocks.sandstone.getDefaultState();
+		vmd.stairsWoodBlock = Blocks.sandstone_stairs.getDefaultState();
+		vmd.slabsBlock = Blocks.acacia_fence.getDefaultState();
+		vmd.cobbleBlock = Blocks.sandstone.getDefaultState();
 		VillageMaterials.registerVillageMaterial(vmd);
 	}
 }

@@ -3,6 +3,7 @@ package rtg.debug;
 import org.apache.logging.log4j.Level;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -21,7 +22,7 @@ public final class DebugHandler {
 	@SubscribeEvent
 	public void onDrawDebugText(RenderGameOverlayEvent.Text event) {
 		
-		EntityClientPlayerMP player = Minecraft.getMinecraft().thePlayer;
+		EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
 		World world = Minecraft.getMinecraft().theWorld;
 
 		if ( world.getWorldChunkManager() instanceof ChunkManagerRealistic ) {

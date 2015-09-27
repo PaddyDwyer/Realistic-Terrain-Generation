@@ -21,13 +21,11 @@ public class BaseBiomeHotPlains extends BiomeGenBase
         spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(EntityHorse.class, 5, 2, 3));
         
 		VillageMaterialData vmd = new VillageMaterialData(this);
-		vmd.plankBlock = Blocks.planks;
-		vmd.plankBlockMeta = 4;
-		vmd.logBlock = Blocks.log2;
-		vmd.logBlockMeta = 0;
-		vmd.pathBlock = Blocks.cobblestone;
-		vmd.stairsWoodBlock = Blocks.acacia_stairs;
-		vmd.slabsBlock = Blocks.oak_fence;
+		vmd.plankBlock = Blocks.planks.getStateFromMeta(4);
+		vmd.logBlock = Blocks.log2.getDefaultState();
+		vmd.pathBlock = Blocks.cobblestone.getDefaultState();
+		vmd.stairsWoodBlock = Blocks.acacia_stairs.getDefaultState();
+		vmd.slabsBlock = Blocks.oak_fence.getDefaultState();
 		VillageMaterials.registerVillageMaterial(vmd);
 	}
 	
