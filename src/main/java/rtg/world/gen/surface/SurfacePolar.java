@@ -10,6 +10,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class SurfacePolar extends SurfaceBase
 {
@@ -63,7 +64,7 @@ public class SurfacePolar extends SurfaceBase
         			chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.snow.getDefaultState());
             		if(depth == 0 && k > 61 && k < 254)
             		{
-            			SnowheightCalculator.calc(x, y, k, chunkPrimer, noise);
+            			SnowHeightCalculator.calc(x, y, k, chunkPrimer, noise);
             		}
         		}
             }

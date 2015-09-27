@@ -1,6 +1,6 @@
 package rtg.world.biome.realistic.enhancedbiomes;
 
-import cpw.mods.fml.common.Loader;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraft.world.biome.BiomeGenBase;
 import rtg.world.biome.BiomeBase;
 import rtg.world.biome.realistic.RealisticBiomeBase;

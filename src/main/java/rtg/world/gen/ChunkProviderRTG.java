@@ -22,8 +22,8 @@ import java.util.Random;
 
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.eventhandler.Event.Result;
+import net.minecraftforge.fml.common.FMLLog;
+import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import rtg.config.ConfigRTG;
@@ -68,14 +68,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.OreGenEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
-import rtg.biomes.realistic.RealisticBiomeBase;
-import rtg.config.ConfigRTG;
-import rtg.debug.DebugHandler;
-import rtg.deco.DecoClay;
-import rtg.util.CanyonColor;
-import rtg.util.CellNoise;
-import rtg.util.PerlinNoise;
+
 
 /**
  * Scattered features courtesy of Ezoteric (https://github.com/Ezoteric) and Choonster (https://github.com/Choonster)
@@ -233,8 +226,7 @@ public class ChunkProviderRTG implements IChunkProvider
         return chunk;
     }
     
-    public void generateTerrain(WorldChunkManagerRTG cmr, int cx, int cy, Block[] blocks, byte[] metadata, RealisticBiomeBase biomes[], float[] n)
-    public void generateTerrain(ChunkManagerRealistic cmr, int cx, int cy, ChunkPrimer chunkPrimer, RealisticBiomeBase biomes[], float[] n)
+    public void generateTerrain(WorldChunkManagerRTG cmr, int cx, int cy, ChunkPrimer chunkPrimer, RealisticBiomeBase biomes[], float[] n)
     {
     	FMLLog.log(Level.INFO, "START generateTerrain (cx=%d, cy=%d)", cx, cy);
     	
@@ -613,8 +605,7 @@ public class ChunkProviderRTG implements IChunkProvider
 				int l5 = x + rand.nextInt(16);
 				int i9 = 53 + rand.nextInt(15);
 				int l11 = y + rand.nextInt(16);
-				(new WorldGenClay(Blocks.clay, 0, 20)).generate(worldObj, rand, l5, i9, l11);
-				(new DecoClay(Blocks.clay.getDefaultState(), 20)).generate(worldObj, rand, new BlockPos(l5, i9, l11));
+				(new WorldGenClay(Blocks.clay.getDefaultState(), 20)).generate(worldObj, rand, new BlockPos(l5, i9, l11));
 			}
         }
 

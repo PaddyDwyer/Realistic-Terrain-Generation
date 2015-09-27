@@ -12,8 +12,10 @@ import rtg.world.gen.surface.SurfaceBase;
 import rtg.world.gen.terrain.TerrainBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.ChunkPrimer;
 
 public class RealisticBiomeBase extends BiomeBase
 {
@@ -81,11 +83,11 @@ public class RealisticBiomeBase extends BiomeBase
     {
     	if(strength > 0.3f)
     	{
-    		baseBiome.decorate(world, rand, chunkX, chunkY);
+    		baseBiome.decorate(world, rand, new BlockPos(chunkX, 0, chunkY));
     	}
     }
     
-    public void generateMapGen(Block[] blocks, byte[] metadata, Long seed, World world, WorldChunkManagerRTG cmr, Random mapRand, int chunkX, int chunkY, PerlinNoise perlin, CellNoise cell, float noise[])
+    public void generateMapGen(ChunkPrimer chunkPrimer, Long seed, World world, WorldChunkManagerRTG cmr, Random mapRand, int chunkX, int chunkY, PerlinNoise perlin, CellNoise cell, float noise[])
     {
         int k = 5;
         mapRand.setSeed(seed);
@@ -96,12 +98,12 @@ public class RealisticBiomeBase extends BiomeBase
             for(int baseY = chunkY - k; baseY <= chunkY + k; baseY++)
             {
             	mapRand.setSeed((long)baseX * l + (long)baseY * l1 ^ seed);
-                rMapGen(blocks, metadata, world, cmr, mapRand, baseX, baseY, chunkX, chunkY, perlin, cell, noise);
+                rMapGen(chunkPrimer, world, cmr, mapRand, baseX, baseY, chunkX, chunkY, perlin, cell, noise);
             }
         }
     }
     
-    public void rMapGen(Block[] blocks, byte[] metadata, World world, WorldChunkManagerRTG cmr, Random mapRand, int chunkX, int chunkY, int baseX, int baseY, PerlinNoise perlin, CellNoise cell, float noise[])
+    public void rMapGen(ChunkPrimer chunkPrimer, World world, WorldChunkManagerRTG cmr, Random mapRand, int chunkX, int chunkY, int baseX, int baseY, PerlinNoise perlin, CellNoise cell, float noise[])
     {
     }
     
@@ -110,11 +112,11 @@ public class RealisticBiomeBase extends BiomeBase
 		return terrain.generateNoise(perlin, cell, x, y, ocean, border, river);
     }
     
-    public void rReplace(Block[] blocks, byte[] metadata, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
+    public void rReplace(ChunkPrimer chunkPrimer, int i, int j, int x, int y, int depth, World world, Random rand, PerlinNoise perlin, CellNoise cell, float[] noise, float river, BiomeGenBase[] base)
     {
     	for(int s = 0; s < surfacesLength; s++)
     	{
-    		surfaces[s].paintTerrain(blocks, metadata, i, j, x, y, depth, world, rand, perlin, cell, noise, river, base);
+    		surfaces[s].paintTerrain(chunkPrimer, i, j, x, y, depth, world, rand, perlin, cell, noise, river, base);
     	}
     }
     

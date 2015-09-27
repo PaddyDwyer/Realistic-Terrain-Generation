@@ -10,7 +10,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class WorldGenTreePine extends WorldGenerator
 {

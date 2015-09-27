@@ -9,10 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
-import rtg.biomes.vanilla.VanillaBiomes;
-import rtg.biomes.vanilla.VanillaBiomes.Climate;
-import rtg.surface.vanilla.SurfaceVanillaTaiga;
-import rtg.terrain.vanilla.TerrainVanillaTaiga;
 
 public class RealisticBiomeVanillaTaiga extends RealisticBiomeVanillaBase
 {	

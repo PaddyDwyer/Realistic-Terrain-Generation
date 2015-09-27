@@ -9,7 +9,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.ChunkPrimer;
-import rtg.api.RTGBiomes;
 import rtg.util.CellNoise;
 import rtg.util.PerlinNoise;
 
@@ -53,8 +52,6 @@ public class SurfaceDuneValley extends SurfaceBase
                 	if(k > 90f + perlin.noise2(i / 24f, j / 24f) * 10f - h || (m < -0.28f && mix))
         			{
     					chunkPrimer.setBlockState((y * 16 + x) * 256 + k, Blocks.sand.getDefaultState());
-    					base[x * 16 + y] = RTGBiomes.baseHotDesert;
-    					blocks[(y * 16 + x) * 256 + k] = Blocks.sand;
     					base[x * 16 + y] = BiomeGenBase.desert;
     					sand = true;
         			}

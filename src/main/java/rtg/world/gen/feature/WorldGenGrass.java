@@ -15,7 +15,7 @@ public class WorldGenGrass extends WorldGenerator
 	private BlockBush block;
 	private int metadata;
 
-    public WorldGenGrass(Block b, int m)
+    public WorldGenGrass(BlockBush b, int m)
     {
 		block = b;
 		metadata = m;

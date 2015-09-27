@@ -1,6 +1,6 @@
 package rtg.world.biome.realistic.vanilla;
 
-import rtg.biomes.realistic.vanilla.RealisticBiomeVanillaBeach;
+import net.minecraft.world.biome.BiomeGenBase;
 import rtg.config.ConfigRTG;
 import rtg.world.biome.BiomeBase;
 import rtg.world.biome.realistic.RealisticBiomeBase;

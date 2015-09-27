@@ -9,7 +9,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.relauncher.Side;
-import rtg.biomes.base.BaseBiomes;
 import rtg.config.RTGConfig;
 import rtg.data.VillageMaterials;
 import rtg.debug.DebugHandler;
@@ -59,7 +58,7 @@ public class RTG {
 	}
 
 	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event)
 	{
 		BiomeBase.init();
 		

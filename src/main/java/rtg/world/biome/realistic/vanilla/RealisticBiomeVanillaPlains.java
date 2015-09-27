@@ -18,6 +18,7 @@ import rtg.world.gen.feature.tree.WorldGenTreeWillow;
 import rtg.world.gen.surface.vanilla.SurfaceVanillaPlains;
 import rtg.world.gen.terrain.vanilla.TerrainVanillaPlains;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -28,8 +29,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class RealisticBiomeVanillaPlains extends RealisticBiomeVanillaBase
 {	
-	public static Block topBlock = BiomeGenBase.plains.topBlock;
-	public static Block fillerBlock = BiomeGenBase.plains.fillerBlock;
+	public static IBlockState topBlock = BiomeGenBase.plains.topBlock;
+	public static IBlockState fillerBlock = BiomeGenBase.plains.fillerBlock;
 	
 	public RealisticBiomeVanillaPlains()
 	{
@@ -37,7 +38,7 @@ public class RealisticBiomeVanillaPlains extends RealisticBiomeVanillaBase
 			BiomeGenBase.plains,
 			BiomeBase.climatizedBiome(BiomeGenBase.river, BiomeBase.Climate.TEMPERATE),
 			new TerrainVanillaPlains(),
-			new SurfaceVanillaPlains(topBlock, fillerBlock, Blocks.stone, Blocks.cobblestone)
+			new SurfaceVanillaPlains(topBlock, fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 		);
 	}
 }

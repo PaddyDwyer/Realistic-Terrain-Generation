@@ -16,8 +16,7 @@ public class WorldGenClay extends WorldGenerator
     private int numberOfBlocks;
     private static final String __OBFID = "CL_00000426";
 
-    public DecoClay(IBlockState block, int amount)
-    public WorldGenClay(Block block, int metadata, int amount)
+    public WorldGenClay(IBlockState block, int amount)
     {
         field_150519_a = block;
         numberOfBlocks = amount;

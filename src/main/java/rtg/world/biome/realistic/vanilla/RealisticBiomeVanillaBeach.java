@@ -3,6 +3,7 @@ package rtg.world.biome.realistic.vanilla;
 import java.util.Random;
 
 import net.minecraft.util.BlockPos;
+import rtg.util.CellNoise;
 import rtg.util.PerlinNoise;
 import rtg.world.biome.BiomeBase;
 import rtg.world.biome.BiomeBase.Climate;
@@ -11,6 +12,7 @@ import rtg.world.gen.feature.tree.WorldGenTreePalm;
 import rtg.world.gen.surface.vanilla.SurfaceVanillaBeach;
 import rtg.world.gen.terrain.vanilla.TerrainVanillaBeach;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -19,8 +21,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class RealisticBiomeVanillaBeach extends RealisticBiomeVanillaBase
 {	
-	public static Block topBlock = BiomeGenBase.beach.topBlock;
-	public static Block fillerBlock = BiomeGenBase.beach.fillerBlock;
+	public static IBlockState topBlock = BiomeGenBase.beach.topBlock;
+	public static IBlockState fillerBlock = BiomeGenBase.beach.fillerBlock;
 	
 	public RealisticBiomeVanillaBeach()
 	{
@@ -28,7 +30,7 @@ public class RealisticBiomeVanillaBeach extends RealisticBiomeVanillaBase
 			BiomeGenBase.beach,
 			BiomeBase.climatizedBiome(BiomeGenBase.river, BiomeBase.Climate.OASIS),
 			new TerrainVanillaBeach(),
-			new SurfaceVanillaBeach(topBlock, fillerBlock, topBlock, fillerBlock, (byte)0, 1)
+			new SurfaceVanillaBeach(topBlock, fillerBlock, topBlock, fillerBlock, 1)
 		);
 	}
 	

@@ -15,7 +15,7 @@ import java.util.Random;
 
 import org.apache.logging.log4j.Level;
 
-import cpw.mods.fml.common.FMLLog;
+import net.minecraftforge.fml.common.FMLLog;
 import gnu.trove.map.hash.TLongIntHashMap;
 import gnu.trove.map.hash.TLongObjectHashMap;
 import net.minecraft.world.ChunkCoordIntPair;
@@ -27,7 +27,6 @@ import rtg.util.PerlinNoise;
 import rtg.world.biome.realistic.RealisticBiomeBase;
 import rtg.world.biome.realistic.vanilla.RealisticBiomeVanillaBase;
 import rtg.world.biome.realistic.vanilla.RealisticBiomeVanillaStoneBeach;
-import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeCache;
 import net.minecraft.world.biome.BiomeGenBase;

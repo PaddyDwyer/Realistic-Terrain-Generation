@@ -1,6 +1,6 @@
 package rtg.world.biome.realistic.thaumcraft;
 
-import cpw.mods.fml.common.Loader;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 import rtg.world.biome.BiomeBase;
@@ -40,7 +40,7 @@ public class RealisticBiomeTCBase extends RealisticBiomeBase
 							new RealisticBiomeBase(
 								b[i], BiomeBase.climatizedBiome(BiomeGenBase.river, BiomeBase.Climate.TEMPERATE),
 								new TerrainSmallSupport(),
-								new SurfaceGrassland(b[i].topBlock, b[i].fillerBlock, Blocks.stone, Blocks.cobblestone)
+								new SurfaceGrassland(b[i].topBlock, b[i].fillerBlock, Blocks.stone.getDefaultState(), Blocks.cobblestone.getDefaultState())
 							),
 							BiomeBase.BiomeCategory.SMALL
 						);

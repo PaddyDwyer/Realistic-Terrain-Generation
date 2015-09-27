@@ -6,13 +6,14 @@ import rtg.world.biome.realistic.RealisticBiomeBase;
 import rtg.world.gen.surface.vanilla.SurfaceVanillaStoneBeach;
 import rtg.world.gen.terrain.vanilla.TerrainVanillaStoneBeach;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class RealisticBiomeVanillaStoneBeach extends RealisticBiomeVanillaBase
 {	
-	public static Block topBlock = BiomeGenBase.stoneBeach.topBlock;
-	public static Block fillerBlock = BiomeGenBase.stoneBeach.fillerBlock;
+	public static IBlockState topBlock = BiomeGenBase.stoneBeach.topBlock;
+	public static IBlockState fillerBlock = BiomeGenBase.stoneBeach.fillerBlock;
 	
 	public RealisticBiomeVanillaStoneBeach()
 	{

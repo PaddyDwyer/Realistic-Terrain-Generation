@@ -95,31 +95,31 @@ public class HighlandsBiomes {
      * @param creature the creature to add
      */
     public static void addCreature(IHighlandsBiome biome, EntityCreature creature){
-    	List creatureList = biome.getSpawnableList(EnumCreatureType.creature);
+    	List creatureList = biome.getSpawnableList(EnumCreatureType.CREATURE);
     	creatureList.add(creature);
     	biome.setSpawnLists(
-				biome.getSpawnableList(EnumCreatureType.monster),
+				biome.getSpawnableList(EnumCreatureType.MONSTER),
 				creatureList,
-				biome.getSpawnableList(EnumCreatureType.waterCreature)
+				biome.getSpawnableList(EnumCreatureType.WATER_CREATURE)
 				);
     }
     
     public static void addMob(IHighlandsBiome biome, EntityMob mob){
-    	List mobList = biome.getSpawnableList(EnumCreatureType.monster);
+    	List mobList = biome.getSpawnableList(EnumCreatureType.MONSTER);
     	mobList.add(mob);
     	biome.setSpawnLists(
 				mobList,
-				biome.getSpawnableList(EnumCreatureType.creature),
-				biome.getSpawnableList(EnumCreatureType.waterCreature)
+				biome.getSpawnableList(EnumCreatureType.CREATURE),
+				biome.getSpawnableList(EnumCreatureType.WATER_CREATURE)
 				);
     }
     
     public static void addWaterCreature(IHighlandsBiome biome, EntityCreature creature){
-    	List waterCreatureList = biome.getSpawnableList(EnumCreatureType.waterCreature);
+    	List waterCreatureList = biome.getSpawnableList(EnumCreatureType.WATER_CREATURE);
     	waterCreatureList.add(creature);
     	biome.setSpawnLists(
-				biome.getSpawnableList(EnumCreatureType.monster),
-				biome.getSpawnableList(EnumCreatureType.creature),
+				biome.getSpawnableList(EnumCreatureType.MONSTER),
+				biome.getSpawnableList(EnumCreatureType.CREATURE),
 				waterCreatureList
 				);
     }
