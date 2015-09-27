@@ -60,7 +60,7 @@ public class RealisticBiomeSupport extends RealisticBiomeBase
     {
     	if(strength > 0.3f)
     	{
-    		customBiome.decorate(world, null, new BlockPos(chunkX, 0, chunkY));
+    		customBiome.decorate(world, rand, new BlockPos(chunkX, 0, chunkY));
     	}
 
     	for(int e = 0; e < editLength; e++)

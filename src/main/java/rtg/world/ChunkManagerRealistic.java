@@ -1,6 +1,15 @@
 package rtg.world;
 
+import static net.minecraft.world.biome.BiomeGenBase.forest;
+import static net.minecraft.world.biome.BiomeGenBase.forestHills;
+import static net.minecraft.world.biome.BiomeGenBase.jungle;
+import static net.minecraft.world.biome.BiomeGenBase.jungleHills;
+import static net.minecraft.world.biome.BiomeGenBase.plains;
+import static net.minecraft.world.biome.BiomeGenBase.taiga;
+import static net.minecraft.world.biome.BiomeGenBase.taigaHills;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -20,8 +29,8 @@ import rtg.util.PerlinNoise;
 
 public class ChunkManagerRealistic extends WorldChunkManager
 {
+    public static ArrayList<BiomeGenBase> allowedBiomes = new ArrayList<BiomeGenBase>(Arrays.asList(forest, plains, taiga, taigaHills, forestHills, jungle, jungleHills));
     private BiomeCache biomeCache;
-    private List biomesToSpawnIn;
 
     private PerlinNoise perlin;
     private CellNoise cell;
@@ -51,16 +60,15 @@ public class ChunkManagerRealistic extends WorldChunkManager
 	
 	protected ChunkManagerRealistic()
 	{
-        this.biomeCache = new BiomeCache(this);
-        this.biomesToSpawnIn = new ArrayList();
-    	borderNoise = new float[256];
 	}
 
     public ChunkManagerRealistic(World par1World)
     {
-        this();
+        super(par1World);
         long seed = par1World.getSeed();
-        
+
+        this.biomeCache = new BiomeCache(this);
+    	borderNoise = new float[256];   
     	perlin = new PerlinNoise(seed);
     	cell = new CellNoise(seed, (short)0);
     	cell.setUseDistance(true);
@@ -405,11 +413,6 @@ public class ChunkManagerRealistic extends WorldChunkManager
     	return by == 1 ? true : false;
     }
     
-    public List getBiomesToSpawnIn()
-    {
-        return this.biomesToSpawnIn;
-    }
-
     public float[] getRainfall(float[] par1ArrayOfFloat, int par2, int par3, int par4, int par5)
     {
         if (par1ArrayOfFloat == null || par1ArrayOfFloat.length < par4 * par5)
